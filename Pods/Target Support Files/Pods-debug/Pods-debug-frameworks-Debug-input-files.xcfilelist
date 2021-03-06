@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-debug/Pods-debug-frameworks.sh
+${BUILT_PRODUCTS_DIR}/NeedleFoundation/NeedleFoundation.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

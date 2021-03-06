@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B9F8E8825F320AF007F330C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8725F320AF007F330C /* AppDelegate.swift */; };
+		4B9F8E8A25F320AF007F330C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8925F320AF007F330C /* SceneDelegate.swift */; };
+		4B9F8E8C25F320AF007F330C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8B25F320AF007F330C /* ViewController.swift */; };
+		4B9F8E8F25F320AF007F330C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8D25F320AF007F330C /* Main.storyboard */; };
+		4B9F8E9125F320B0007F330C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B9F8E9025F320B0007F330C /* Assets.xcassets */; };
+		4B9F8E9425F320B0007F330C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B9F8E9225F320B0007F330C /* LaunchScreen.storyboard */; };
+		4B9F8EAE25F32230007F330C /* presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAB25F32226007F330C /* presenter.framework */; };
+		4B9F8EAF25F32230007F330C /* presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAB25F32226007F330C /* presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B9F8EB125F32231007F330C /* provider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAA25F32226007F330C /* provider.framework */; };
+		4B9F8EB225F32232007F330C /* provider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAA25F32226007F330C /* provider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D06A06C2CA39595AF12EEF17 /* Pods_debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 806D39EE010B3DE24F5FDB48 /* Pods_debug.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B9F8EB025F32230007F330C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B9F8EAF25F32230007F330C /* presenter.framework in Embed Frameworks */,
+				4B9F8EB225F32232007F330C /* provider.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4A64C7E112502570E196524F /* Pods-kofero-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kofero-app.release.xcconfig"; path = "Target Support Files/Pods-kofero-app/Pods-kofero-app.release.xcconfig"; sourceTree = "<group>"; };
+		4B9F8E8425F320AF007F330C /* debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B9F8E8725F320AF007F330C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4B9F8E8925F320AF007F330C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4B9F8E8B25F320AF007F330C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4B9F8E8E25F320AF007F330C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4B9F8E9025F320B0007F330C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B9F8E9325F320B0007F330C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4B9F8E9525F320B0007F330C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B9F8EAA25F32226007F330C /* provider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = provider.framework; sourceTree = "<group>"; };
+		4B9F8EAB25F32226007F330C /* presenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = presenter.framework; sourceTree = "<group>"; };
+		5A56B3AF84475A454F4738CD /* Pods-debug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-debug.debug.xcconfig"; path = "Target Support Files/Pods-debug/Pods-debug.debug.xcconfig"; sourceTree = "<group>"; };
+		806D39EE010B3DE24F5FDB48 /* Pods_debug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_debug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F99065036717D68CDB7398D /* Pods-debug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-debug.release.xcconfig"; path = "Target Support Files/Pods-debug/Pods-debug.release.xcconfig"; sourceTree = "<group>"; };
+		EDFAB6D4816CBCBB3B3A9AE1 /* Pods-kofero-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kofero-app.debug.xcconfig"; path = "Target Support Files/Pods-kofero-app/Pods-kofero-app.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B9F8E8125F320AF007F330C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B9F8EAE25F32230007F330C /* presenter.framework in Frameworks */,
+				4B9F8EB125F32231007F330C /* provider.framework in Frameworks */,
+				D06A06C2CA39595AF12EEF17 /* Pods_debug.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B9F8E7B25F320AF007F330C = {
+			isa = PBXGroup;
+			children = (
+				4B9F8E8625F320AF007F330C /* kofero-app */,
+				4B9F8E8525F320AF007F330C /* Products */,
+				6C5B581B8005232FF80DBB35 /* Pods */,
+				DA091392ACE0784BBB543FDC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4B9F8E8525F320AF007F330C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B9F8E8425F320AF007F330C /* debug.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B9F8E8625F320AF007F330C /* kofero-app */ = {
+			isa = PBXGroup;
+			children = (
+				4B9F8E8725F320AF007F330C /* AppDelegate.swift */,
+				4B9F8E8925F320AF007F330C /* SceneDelegate.swift */,
+				4B9F8E8B25F320AF007F330C /* ViewController.swift */,
+				4B9F8E8D25F320AF007F330C /* Main.storyboard */,
+				4B9F8E9025F320B0007F330C /* Assets.xcassets */,
+				4B9F8E9225F320B0007F330C /* LaunchScreen.storyboard */,
+				4B9F8E9525F320B0007F330C /* Info.plist */,
+			);
+			path = "kofero-app";
+			sourceTree = "<group>";
+		};
+		6C5B581B8005232FF80DBB35 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDFAB6D4816CBCBB3B3A9AE1 /* Pods-kofero-app.debug.xcconfig */,
+				4A64C7E112502570E196524F /* Pods-kofero-app.release.xcconfig */,
+				5A56B3AF84475A454F4738CD /* Pods-debug.debug.xcconfig */,
+				8F99065036717D68CDB7398D /* Pods-debug.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA091392ACE0784BBB543FDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B9F8EAB25F32226007F330C /* presenter.framework */,
+				4B9F8EAA25F32226007F330C /* provider.framework */,
+				806D39EE010B3DE24F5FDB48 /* Pods_debug.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B9F8E8325F320AF007F330C /* debug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B9F8E9825F320B0007F330C /* Build configuration list for PBXNativeTarget "debug" */;
+			buildPhases = (
+				E87B36E870CA7D62BA524359 /* [CP] Check Pods Manifest.lock */,
+				4B9F8E8025F320AF007F330C /* Sources */,
+				4B9F8E8125F320AF007F330C /* Frameworks */,
+				4B9F8E8225F320AF007F330C /* Resources */,
+				93B441D35A0C1A826474D325 /* [CP] Embed Pods Frameworks */,
+				4B9F8EB025F32230007F330C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = debug;
+			productName = "kofero-app";
+			productReference = 4B9F8E8425F320AF007F330C /* debug.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B9F8E7C25F320AF007F330C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					4B9F8E8325F320AF007F330C = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 4B9F8E7F25F320AF007F330C /* Build configuration list for PBXProject "kofero-app" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B9F8E7B25F320AF007F330C;
+			productRefGroup = 4B9F8E8525F320AF007F330C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B9F8E8325F320AF007F330C /* debug */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B9F8E8225F320AF007F330C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B9F8E9425F320B0007F330C /* LaunchScreen.storyboard in Resources */,
+				4B9F8E9125F320B0007F330C /* Assets.xcassets in Resources */,
+				4B9F8E8F25F320AF007F330C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93B441D35A0C1A826474D325 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-debug/Pods-debug-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-debug/Pods-debug-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-debug/Pods-debug-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E87B36E870CA7D62BA524359 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-debug-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B9F8E8025F320AF007F330C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B9F8E8C25F320AF007F330C /* ViewController.swift in Sources */,
+				4B9F8E8825F320AF007F330C /* AppDelegate.swift in Sources */,
+				4B9F8E8A25F320AF007F330C /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4B9F8E8D25F320AF007F330C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B9F8E8E25F320AF007F330C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4B9F8E9225F320B0007F330C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B9F8E9325F320B0007F330C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B9F8E9625F320B0007F330C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4B9F8E9725F320B0007F330C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B9F8E9925F320B0007F330C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A56B3AF84475A454F4738CD /* Pods-debug.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y82V9MDMPA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "kofero-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ro.kofe.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B9F8E9A25F320B0007F330C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F99065036717D68CDB7398D /* Pods-debug.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y82V9MDMPA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "kofero-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ro.kofe.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B9F8E7F25F320AF007F330C /* Build configuration list for PBXProject "kofero-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B9F8E9625F320B0007F330C /* Debug */,
+				4B9F8E9725F320B0007F330C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B9F8E9825F320B0007F330C /* Build configuration list for PBXNativeTarget "debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B9F8E9925F320B0007F330C /* Debug */,
+				4B9F8E9A25F320B0007F330C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B9F8E7C25F320AF007F330C /* Project object */;
+}
