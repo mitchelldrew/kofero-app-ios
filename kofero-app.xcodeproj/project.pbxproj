@@ -17,6 +17,7 @@
 		4B9F8EAF25F32230007F330C /* presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAB25F32226007F330C /* presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B9F8EB125F32231007F330C /* provider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAA25F32226007F330C /* provider.framework */; };
 		4B9F8EB225F32232007F330C /* provider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAA25F32226007F330C /* provider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B9F8EB425F323B4007F330C /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8EB325F323B4007F330C /* NeedleGenerated.swift */; };
 		D06A06C2CA39595AF12EEF17 /* Pods_debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 806D39EE010B3DE24F5FDB48 /* Pods_debug.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		4B9F8E9525F320B0007F330C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B9F8EAA25F32226007F330C /* provider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = provider.framework; sourceTree = "<group>"; };
 		4B9F8EAB25F32226007F330C /* presenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = presenter.framework; sourceTree = "<group>"; };
+		4B9F8EB325F323B4007F330C /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		5A56B3AF84475A454F4738CD /* Pods-debug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-debug.debug.xcconfig"; path = "Target Support Files/Pods-debug/Pods-debug.debug.xcconfig"; sourceTree = "<group>"; };
 		806D39EE010B3DE24F5FDB48 /* Pods_debug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_debug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F99065036717D68CDB7398D /* Pods-debug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-debug.release.xcconfig"; path = "Target Support Files/Pods-debug/Pods-debug.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		4B9F8E8625F320AF007F330C /* kofero-app */ = {
 			isa = PBXGroup;
 			children = (
+				4B9F8EB325F323B4007F330C /* NeedleGenerated.swift */,
 				4B9F8E8725F320AF007F330C /* AppDelegate.swift */,
 				4B9F8E8925F320AF007F330C /* SceneDelegate.swift */,
 				4B9F8E8B25F320AF007F330C /* ViewController.swift */,
@@ -128,6 +131,7 @@
 			buildConfigurationList = 4B9F8E9825F320B0007F330C /* Build configuration list for PBXNativeTarget "debug" */;
 			buildPhases = (
 				E87B36E870CA7D62BA524359 /* [CP] Check Pods Manifest.lock */,
+				4B9F8EB525F323CB007F330C /* needle codegen */,
 				4B9F8E8025F320AF007F330C /* Sources */,
 				4B9F8E8125F320AF007F330C /* Frameworks */,
 				4B9F8E8225F320AF007F330C /* Resources */,
@@ -189,6 +193,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4B9F8EB525F323CB007F330C /* needle codegen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "needle codegen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export SOURCEKIT_LOGGING=0 && needle generate kofero-app/NeedleGenerated.swift kofero-app/\n";
+		};
 		93B441D35A0C1A826474D325 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B9F8EB425F323B4007F330C /* NeedleGenerated.swift in Sources */,
 				4B9F8E8C25F320AF007F330C /* ViewController.swift in Sources */,
 				4B9F8E8825F320AF007F330C /* AppDelegate.swift in Sources */,
 				4B9F8E8A25F320AF007F330C /* SceneDelegate.swift in Sources */,
