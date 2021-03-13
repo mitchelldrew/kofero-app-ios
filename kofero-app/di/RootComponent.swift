@@ -15,6 +15,22 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return HomeComponent(parent: self)
     }
     
+    var gameComponent: GameComponent {
+        return GameComponent(parent: self)
+    }
+    
+    var characterComponent: CharacterComponent {
+        return CharacterComponent(parent: self)
+    }
+    
+    var characterProvider:ICharacterProvider {
+        return characterComponent.provider
+    }
+    
+    var gameProvider:IGameProvider {
+        return gameComponent.gameProvider
+    }
+    
     func rootView() -> UIViewController {
         return RootView(homeBuilder: homeComponent)
     }
@@ -23,25 +39,11 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return ImageProvider(restManager: restManager, fileManager: fileManager)
     }
     
-    var gameProvider:IGameProvider {
-        return GameProvider(restManager: restManager, fileManager: fileManager, serializer: gameSerializer, gamesUrl: gamesUrl)
-    }
-    
-    var gameSerializer: GameSerializer {
-        return GameSerializer()
-    }
-    
-    var gamesUrl:URL{
-        return URL(string:"test")!
-    }
-    
     var restManager:IRestManager {
         return URLSession.shared
     }
     
-    var fileManager:IFileManager {
-        return FileManager()
-    }
+    var fileManager:IFileManager = FileManager()
 }
 
 protocol RootViewBuilder {

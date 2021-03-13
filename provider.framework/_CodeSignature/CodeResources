@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/provider.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		XV4JnnR5alhspHiJdn3ZCN1KitI=
+		xzJN8wR/I/9brR+9uniNBzpJvow=
 		</data>
 		<key>Modules/provider.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		XV4JnnR5alhspHiJdn3ZCN1KitI=
+		xzJN8wR/I/9brR+9uniNBzpJvow=
 		</data>
 		<key>Modules/provider.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/provider.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		fuvEijPch3m6hGQUy48FCRTVd7w=
+		FwrAAhUmPl99u9rVzvH6+hUgMLo=
 		</data>
 		<key>Modules/provider.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/provider.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		fuvEijPch3m6hGQUy48FCRTVd7w=
+		FwrAAhUmPl99u9rVzvH6+hUgMLo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -84,22 +84,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XV4JnnR5alhspHiJdn3ZCN1KitI=
+			xzJN8wR/I/9brR+9uniNBzpJvow=
 			</data>
 			<key>hash2</key>
 			<data>
-			/FMnhoUDjhZ6bR0rRWxmuBtCze7UsocwNeWW5UIdK9o=
+			QTspsim645HEGvyMYDEVL1f0aqX8QfMEc6IsdIecu1g=
 			</data>
 		</dict>
 		<key>Modules/provider.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XV4JnnR5alhspHiJdn3ZCN1KitI=
+			xzJN8wR/I/9brR+9uniNBzpJvow=
 			</data>
 			<key>hash2</key>
 			<data>
-			/FMnhoUDjhZ6bR0rRWxmuBtCze7UsocwNeWW5UIdK9o=
+			QTspsim645HEGvyMYDEVL1f0aqX8QfMEc6IsdIecu1g=
 			</data>
 		</dict>
 		<key>Modules/provider.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -117,11 +117,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fuvEijPch3m6hGQUy48FCRTVd7w=
+			FwrAAhUmPl99u9rVzvH6+hUgMLo=
 			</data>
 			<key>hash2</key>
 			<data>
-			rdbJl6CN89sCueXtDtBzLYT2DQDVf5/0zffNh4v/dcQ=
+			/njHy1/erDt1GPiXzHvNLDRlBjUNsZp3qdoeAbq3pbg=
 			</data>
 		</dict>
 		<key>Modules/provider.swiftmodule/x86_64.swiftdoc</key>
@@ -139,11 +139,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fuvEijPch3m6hGQUy48FCRTVd7w=
+			FwrAAhUmPl99u9rVzvH6+hUgMLo=
 			</data>
 			<key>hash2</key>
 			<data>
-			rdbJl6CN89sCueXtDtBzLYT2DQDVf5/0zffNh4v/dcQ=
+			/njHy1/erDt1GPiXzHvNLDRlBjUNsZp3qdoeAbq3pbg=
 			</data>
 		</dict>
 	</dict>

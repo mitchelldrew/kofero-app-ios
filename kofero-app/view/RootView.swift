@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RootView: UINavigationController {
+class RootView: UIViewController {
     private let homeBuilder:HomeViewBuilder
     
     init(homeBuilder:HomeViewBuilder){

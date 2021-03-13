@@ -11,10 +11,17 @@ import UIKit
 
 class GameView: UIViewController, IGameView {
     private let presenter:IGamePresenter
+    private let gameId:Int32
     
-    init(gamePresenter:IGamePresenter) {
+    init(gamePresenter:IGamePresenter, gameId:Int32) {
         self.presenter = gamePresenter
+        self.gameId = gameId
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override func viewDidLoad() {
+        presenter.setView(view: self)
+        presenter.showGame(id: gameId)
     }
     
     required init?(coder: NSCoder) {
