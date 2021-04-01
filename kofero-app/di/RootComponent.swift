@@ -9,6 +9,7 @@ import Foundation
 import NeedleFoundation
 import presenter
 import provider
+import SwiftyJSON
 
 class RootComponent: BootstrapComponent, RootViewBuilder {
     var homeComponent: HomeComponent {
@@ -23,11 +24,19 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return CharacterComponent(parent: self)
     }
     
-    var characterProvider:ICharacterProvider {
+    var moveComponent: MoveComponent {
+        return MoveComponent(parent: self)
+    }
+    
+    var moveProvider: Provider<ModelMove> {
+        return moveComponent.provider
+    }
+    
+    var characterProvider: Provider<ModelCharacter> {
         return characterComponent.provider
     }
     
-    var gameProvider:IGameProvider {
+    var gameProvider: Provider<ModelGame> {
         return gameComponent.gameProvider
     }
     
@@ -43,7 +52,17 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return URLSession.shared
     }
     
-    var fileManager:IFileManager = FileManager()
+    var fileManager:IFileManager{
+       return FileManager()
+    }
+    
+    var userDefaults:IUserDefaults {
+        return UserDefaults.standard
+    }
+    
+    var encoder:IEncoder {
+        return JSONEncoder()
+    }
 }
 
 protocol RootViewBuilder {

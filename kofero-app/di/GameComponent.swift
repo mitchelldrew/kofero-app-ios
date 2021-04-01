@@ -14,16 +14,22 @@ protocol GameDependency: Dependency {
     var restManager:IRestManager {get}
     var fileManager:IFileManager {get}
     var imageProvider:IImageProvider {get}
-    var characterProvider:ICharacterProvider {get}
+    var userDefaults:IUserDefaults {get}
+    var characterProvider:Provider<ModelCharacter> {get}
+    var encoder:IEncoder {get}
 }
 
 class GameComponent: Component<GameDependency>, GameViewBuilder{
-    var gameProvider: IGameProvider {
-        return GameProvider(restManager: dependency.restManager, fileManager: dependency.fileManager, serializer: serializer, gamesUrl: gamesUrl)
+    var gameProvider: Provider<ModelGame> {
+        return Provider(restManager: dependency.restManager, fileManager: dependency.fileManager, userDefaults: dependency.userDefaults, encoder: dependency.encoder, url: gamesUrl, mapper: mapper, jsonFilename: jsonFilename)
     }
     
-    var serializer: GameSerializer {
-        return GameSerializer()
+    var mapper: DataMapper<[ModelGame]> {
+        return GameMapper(encoder: dependency.encoder)
+    }
+    
+    var jsonFilename:String {
+        return "games.json"
     }
     
     var gamesUrl:URL {

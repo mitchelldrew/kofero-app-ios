@@ -11,20 +11,29 @@ import presenter
 import provider
 
 protocol CharacterDependency: Dependency {
-    var moveProvider:IMoveProvider {get}
+    var moveProvider:Provider<ModelMove> {get}
     var imageProvider: IImageProvider {get}
+    var userDefaults:IUserDefaults {get}
     var restManager:IRestManager {get}
     var fileManager:IFileManager {get}
-    var charUrl:URL {get}
+    var encoder:IEncoder {get}
 }
 
 class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
-    var provider: ICharacterProvider {
-        return CharacterProvider(restManager: dependency.restManager, fileManager: dependency.fileManager, serializer: serializer, charUrl: dependency.charUrl)
+    var provider: Provider<ModelCharacter> {
+        return Provider(restManager: dependency.restManager, fileManager: dependency.fileManager, userDefaults: dependency.userDefaults, encoder: dependency.encoder, url: url, mapper: mapper, jsonFilename: jsonFilename)
     }
     
-    var serializer: CharacterSerializer {
-        return CharacterSerializer()
+    var jsonFilename:String {
+        return "characters.json"
+    }
+    
+    var url: URL {
+        return URL(string: "test!")!
+    }
+    
+    var mapper: DataMapper<[ModelCharacter]> {
+        return CharacterMapper(encoder: dependency.encoder)
     }
     
     var presenter: ICharacterPresenter {

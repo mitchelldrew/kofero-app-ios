@@ -106,8 +106,8 @@
 		4B9F8E8625F320AF007F330C /* kofero-app */ = {
 			isa = PBXGroup;
 			children = (
-				4B9F8EBD25F94979007F330C /* view */,
 				4B9F8EB825F92F92007F330C /* di */,
+				4B9F8EBD25F94979007F330C /* view */,
 				4B9F8E8725F320AF007F330C /* AppDelegate.swift */,
 				4B9F8E8925F320AF007F330C /* SceneDelegate.swift */,
 				4B9F8E9025F320B0007F330C /* Assets.xcassets */,

@@ -10,21 +10,35 @@ import presenter
 import provider
 import NeedleFoundation
 
-protocol MoveDependency {
+protocol MoveDependency: Dependency {
     var restManager:IRestManager {get}
     var fileManager:IFileManager {get}
-    var gameProvider:IGameProvider {get}
-    var charProvider:ICharacterProvider {get}
+    var gameProvider:Provider<ModelGame> {get}
+    var characterProvider:Provider<ModelCharacter> {get}
     var imageProvider:IImageProvider {get}
+    var userDefaults:IUserDefaults {get}
+    var encoder:IEncoder {get}
 }
 
 class MoveComponent: Component<MoveDependency>, MoveViewBuilder {
     var presenter: IMovePresenter{
-        return MovePresenter(moveProvider: provider, charProvider: dependency.charProvider, gameProvider: dependency.gameProvider, imageProvider: dependency.imageProvider)
+        return MovePresenter(moveProvider: provider, charProvider: dependency.characterProvider, gameProvider: dependency.gameProvider, imageProvider: dependency.imageProvider)
     }
     
-    var provider: IMoveProvider {
-        return MoveProvider()
+    var provider: Provider<ModelMove> {
+        return Provider(restManager: dependency.restManager, fileManager: dependency.fileManager, userDefaults: dependency.userDefaults, encoder: dependency.encoder, url: url, mapper: mapper, jsonFilename: jsonFilename)
+    }
+    
+    var jsonFilename:String {
+        return "moves.json"
+    }
+    
+    var mapper:DataMapper<[ModelMove]>{
+        return MoveMapper(encoder: dependency.encoder)
+    }
+    
+    var url:URL {
+        return URL(string: "test")!
     }
     
     func moveView(moveId: Int32) -> IMoveView {

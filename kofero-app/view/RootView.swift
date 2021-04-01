@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import presenter
 
-class RootView: UIViewController {
+class RootView: UIViewController, IRootView {
     private let homeBuilder:HomeViewBuilder
     
     init(homeBuilder:HomeViewBuilder){

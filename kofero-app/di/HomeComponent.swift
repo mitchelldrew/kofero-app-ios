@@ -11,7 +11,7 @@ import presenter
 import provider
 
 protocol HomeDependency: Dependency {
-    var gameProvider:IGameProvider {get}
+    var gameProvider:Provider<ModelGame> {get}
     var imageProvider:IImageProvider {get}
 }
 

@@ -2,6 +2,7 @@
 
 import Foundation
 import NeedleFoundation
+import SwiftyJSON
 import presenter
 import provider
 
@@ -11,8 +12,17 @@ private let needleDependenciesHash : String? = nil
 // MARK: - Registration
 
 public func registerProviderFactories() {
+    __DependencyProviderRegistry.instance.registerDependencyProviderFactory(for: "^->RootComponent->GameComponent") { component in
+        return GameDependency6174651c56123eef7457Provider(component: component)
+    }
     __DependencyProviderRegistry.instance.registerDependencyProviderFactory(for: "^->RootComponent") { component in
         return EmptyDependencyProvider(component: component)
+    }
+    __DependencyProviderRegistry.instance.registerDependencyProviderFactory(for: "^->RootComponent->MoveComponent") { component in
+        return MoveDependency60ec017cefc7ff9083ceProvider(component: component)
+    }
+    __DependencyProviderRegistry.instance.registerDependencyProviderFactory(for: "^->RootComponent->CharacterComponent") { component in
+        return CharacterDependency42b99561bd73739b9ec3Provider(component: component)
     }
     __DependencyProviderRegistry.instance.registerDependencyProviderFactory(for: "^->RootComponent->HomeComponent") { component in
         return HomeDependencycad225e9266b3c9a56ddProvider(component: component)
@@ -22,8 +32,101 @@ public func registerProviderFactories() {
 
 // MARK: - Providers
 
+private class GameDependency6174651c56123eef7457BaseProvider: GameDependency {
+    var restManager: IRestManager {
+        return rootComponent.restManager
+    }
+    var fileManager: IFileManager {
+        return rootComponent.fileManager
+    }
+    var imageProvider: IImageProvider {
+        return rootComponent.imageProvider
+    }
+    var userDefaults: IUserDefaults {
+        return rootComponent.userDefaults
+    }
+    var characterProvider: Provider<ModelCharacter> {
+        return rootComponent.characterProvider
+    }
+    var encoder: IEncoder {
+        return rootComponent.encoder
+    }
+    private let rootComponent: RootComponent
+    init(rootComponent: RootComponent) {
+        self.rootComponent = rootComponent
+    }
+}
+/// ^->RootComponent->GameComponent
+private class GameDependency6174651c56123eef7457Provider: GameDependency6174651c56123eef7457BaseProvider {
+    init(component: NeedleFoundation.Scope) {
+        super.init(rootComponent: component.parent as! RootComponent)
+    }
+}
+private class MoveDependency60ec017cefc7ff9083ceBaseProvider: MoveDependency {
+    var restManager: IRestManager {
+        return rootComponent.restManager
+    }
+    var fileManager: IFileManager {
+        return rootComponent.fileManager
+    }
+    var gameProvider: Provider<ModelGame> {
+        return rootComponent.gameProvider
+    }
+    var characterProvider: Provider<ModelCharacter> {
+        return rootComponent.characterProvider
+    }
+    var imageProvider: IImageProvider {
+        return rootComponent.imageProvider
+    }
+    var userDefaults: IUserDefaults {
+        return rootComponent.userDefaults
+    }
+    var encoder: IEncoder {
+        return rootComponent.encoder
+    }
+    private let rootComponent: RootComponent
+    init(rootComponent: RootComponent) {
+        self.rootComponent = rootComponent
+    }
+}
+/// ^->RootComponent->MoveComponent
+private class MoveDependency60ec017cefc7ff9083ceProvider: MoveDependency60ec017cefc7ff9083ceBaseProvider {
+    init(component: NeedleFoundation.Scope) {
+        super.init(rootComponent: component.parent as! RootComponent)
+    }
+}
+private class CharacterDependency42b99561bd73739b9ec3BaseProvider: CharacterDependency {
+    var moveProvider: Provider<ModelMove> {
+        return rootComponent.moveProvider
+    }
+    var imageProvider: IImageProvider {
+        return rootComponent.imageProvider
+    }
+    var userDefaults: IUserDefaults {
+        return rootComponent.userDefaults
+    }
+    var restManager: IRestManager {
+        return rootComponent.restManager
+    }
+    var fileManager: IFileManager {
+        return rootComponent.fileManager
+    }
+    var encoder: IEncoder {
+        return rootComponent.encoder
+    }
+    private let rootComponent: RootComponent
+    init(rootComponent: RootComponent) {
+        self.rootComponent = rootComponent
+    }
+}
+/// ^->RootComponent->CharacterComponent
+private class CharacterDependency42b99561bd73739b9ec3Provider: CharacterDependency42b99561bd73739b9ec3BaseProvider {
+    init(component: NeedleFoundation.Scope) {
+        super.init(rootComponent: component.parent as! RootComponent)
+    }
+}
 private class HomeDependencycad225e9266b3c9a56ddBaseProvider: HomeDependency {
-    var gameProvider: IGameProvider {
+    var gameProvider: Provider<ModelGame> {
         return rootComponent.gameProvider
     }
     var imageProvider: IImageProvider {
