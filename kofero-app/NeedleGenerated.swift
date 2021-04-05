@@ -33,23 +33,17 @@ public func registerProviderFactories() {
 // MARK: - Providers
 
 private class GameDependency6174651c56123eef7457BaseProvider: GameDependency {
-    var restManager: IRestManager {
-        return rootComponent.restManager
-    }
-    var fileManager: IFileManager {
-        return rootComponent.fileManager
-    }
     var imageProvider: IImageProvider {
         return rootComponent.imageProvider
     }
-    var userDefaults: IUserDefaults {
-        return rootComponent.userDefaults
+    var providerCore: ProviderCore {
+        return rootComponent.providerCore
     }
     var characterProvider: Provider<ModelCharacter> {
         return rootComponent.characterProvider
     }
-    var encoder: IEncoder {
-        return rootComponent.encoder
+    var jsonEncoder: IDataEncoder<[JSON]> {
+        return rootComponent.jsonEncoder
     }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
@@ -63,11 +57,8 @@ private class GameDependency6174651c56123eef7457Provider: GameDependency6174651c
     }
 }
 private class MoveDependency60ec017cefc7ff9083ceBaseProvider: MoveDependency {
-    var restManager: IRestManager {
-        return rootComponent.restManager
-    }
-    var fileManager: IFileManager {
-        return rootComponent.fileManager
+    var providerCore: ProviderCore {
+        return rootComponent.providerCore
     }
     var gameProvider: Provider<ModelGame> {
         return rootComponent.gameProvider
@@ -78,11 +69,8 @@ private class MoveDependency60ec017cefc7ff9083ceBaseProvider: MoveDependency {
     var imageProvider: IImageProvider {
         return rootComponent.imageProvider
     }
-    var userDefaults: IUserDefaults {
-        return rootComponent.userDefaults
-    }
-    var encoder: IEncoder {
-        return rootComponent.encoder
+    var jsonEncoder: IDataEncoder<[JSON]> {
+        return rootComponent.jsonEncoder
     }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
@@ -102,17 +90,11 @@ private class CharacterDependency42b99561bd73739b9ec3BaseProvider: CharacterDepe
     var imageProvider: IImageProvider {
         return rootComponent.imageProvider
     }
-    var userDefaults: IUserDefaults {
-        return rootComponent.userDefaults
+    var providerCore: ProviderCore {
+        return rootComponent.providerCore
     }
-    var restManager: IRestManager {
-        return rootComponent.restManager
-    }
-    var fileManager: IFileManager {
-        return rootComponent.fileManager
-    }
-    var encoder: IEncoder {
-        return rootComponent.encoder
+    var jsonEncoder: IDataEncoder<[JSON]> {
+        return rootComponent.jsonEncoder
     }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {

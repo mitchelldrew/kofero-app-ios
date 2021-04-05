@@ -8,20 +8,19 @@
 import Foundation
 import NeedleFoundation
 import presenter
+import SwiftyJSON
 import provider
 
 protocol CharacterDependency: Dependency {
     var moveProvider:Provider<ModelMove> {get}
     var imageProvider: IImageProvider {get}
-    var userDefaults:IUserDefaults {get}
-    var restManager:IRestManager {get}
-    var fileManager:IFileManager {get}
-    var encoder:IEncoder {get}
+    var providerCore:ProviderCore {get}
+    var jsonEncoder:IDataEncoder<[JSON]> {get}
 }
 
 class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
     var provider: Provider<ModelCharacter> {
-        return Provider(restManager: dependency.restManager, fileManager: dependency.fileManager, userDefaults: dependency.userDefaults, encoder: dependency.encoder, url: url, mapper: mapper, jsonFilename: jsonFilename)
+        return Provider<ModelCharacter>(core: dependency.providerCore, url: url, mapper: mapper, jsonFilename: jsonFilename)
     }
     
     var jsonFilename:String {
@@ -32,8 +31,8 @@ class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
         return URL(string: "test!")!
     }
     
-    var mapper: DataMapper<[ModelCharacter]> {
-        return CharacterMapper(encoder: dependency.encoder)
+    var mapper: IDataMapper<[ModelCharacter]> {
+        return CharacterMapper(encoder: dependency.jsonEncoder)
     }
     
     var presenter: ICharacterPresenter {

@@ -8,16 +8,15 @@
 import Foundation
 import presenter
 import provider
+import SwiftyJSON
 import NeedleFoundation
 
 protocol MoveDependency: Dependency {
-    var restManager:IRestManager {get}
-    var fileManager:IFileManager {get}
+    var providerCore:ProviderCore {get}
     var gameProvider:Provider<ModelGame> {get}
     var characterProvider:Provider<ModelCharacter> {get}
     var imageProvider:IImageProvider {get}
-    var userDefaults:IUserDefaults {get}
-    var encoder:IEncoder {get}
+    var jsonEncoder:IDataEncoder<[JSON]> {get}
 }
 
 class MoveComponent: Component<MoveDependency>, MoveViewBuilder {
@@ -26,15 +25,15 @@ class MoveComponent: Component<MoveDependency>, MoveViewBuilder {
     }
     
     var provider: Provider<ModelMove> {
-        return Provider(restManager: dependency.restManager, fileManager: dependency.fileManager, userDefaults: dependency.userDefaults, encoder: dependency.encoder, url: url, mapper: mapper, jsonFilename: jsonFilename)
+        return Provider<ModelMove>(core: dependency.providerCore, url: url, mapper: mapper, jsonFilename: jsonFilename)
     }
     
     var jsonFilename:String {
         return "moves.json"
     }
     
-    var mapper:DataMapper<[ModelMove]>{
-        return MoveMapper(encoder: dependency.encoder)
+    var mapper:IDataMapper<[ModelMove]>{
+        return MoveMapper(encoder: dependency.jsonEncoder)
     }
     
     var url:URL {

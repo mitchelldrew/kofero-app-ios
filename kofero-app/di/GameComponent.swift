@@ -9,30 +9,29 @@ import Foundation
 import NeedleFoundation
 import presenter
 import provider
+import SwiftyJSON
 
 protocol GameDependency: Dependency {
-    var restManager:IRestManager {get}
-    var fileManager:IFileManager {get}
     var imageProvider:IImageProvider {get}
-    var userDefaults:IUserDefaults {get}
+    var providerCore:ProviderCore {get}
     var characterProvider:Provider<ModelCharacter> {get}
-    var encoder:IEncoder {get}
+    var jsonEncoder:IDataEncoder<[JSON]> {get}
 }
 
 class GameComponent: Component<GameDependency>, GameViewBuilder{
     var gameProvider: Provider<ModelGame> {
-        return Provider(restManager: dependency.restManager, fileManager: dependency.fileManager, userDefaults: dependency.userDefaults, encoder: dependency.encoder, url: gamesUrl, mapper: mapper, jsonFilename: jsonFilename)
+        return Provider<ModelGame>(core: dependency.providerCore, url: url, mapper: mapper, jsonFilename: jsonFilename)
     }
     
-    var mapper: DataMapper<[ModelGame]> {
-        return GameMapper(encoder: dependency.encoder)
+    var mapper: IDataMapper<[ModelGame]> {
+        return GameMapper(encoder: dependency.jsonEncoder)
     }
     
     var jsonFilename:String {
         return "games.json"
     }
     
-    var gamesUrl:URL {
+    var url:URL {
         return URL(string: "test")!
     }
     

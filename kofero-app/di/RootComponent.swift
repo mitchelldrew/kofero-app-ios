@@ -48,6 +48,10 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return ImageProvider(restManager: restManager, fileManager: fileManager)
     }
     
+    var providerCore:ProviderCore{
+        return ProviderCore(restManager: restManager, fileManager: fileManager, userDefaults: userDefaults, requestEncoder: requestEncoder)
+    }
+    
     var restManager:IRestManager {
         return URLSession.shared
     }
@@ -60,8 +64,12 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return UserDefaults.standard
     }
     
-    var encoder:IEncoder {
-        return JSONEncoder()
+    var jsonEncoder:IDataEncoder<[JSON]>{
+        return JsonDataEncoder<[JSON]>()
+    }
+    
+    var requestEncoder:IDataEncoder<[Int32]>{
+        return JsonDataEncoder<[Int32]>()
     }
 }
 
