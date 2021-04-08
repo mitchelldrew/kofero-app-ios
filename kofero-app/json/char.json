@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "name":"arkof13",
+        "health":123
+        "moveIds":[1,2,3],
+        "iconUrl":"http://test"
+    },
+    {
+        "id":2,
+        "name":"afafkof14",
+        "health":444,
+        "moveIds":[1,2,3,4,34],
+        "iconUrl":"http://testgege"
+    },
+    {
+        "id":3,
+        "name":"teggin",
+        "health":543,
+        "moveIds":[1,2],
+        "iconUrl":"http://testwew"
+    },
+    {
+        "id":5,
+        "name":"kazooyer",
+        "health":5432,
+        "moveIds":[1,2],
+        "iconUrl":"http://"
+    }
+]

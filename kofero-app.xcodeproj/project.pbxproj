@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4B78BFCE25FC51620015BFD7 /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78BFCD25FC51620015BFD7 /* MoveComponent.swift */; };
 		4B78BFD025FC57FA0015BFD7 /* MoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78BFCF25FC57FA0015BFD7 /* MoveView.swift */; };
+		4B8A0C40261BD1CE007006D6 /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C3F261BD1CE007006D6 /* game.json */; };
+		4B8A0C4A261F9C6E007006D6 /* char.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C49261F9C6E007006D6 /* char.json */; };
+		4B8A0C4C261F9C90007006D6 /* move.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C4B261F9C90007006D6 /* move.json */; };
 		4B9F8E8825F320AF007F330C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8725F320AF007F330C /* AppDelegate.swift */; };
 		4B9F8E8A25F320AF007F330C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8925F320AF007F330C /* SceneDelegate.swift */; };
 		4B9F8E8C25F320AF007F330C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8B25F320AF007F330C /* RootView.swift */; };
@@ -48,6 +51,9 @@
 		4A64C7E112502570E196524F /* Pods-kofero-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kofero-app.release.xcconfig"; path = "Target Support Files/Pods-kofero-app/Pods-kofero-app.release.xcconfig"; sourceTree = "<group>"; };
 		4B78BFCD25FC51620015BFD7 /* MoveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
 		4B78BFCF25FC57FA0015BFD7 /* MoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveView.swift; sourceTree = "<group>"; };
+		4B8A0C3F261BD1CE007006D6 /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
+		4B8A0C49261F9C6E007006D6 /* char.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = char.json; sourceTree = "<group>"; };
+		4B8A0C4B261F9C90007006D6 /* move.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = move.json; sourceTree = "<group>"; };
 		4B9F8E8425F320AF007F330C /* debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9F8E8725F320AF007F330C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B9F8E8925F320AF007F330C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +91,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B8A0C4D261F9C98007006D6 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				4B8A0C3F261BD1CE007006D6 /* game.json */,
+				4B8A0C49261F9C6E007006D6 /* char.json */,
+				4B8A0C4B261F9C90007006D6 /* move.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 		4B9F8E7B25F320AF007F330C = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +122,7 @@
 		4B9F8E8625F320AF007F330C /* kofero-app */ = {
 			isa = PBXGroup;
 			children = (
+				4B8A0C4D261F9C98007006D6 /* json */,
 				4B9F8EB825F92F92007F330C /* di */,
 				4B9F8EBD25F94979007F330C /* view */,
 				4B9F8E8725F320AF007F330C /* AppDelegate.swift */,
@@ -226,6 +243,9 @@
 			files = (
 				4B9F8E9425F320B0007F330C /* LaunchScreen.storyboard in Resources */,
 				4B9F8E9125F320B0007F330C /* Assets.xcassets in Resources */,
+				4B8A0C4C261F9C90007006D6 /* move.json in Resources */,
+				4B8A0C40261BD1CE007006D6 /* game.json in Resources */,
+				4B8A0C4A261F9C6E007006D6 /* char.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

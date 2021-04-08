@@ -29,7 +29,7 @@ class MoveComponent: Component<MoveDependency>, MoveViewBuilder {
     }
     
     var jsonFilename:String {
-        return "moves.json"
+        return "move"
     }
     
     var mapper:IDataMapper<[ModelMove]>{

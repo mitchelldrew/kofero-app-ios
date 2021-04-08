@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import presenter
+import provider
+import SwiftyJSON
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate   {
 
     var window: UIWindow?
 
@@ -17,8 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let winScene = (scene as? UIWindowScene) else { return }
+        
+        
+        
+        
         let rootComponent = RootComponent()
-        rootComponent.gameProvider.get(ids: [1,2])
         window = UIWindow(windowScene: winScene)
         window?.rootViewController = rootComponent.rootView()
         window?.makeKeyAndVisible()

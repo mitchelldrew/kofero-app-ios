@@ -24,7 +24,7 @@ class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
     }
     
     var jsonFilename:String {
-        return "characters.json"
+        return "char"
     }
     
     var url: URL {

@@ -41,14 +41,18 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
     }
     
     func rootView() -> UIViewController {
-        return RootView(homeBuilder: homeComponent)
+        return RootView(homeBuilder: homeComponent, presenter: rootPresenter)
+    }
+    
+    var rootPresenter: IRootPresenter {
+        return RootPresenter(gameProvider: gameProvider)
     }
     
     var imageProvider:IImageProvider {
-        return ImageProvider(restManager: restManager, fileManager: fileManager)
+        return ImageProvider(core: providerCore)
     }
     
-    var providerCore:ProviderCore{
+    var providerCore:ProviderCore {
         return ProviderCore(restManager: restManager, fileManager: fileManager, userDefaults: userDefaults, requestEncoder: requestEncoder)
     }
     
@@ -56,7 +60,7 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return URLSession.shared
     }
     
-    var fileManager:IFileManager{
+    var fileManager:IFileManager {
        return FileManager()
     }
     
@@ -64,11 +68,11 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return UserDefaults.standard
     }
     
-    var jsonEncoder:IDataEncoder<[JSON]>{
+    var jsonEncoder:IDataEncoder<[JSON]> {
         return JsonDataEncoder<[JSON]>()
     }
     
-    var requestEncoder:IDataEncoder<[Int32]>{
+    var requestEncoder:IDataEncoder<[Int32]> {
         return JsonDataEncoder<[Int32]>()
     }
 }

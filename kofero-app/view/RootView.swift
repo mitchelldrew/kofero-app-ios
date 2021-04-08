@@ -7,12 +7,16 @@
 
 import UIKit
 import presenter
+import provider
+import SwiftyJSON
 
 class RootView: UIViewController, IRootView {
+    private let presenter:IRootPresenter
     private let homeBuilder:HomeViewBuilder
     
-    init(homeBuilder:HomeViewBuilder){
+    init(homeBuilder:HomeViewBuilder, presenter: IRootPresenter){
         self.homeBuilder = homeBuilder
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,8 +28,15 @@ class RootView: UIViewController, IRootView {
         super.viewDidLoad()
         print("hello world")
         view.backgroundColor = .systemRed
+        presenter.setView(rootView: self)
+    }
+    
+    func error(error: KotlinException) {
+        print("!!!!!!!!!!!!!!!!!!!!!")
+        print(error)
     }
 
 
 }
+
 

@@ -28,11 +28,11 @@ class GameComponent: Component<GameDependency>, GameViewBuilder{
     }
     
     var jsonFilename:String {
-        return "games.json"
+        return "game"
     }
     
     var url:URL {
-        return URL(string: "test")!
+        return URL(string: "https://google.com")!
     }
     
     var gamePresenter: IGamePresenter {
