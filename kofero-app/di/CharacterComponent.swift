@@ -16,6 +16,7 @@ protocol CharacterDependency: Dependency {
     var imageProvider: IImageProvider {get}
     var providerCore:ProviderCore {get}
     var jsonEncoder:IDataEncoder<[JSON]> {get}
+    var moveViewBuilder:MoveViewBuilder {get}
 }
 
 class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
@@ -28,7 +29,7 @@ class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
     }
     
     var url: URL {
-        return URL(string: "test!")!
+        return URL(string: "https://google.com")!
     }
     
     var mapper: IDataMapper<[ModelCharacter]> {
@@ -39,11 +40,11 @@ class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
         return CharacterPresenter(moveProvider: dependency.moveProvider, imageProvider: dependency.imageProvider)
     }
     
-    func characterView(id:Int32) -> ICharacterView {
-        return CharacterView(presenter: presenter, charId: id)
+    func characterView(id:Int32) -> UIViewController {
+        return CharacterView(presenter: presenter, charId: id, moveViewBuilder: dependency.moveViewBuilder)
     }
 }
 
 protocol CharacterViewBuilder {
-    func characterView(id:Int32) -> ICharacterView
+    func characterView(id:Int32) -> UIViewController
 }

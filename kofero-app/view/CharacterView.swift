@@ -11,11 +11,13 @@ import UIKit
 
 class CharacterView: UIViewController, ICharacterView {
     private let presenter:ICharacterPresenter
+    private let moveViewBuilder:MoveViewBuilder
     private let charId:Int32
     
-    init(presenter:ICharacterPresenter, charId:Int32){
+    init(presenter:ICharacterPresenter, charId:Int32, moveViewBuilder:MoveViewBuilder){
         self.charId = charId
         self.presenter = presenter
+        self.moveViewBuilder = moveViewBuilder
         super.init(nibName: nil, bundle: nil)
     }
     

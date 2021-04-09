@@ -11,9 +11,12 @@ import UIKit
 
 class HomeView: UIViewController, IHomeView{
     private let presenter:IHomePresenter
+    private let gameViewBuilder: GameViewBuilder
     
-    init(homePresenter:IHomePresenter) {
+    init(homePresenter:IHomePresenter, gameViewBuilder:GameViewBuilder) {
         self.presenter = homePresenter
+        self.gameViewBuilder = gameViewBuilder
+        print("init!!")
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,7 +26,10 @@ class HomeView: UIViewController, IHomeView{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .systemBlue
         presenter.setView(view_: self)
+        print("hello, world!!")
     }
     
     func display(url: String, imgBase64: String) {

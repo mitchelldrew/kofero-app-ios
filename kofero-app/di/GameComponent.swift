@@ -16,6 +16,7 @@ protocol GameDependency: Dependency {
     var providerCore:ProviderCore {get}
     var characterProvider:Provider<ModelCharacter> {get}
     var jsonEncoder:IDataEncoder<[JSON]> {get}
+    var charViewBuilder:CharacterViewBuilder {get}
 }
 
 class GameComponent: Component<GameDependency>, GameViewBuilder{
@@ -39,13 +40,12 @@ class GameComponent: Component<GameDependency>, GameViewBuilder{
         return GamePresenter(characterProvider: dependency.characterProvider, gameProvider: gameProvider, imageProvider: dependency.imageProvider)
     }
     
-
-    func gameView(id:Int32) -> IGameView {
-        return GameView(gamePresenter: gamePresenter, gameId:id)
+    func gameView(id:Int32) -> UIViewController {
+        return GameView(gamePresenter: gamePresenter, gameId:id, characterViewBuilder: dependency.charViewBuilder)
     }
     
 }
 
 protocol GameViewBuilder{
-    func gameView(id:Int32) -> IGameView
+    func gameView(id:Int32) -> UIViewController
 }

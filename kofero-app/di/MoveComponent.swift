@@ -17,6 +17,9 @@ protocol MoveDependency: Dependency {
     var characterProvider:Provider<ModelCharacter> {get}
     var imageProvider:IImageProvider {get}
     var jsonEncoder:IDataEncoder<[JSON]> {get}
+    var gameViewBuilder:GameViewBuilder {get}
+    var charViewBuilder:CharacterViewBuilder {get}
+    var homeViewBuilder:HomeViewBuilder {get}
 }
 
 class MoveComponent: Component<MoveDependency>, MoveViewBuilder {
@@ -37,14 +40,14 @@ class MoveComponent: Component<MoveDependency>, MoveViewBuilder {
     }
     
     var url:URL {
-        return URL(string: "test")!
+        return URL(string: "https://google.com")!
     }
     
-    func moveView(moveId: Int32) -> IMoveView {
-        return MoveView(presenter: presenter, moveId: moveId)
+    func moveView(moveId: Int32) -> UIViewController {
+        return MoveView(presenter: presenter, moveId: moveId, moveViewBuilder: self, gameViewBuilder: dependency.gameViewBuilder, charViewBuilder: dependency.charViewBuilder, homeViewBuilder: dependency.homeViewBuilder)
     }
 }
 
 protocol MoveViewBuilder{
-    func moveView(moveId:Int32) -> IMoveView
+    func moveView(moveId:Int32) -> UIViewController
 }

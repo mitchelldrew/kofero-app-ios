@@ -304,6 +304,9 @@ __attribute__((swift_name("KotlinException")))
 __attribute__((swift_name("ModelObj")))
 @interface PresenterModelObj : PresenterBase
 - (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) int32_t id __attribute__((swift_name("id")));
 @end;
 
@@ -312,6 +315,9 @@ __attribute__((swift_name("ModelCharacter")))
 @interface PresenterModelCharacter : PresenterModelObj
 - (instancetype)initWithId:(int32_t)id name:(NSString *)name health:(int32_t)health moveIds:(NSArray<PresenterInt *> *)moveIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(id:name:health:moveIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) int32_t health __attribute__((swift_name("health")));
 @property (readonly) NSString *iconUrl __attribute__((swift_name("iconUrl")));
 @property (readonly) NSArray<PresenterInt *> *moveIds __attribute__((swift_name("moveIds")));
@@ -323,6 +329,9 @@ __attribute__((swift_name("ModelGame")))
 @interface PresenterModelGame : PresenterModelObj
 - (instancetype)initWithId:(int32_t)id name:(NSString *)name characterIds:(NSArray<PresenterInt *> *)characterIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(id:name:characterIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSArray<PresenterInt *> *characterIds __attribute__((swift_name("characterIds")));
 @property (readonly) NSString *iconUrl __attribute__((swift_name("iconUrl")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
@@ -333,6 +342,9 @@ __attribute__((swift_name("ModelMove")))
 @interface PresenterModelMove : PresenterModelObj
 - (instancetype)initWithId:(int32_t)id name:(NSString *)name startup:(NSString *)startup active:(NSString *)active recovery:(NSString *)recovery hitAdv:(NSString *)hitAdv blockAdv:(NSString *)blockAdv notes:(NSString *)notes __attribute__((swift_name("init(id:name:startup:active:recovery:hitAdv:blockAdv:notes:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSString *active __attribute__((swift_name("active")));
 @property (readonly) NSString *blockAdv __attribute__((swift_name("blockAdv")));
 @property (readonly) NSString *hitAdv __attribute__((swift_name("hitAdv")));

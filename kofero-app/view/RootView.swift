@@ -26,7 +26,6 @@ class RootView: UIViewController, IRootView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hello world")
         view.backgroundColor = .systemRed
         presenter.setView(rootView: self)
     }

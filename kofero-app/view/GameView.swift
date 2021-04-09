@@ -11,10 +11,12 @@ import UIKit
 
 class GameView: UIViewController, IGameView {
     private let presenter:IGamePresenter
+    private let characterViewBuilder:CharacterViewBuilder
     private let gameId:Int32
     
-    init(gamePresenter:IGamePresenter, gameId:Int32) {
+    init(gamePresenter:IGamePresenter, gameId:Int32, characterViewBuilder:CharacterViewBuilder) {
         self.presenter = gamePresenter
+        self.characterViewBuilder = characterViewBuilder
         self.gameId = gameId
         super.init(nibName: nil, bundle: nil)
     }

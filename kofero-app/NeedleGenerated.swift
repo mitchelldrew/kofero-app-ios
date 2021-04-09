@@ -45,6 +45,9 @@ private class GameDependency6174651c56123eef7457BaseProvider: GameDependency {
     var jsonEncoder: IDataEncoder<[JSON]> {
         return rootComponent.jsonEncoder
     }
+    var charViewBuilder: CharacterViewBuilder {
+        return rootComponent.charViewBuilder
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent
@@ -72,6 +75,15 @@ private class MoveDependency60ec017cefc7ff9083ceBaseProvider: MoveDependency {
     var jsonEncoder: IDataEncoder<[JSON]> {
         return rootComponent.jsonEncoder
     }
+    var gameViewBuilder: GameViewBuilder {
+        return rootComponent.gameViewBuilder
+    }
+    var charViewBuilder: CharacterViewBuilder {
+        return rootComponent.charViewBuilder
+    }
+    var homeViewBuilder: HomeViewBuilder {
+        return rootComponent.homeViewBuilder
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent
@@ -96,6 +108,9 @@ private class CharacterDependency42b99561bd73739b9ec3BaseProvider: CharacterDepe
     var jsonEncoder: IDataEncoder<[JSON]> {
         return rootComponent.jsonEncoder
     }
+    var moveViewBuilder: MoveViewBuilder {
+        return rootComponent.moveViewBuilder
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent
@@ -110,6 +125,9 @@ private class CharacterDependency42b99561bd73739b9ec3Provider: CharacterDependen
 private class HomeDependencycad225e9266b3c9a56ddBaseProvider: HomeDependency {
     var gameProvider: Provider<ModelGame> {
         return rootComponent.gameProvider
+    }
+    var gameViewBuilder: GameViewBuilder {
+        return rootComponent.gameViewBuilder
     }
     var imageProvider: IImageProvider {
         return rootComponent.imageProvider

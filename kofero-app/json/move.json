@@ -1,21 +1,62 @@
 [
     {
         "id":1,
-        "name":"kof13",
-        "characterIds":[1,2,3],
-        "iconUrl":"http://test"
+        "name":"spinningPile Driver",
+        "startup":"-5",
+        "active":"+10",
+        "recovery":"recover",
+        "hitAdv":"big frames",
+        "blockAdv":"lil frames",
+        "notes":"Notes."
     },
     {
         "id":2,
-        "name":"kof14",
-        "characterIds":[1,2,3,4,34],
-        "iconUrl":"http://testgege"
+        "name":"cammy super",
+        "startup":"-5",
+        "active":"+10",
+        "recovery":"recover",
+        "hitAdv":"big frames",
+        "blockAdv":"lil frames",
+        "notes":"Damage: 5, Gray health: 6"
     },
     {
         "id":3,
-        "name":"teggin",
-        "characterIds":[1,2],
-        "iconUrl":"http://testwew"
+        "name":"Thrile Driver",
+        "startup":"-445",
+        "active":"+1330",
+        "recovery":"gilfwf",
+        "hitAdv":"big efef",
+        "blockAdv":"lil rrrr",
+        "notes":"Nogfgtes."
+    },
+    {
+        "id":4,
+        "name":"Lifestory Driver",
+        "startup":"-445",
+        "active":"+1g0",
+        "recovery":"r344er",
+        "hitAdv":"big frame555s",
+        "blockAdv":"lil fra3mes",
+        "notes":"Dont Travel."
+    },
+    {
+        "id":5,
+        "name":"Travel Dfever",
+        "startup":"-5",
+        "active":"+10",
+        "recovery":"recover",
+        "hitAdv":"big frames",
+        "blockAdv":"lil frames",
+        "notes":"Notes."
+    },
+    {
+        "id":6,
+        "name":"FFEF Driver",
+        "startup":"-5",
+        "active":"+1440",
+        "recovery":"recover",
+        "hitAdv":"big g3gframes",
+        "blockAdv":"li32rames",
+        "notes":"married."
     }
 ]
-

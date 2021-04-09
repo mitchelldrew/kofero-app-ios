@@ -12,19 +12,20 @@ import provider
 
 protocol HomeDependency: Dependency {
     var gameProvider:Provider<ModelGame> {get}
+    var gameViewBuilder:GameViewBuilder {get}
     var imageProvider:IImageProvider {get}
 }
 
 class HomeComponent: Component<HomeDependency>, HomeViewBuilder {
-    var homePresenter: IHomePresenter {
+    var presenter: IHomePresenter {
         return HomePresenter(gameProvider: dependency.gameProvider, imageProvider: dependency.imageProvider)
     }
     
-    func homeView() -> IHomeView {
-        return HomeView(homePresenter: homePresenter)
+    func homeView() -> UIViewController {
+        return HomeView(homePresenter: presenter, gameViewBuilder: dependency.gameViewBuilder)
     }
 }
 
 protocol HomeViewBuilder {
-    func homeView() -> IHomeView
+    func homeView() -> UIViewController
 }

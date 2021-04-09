@@ -75,6 +75,22 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
     var requestEncoder:IDataEncoder<[Int32]> {
         return JsonDataEncoder<[Int32]>()
     }
+    
+    var gameViewBuilder:GameViewBuilder{
+        return gameComponent
+    }
+    
+    var charViewBuilder:CharacterViewBuilder{
+        return characterComponent
+    }
+    
+    var moveViewBuilder:MoveViewBuilder{
+        return moveComponent
+    }
+    
+    var homeViewBuilder: HomeViewBuilder {
+        return homeComponent
+    }
 }
 
 protocol RootViewBuilder {
