@@ -30,11 +30,20 @@ class RootView: UIViewController, IRootView {
         presenter.setView(rootView: self)
     }
     
-    func error(error: KotlinException) {
-        print("!!!!!!!!!!!!!!!!!!!!!")
-        print(error)
+    override func viewDidAppear(_ animated: Bool) {
+        let home = homeBuilder.homeView()
+        home.modalPresentationStyle = .fullScreen
+        present(home, animated: false, completion: {})
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presenter.shutdown()
+    }
+    
+    func error(error: KotlinException) {
+        print("error: \(error)")
+    }
 
 }
 

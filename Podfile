@@ -8,4 +8,5 @@ target 'debug' do
   # Pods for kofero-app
 pod 'SwiftyJSON', '~> 4.3.0'
 pod 'NeedleFoundation', '~> 0.17.1'
+pod 'Google-Mobile-Ads-SDK'
 end

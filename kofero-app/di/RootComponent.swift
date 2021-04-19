@@ -40,10 +40,6 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return gameComponent.gameProvider
     }
     
-    func rootView() -> UIViewController {
-        return RootView(homeBuilder: homeComponent, presenter: rootPresenter)
-    }
-    
     var rootPresenter: IRootPresenter {
         return RootPresenter(gameProvider: gameProvider)
     }
@@ -90,6 +86,10 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
     
     var homeViewBuilder: HomeViewBuilder {
         return homeComponent
+    }
+    
+    func rootView() -> UIViewController {
+        return RootView(homeBuilder: homeComponent, presenter: rootPresenter)
     }
 }
 

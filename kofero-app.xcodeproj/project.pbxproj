@@ -12,11 +12,14 @@
 		4B8A0C40261BD1CE007006D6 /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C3F261BD1CE007006D6 /* game.json */; };
 		4B8A0C4A261F9C6E007006D6 /* char.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C49261F9C6E007006D6 /* char.json */; };
 		4B8A0C4C261F9C90007006D6 /* move.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C4B261F9C90007006D6 /* move.json */; };
+		4B91FB76262E077400A4A56A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91FB75262E077400A4A56A /* Item.swift */; };
+		4B91FB78262E09D900A4A56A /* HomeItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91FB77262E09D900A4A56A /* HomeItemListCell.swift */; };
+		4B91FB7A262E0A7B00A4A56A /* HomeItemContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91FB79262E0A7B00A4A56A /* HomeItemContentConfiguration.swift */; };
+		4B91FB7D262E0DA900A4A56A /* HomeItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91FB7C262E0DA900A4A56A /* HomeItemContentView.swift */; };
 		4B9F8E8825F320AF007F330C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8725F320AF007F330C /* AppDelegate.swift */; };
 		4B9F8E8A25F320AF007F330C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8925F320AF007F330C /* SceneDelegate.swift */; };
 		4B9F8E8C25F320AF007F330C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8B25F320AF007F330C /* RootView.swift */; };
 		4B9F8E9125F320B0007F330C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B9F8E9025F320B0007F330C /* Assets.xcassets */; };
-		4B9F8E9425F320B0007F330C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B9F8E9225F320B0007F330C /* LaunchScreen.storyboard */; };
 		4B9F8EAE25F32230007F330C /* presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAB25F32226007F330C /* presenter.framework */; };
 		4B9F8EAF25F32230007F330C /* presenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAB25F32226007F330C /* presenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B9F8EB125F32231007F330C /* provider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9F8EAA25F32226007F330C /* provider.framework */; };
@@ -54,12 +57,15 @@
 		4B8A0C3F261BD1CE007006D6 /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
 		4B8A0C49261F9C6E007006D6 /* char.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = char.json; sourceTree = "<group>"; };
 		4B8A0C4B261F9C90007006D6 /* move.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = move.json; sourceTree = "<group>"; };
+		4B91FB75262E077400A4A56A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4B91FB77262E09D900A4A56A /* HomeItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemListCell.swift; sourceTree = "<group>"; };
+		4B91FB79262E0A7B00A4A56A /* HomeItemContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemContentConfiguration.swift; sourceTree = "<group>"; };
+		4B91FB7C262E0DA900A4A56A /* HomeItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemContentView.swift; sourceTree = "<group>"; };
 		4B9F8E8425F320AF007F330C /* debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9F8E8725F320AF007F330C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B9F8E8925F320AF007F330C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4B9F8E8B25F320AF007F330C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		4B9F8E9025F320B0007F330C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4B9F8E9325F320B0007F330C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B9F8E9525F320B0007F330C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B9F8EAA25F32226007F330C /* provider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = provider.framework; sourceTree = "<group>"; };
 		4B9F8EAB25F32226007F330C /* presenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = presenter.framework; sourceTree = "<group>"; };
@@ -101,6 +107,25 @@
 			path = json;
 			sourceTree = "<group>";
 		};
+		4B91FB74262E076400A4A56A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4B91FB75262E077400A4A56A /* Item.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4B91FB7B262E0A8100A4A56A /* home */ = {
+			isa = PBXGroup;
+			children = (
+				4B9F8EBE25F94B12007F330C /* HomeView.swift */,
+				4B91FB77262E09D900A4A56A /* HomeItemListCell.swift */,
+				4B91FB79262E0A7B00A4A56A /* HomeItemContentConfiguration.swift */,
+				4B91FB7C262E0DA900A4A56A /* HomeItemContentView.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		4B9F8E7B25F320AF007F330C = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +153,6 @@
 				4B9F8E8725F320AF007F330C /* AppDelegate.swift */,
 				4B9F8E8925F320AF007F330C /* SceneDelegate.swift */,
 				4B9F8E9025F320B0007F330C /* Assets.xcassets */,
-				4B9F8E9225F320B0007F330C /* LaunchScreen.storyboard */,
 				4B9F8E9525F320B0007F330C /* Info.plist */,
 			);
 			path = "kofero-app";
@@ -150,8 +174,9 @@
 		4B9F8EBD25F94979007F330C /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4B91FB7B262E0A8100A4A56A /* home */,
+				4B91FB74262E076400A4A56A /* model */,
 				4B9F8E8B25F320AF007F330C /* RootView.swift */,
-				4B9F8EBE25F94B12007F330C /* HomeView.swift */,
 				4B9F8EC025F94E0D007F330C /* GameView.swift */,
 				4B9F8ED225FA94B7007F330C /* CharacterView.swift */,
 				4B78BFCF25FC57FA0015BFD7 /* MoveView.swift */,
@@ -241,7 +266,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B9F8E9425F320B0007F330C /* LaunchScreen.storyboard in Resources */,
 				4B9F8E9125F320B0007F330C /* Assets.xcassets in Resources */,
 				4B8A0C4C261F9C90007006D6 /* move.json in Resources */,
 				4B8A0C40261BD1CE007006D6 /* game.json in Resources */,
@@ -318,14 +342,18 @@
 			files = (
 				4B9F8EBF25F94B12007F330C /* HomeView.swift in Sources */,
 				4B9F8E8C25F320AF007F330C /* RootView.swift in Sources */,
+				4B91FB78262E09D900A4A56A /* HomeItemListCell.swift in Sources */,
 				4B9F8E8825F320AF007F330C /* AppDelegate.swift in Sources */,
 				4B9F8EBA25F93D98007F330C /* RootComponent.swift in Sources */,
+				4B91FB76262E077400A4A56A /* Item.swift in Sources */,
 				4B9F8ED325FA94B7007F330C /* CharacterView.swift in Sources */,
 				4B9F8EBC25F94681007F330C /* HomeComponent.swift in Sources */,
+				4B91FB7A262E0A7B00A4A56A /* HomeItemContentConfiguration.swift in Sources */,
 				4B9F8ECF25FA886D007F330C /* NeedleGenerated.swift in Sources */,
 				4B9F8EC125F94E0D007F330C /* GameView.swift in Sources */,
 				4B78BFCE25FC51620015BFD7 /* MoveComponent.swift in Sources */,
 				4B9F8EC325F94F14007F330C /* GameComponent.swift in Sources */,
+				4B91FB7D262E0DA900A4A56A /* HomeItemContentView.swift in Sources */,
 				4B9F8E8A25F320AF007F330C /* SceneDelegate.swift in Sources */,
 				4B78BFD025FC57FA0015BFD7 /* MoveView.swift in Sources */,
 				4B9F8ED125FA9382007F330C /* CharacterComponent.swift in Sources */,
@@ -333,17 +361,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		4B9F8E9225F320B0007F330C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B9F8E9325F320B0007F330C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4B9F8E9625F320B0007F330C /* Debug */ = {
@@ -479,6 +496,67 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"NeedleFoundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UserMessagingPlatform\"",
+					"-framework",
+					"\"WebKit\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ro.kofe.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -502,6 +580,67 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"NeedleFoundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UserMessagingPlatform\"",
+					"-framework",
+					"\"WebKit\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ro.kofe.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
