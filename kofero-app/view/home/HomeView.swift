@@ -8,6 +8,7 @@
 import Foundation
 import presenter
 import UIKit
+import GoogleMobileAds
 
 class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     private let presenter:IHomePresenter
@@ -16,6 +17,7 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     private var collectionView:UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item<ModelObj>>!
     private var snapshot: NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>!
+    private var bannerView: GADBannerView?
     
     
     enum Section{
@@ -38,6 +40,35 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
         presenter.setView(view_: self)
         buildCollectionView()
         presenter.showGames()
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+
+        addBannerViewToView(bannerView!)
+    }
+    
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                      attribute: .bottom,
+                                      relatedBy: .equal,
+                                      toItem: view.safeAreaLayoutGuide,
+                                      attribute: .top,
+                                      multiplier: 1,
+                                      constant: 0),
+                   NSLayoutConstraint(item: bannerView,
+                                      attribute: .centerX,
+                                      relatedBy: .equal,
+                                      toItem: view,
+                                      attribute: .centerX,
+                                      multiplier: 1,
+                                      constant: 0)
+            ])
     }
     
     func buildCollectionView(){
@@ -78,6 +109,7 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     }
     
     func display(games: [ModelGame]) {
+        print(games)
         snapshot = NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>()
         snapshot.appendSections([.main])
     }
