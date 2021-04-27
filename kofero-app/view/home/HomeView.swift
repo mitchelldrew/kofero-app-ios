@@ -62,45 +62,30 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     }
     
     func buildCollectionView(){
-        
-        // Create list layout
-            let layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-            let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
-            
-            // Create collection view with list layout
-            collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: listLayout)
-            view.addSubview(collectionView)
-            
-            // Make collection view take up the entire view
-            collectionView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
-                collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
-                collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-                collectionView.bottomAnchor.constraint(equalTo: bannerView!.bottomAnchor, constant: 0.0),
-            ])
-            
-            // Create cell registration that define how data should be shown in a cell
-            let cellRegistration = UICollectionView.CellRegistration<HomeItemGridCell, Item<ModelObj>> { (cell, indexPath, item) in
-                cell.item = item
-            }
-            
-            // Define data source
-            dataSource = UICollectionViewDiffableDataSource<Section, Item<ModelObj>>(collectionView: collectionView) {
+        let layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: listLayout)
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
+            collectionView.bottomAnchor.constraint(equalTo: bannerView!.bottomAnchor, constant: 0.0),
+        ])
+        let cellRegistration = UICollectionView.CellRegistration<HomeItemGridCell, Item<ModelObj>> { (cell, indexPath, item) in
+            cell.item = item
+        }
+        dataSource = UICollectionViewDiffableDataSource<Section, Item<ModelObj>>(collectionView: collectionView) {
                 (collectionView: UICollectionView, indexPath: IndexPath, identifier: Item<ModelObj>) -> UICollectionViewCell? in
-                
-                // Dequeue reusable cell using cell registration (Reuse identifier no longer needed)
-                let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
-                                                                        for: indexPath,
-                                                                        item: identifier)
-                
-                return cell
-            }
+        let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
+        return cell
+        }
     }
     
     func display(url: String, imgBase64: String) {
         for game in games{
-            if game.iconUrl == url {
+            if game.iconUrl == url && !displayedItems.contains{item in return item.item.id == game.id} {
                 let image = UIImage(data: Data(base64Encoded: imgBase64)!)!
                 let item = Item(item: game as ModelObj, image: image)
                 snapshot.appendItems([Item<ModelObj>](arrayLiteral: item), toSection: .main)
@@ -112,6 +97,7 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     
     func display(games: [ModelGame]) {
         self.games = games
+        displayedItems.removeAll()
         snapshot = NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>()
         snapshot.appendSections([.main])
     }

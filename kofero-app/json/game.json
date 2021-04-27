@@ -18,6 +18,9 @@
         "iconUrl":"https://img.fae.ro/81f2b6.png"
     },
     {
-        
+        "id":4,
+        "name":"kof15",
+        "charIds":[1,2,3,34],
+        "iconUrl":"https://img.fae.ro/762785.png"
     }
 ]
