@@ -46,8 +46,6 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
         addBannerViewToView(bannerView!)
         buildCollectionView()
         presenter.showGames()
-        
-
     }
     
     
@@ -106,6 +104,7 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
                 displayedItems.append(item)
             }
         }
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     func display(games: [ModelGame]) {

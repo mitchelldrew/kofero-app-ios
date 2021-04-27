@@ -37,6 +37,16 @@ class RestaurantItemContentView: UIView, UIContentView {
     }
     
     private func setup() {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stackView)
+        
+        imageview.translatesAutoresizingMaskIntoConstraints = false
+        //stackView.addArrangedSubview(imageview)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(nameLabel)
+        
+        
     }
     
     private func apply(configuration: HomeItemContentConfiguration) {
@@ -46,7 +56,8 @@ class RestaurantItemContentView: UIView, UIContentView {
         
         currentConfiguration = configuration
         
-        
+        imageview.image = configuration.image
+        nameLabel.text = configuration.name
         favoriteSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
     }
     

@@ -22,6 +22,6 @@ class HomeItemListCell: UICollectionViewListCell {
         newConfiguration.switchClosure = switchClosure
         
         contentConfiguration = newConfiguration
-        }
+    }
 }
 
