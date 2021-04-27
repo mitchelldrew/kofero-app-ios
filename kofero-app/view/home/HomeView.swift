@@ -16,8 +16,8 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     private let adUnitId:String
     
     private var collectionView:UICollectionView!
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Item<ModelObj>>!
-    private var snapshot: NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>!
+    var dataSource: UICollectionViewDiffableDataSource<Section, Item<ModelObj>>!
+    var snapshot: NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>!
     private var bannerView: GADBannerView?
     private var games = [ModelGame]()
     private var displayedItems = [Item]()
@@ -62,43 +62,46 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     }
     
     func buildCollectionView(){
-        var layoutConfig = UICollectionLayoutListConfiguration(appearance: .plain)
-        layoutConfig.showsSeparators = false
-        let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: listLayout)
-        collectionView.delegate = self
-        collectionView.backgroundColor = .systemGray
-        view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0.0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: bannerView!.topAnchor, constant: 0.0),
-        ])
-        let cellRegistration = UICollectionView.CellRegistration<HomeItemListCell, Item<ModelObj>> {
-            (cell, indexPath, item) in
-            cell.item = item
-        }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, Item<ModelObj>>(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Item<ModelObj>) -> UICollectionViewCell? in
+        // Create list layout
+            let layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+            let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
             
-            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
-                                                                    for: indexPath,
-                                                                    item: identifier)
+            // Create collection view with list layout
+            collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: listLayout)
+            view.addSubview(collectionView)
             
-            cell.accessories = [.disclosureIndicator()]
+            // Make collection view take up the entire view
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
+                collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
+                collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
+                collectionView.bottomAnchor.constraint(equalTo: bannerView!.bottomAnchor, constant: 0.0),
+            ])
             
-            return cell
-        }
-        collectionView.alpha = 100
+            // Create cell registration that define how data should be shown in a cell
+            let cellRegistration = UICollectionView.CellRegistration<HomeItemGridCell, Item<ModelObj>> { (cell, indexPath, item) in
+                cell.item = item
+            }
+            
+            // Define data source
+            dataSource = UICollectionViewDiffableDataSource<Section, Item<ModelObj>>(collectionView: collectionView) {
+                (collectionView: UICollectionView, indexPath: IndexPath, identifier: Item<ModelObj>) -> UICollectionViewCell? in
+                
+                // Dequeue reusable cell using cell registration (Reuse identifier no longer needed)
+                let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
+                                                                        for: indexPath,
+                                                                        item: identifier)
+                
+                return cell
+            }
     }
     
     func display(url: String, imgBase64: String) {
         for game in games{
             if game.iconUrl == url {
-                let image = UIImage(data: Data(base64Encoded: imgBase64)!)
+                let image = UIImage(data: Data(base64Encoded: imgBase64)!)!
                 let item = Item(item: game as ModelObj, image: image)
                 snapshot.appendItems([Item<ModelObj>](arrayLiteral: item), toSection: .main)
                 displayedItems.append(item)
