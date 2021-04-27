@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class PresenterKotlinException, PresenterModelObj, PresenterModelCharacter, PresenterModelGame, PresenterModelMove, PresenterKotlinThrowable, PresenterKotlinArray<T>;
+@class PresenterModelObj, PresenterIFavoritesProviderFavType, PresenterKotlinEnum<E>, PresenterKotlinException, PresenterModelCharacter, PresenterModelGame, PresenterModelMove, PresenterKotlinThrowable, PresenterKotlinArray<T>;
 
-@protocol PresenterIImageProviderListener, PresenterIProviderListener, PresenterIGameView, PresenterIGamePresenter, PresenterIProvider, PresenterIImageProvider, PresenterIHomeView, PresenterIHomePresenter, PresenterIMovePresenter, PresenterICharacterView, PresenterICharacterPresenter, PresenterIRootView, PresenterIRootPresenter, PresenterKotlinIterator;
+@protocol PresenterIFreezer, PresenterIProviderListener, PresenterIProvider, PresenterKotlinComparable, PresenterIImageProviderListener, PresenterIGameView, PresenterIGamePresenter, PresenterIImageProvider, PresenterIHomeView, PresenterIHomePresenter, PresenterIMovePresenter, PresenterICharacterView, PresenterICharacterPresenter, PresenterIRootView, PresenterIRootPresenter, PresenterKotlinIterator;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -138,6 +138,63 @@ __attribute__((swift_name("KotlinBoolean")))
 + (instancetype)numberWithBool:(BOOL)value;
 @end;
 
+__attribute__((swift_name("IFreezer")))
+@protocol PresenterIFreezer
+@required
+- (id)freezeObj:(id)obj __attribute__((swift_name("freeze(obj:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Freezer")))
+@interface PresenterFreezer : PresenterBase <PresenterIFreezer>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (id)freezeObj:(id)obj __attribute__((swift_name("freeze(obj:)")));
+@end;
+
+__attribute__((swift_name("IProvider")))
+@protocol PresenterIProvider
+@required
+- (void)addListenerListener:(id<PresenterIProviderListener>)listener __attribute__((swift_name("addListener(listener:)")));
+- (void)getIds:(NSArray<PresenterInt *> *)ids __attribute__((swift_name("get(ids:)")));
+- (void)removeListenerListener:(id<PresenterIProviderListener>)listener __attribute__((swift_name("removeListener(listener:)")));
+@end;
+
+__attribute__((swift_name("IFavoritesProvider")))
+@protocol PresenterIFavoritesProvider <PresenterIProvider>
+@required
+- (void)deleteItem:(PresenterModelObj *)item type:(PresenterIFavoritesProviderFavType *)type __attribute__((swift_name("delete(item:type:)")));
+- (void)saveItem:(PresenterModelObj *)item type:(PresenterIFavoritesProviderFavType *)type __attribute__((swift_name("save(item:type:)")));
+@end;
+
+__attribute__((swift_name("KotlinComparable")))
+@protocol PresenterKotlinComparable
+@required
+- (int32_t)compareToOther:(id _Nullable)other __attribute__((swift_name("compareTo(other:)")));
+@end;
+
+__attribute__((swift_name("KotlinEnum")))
+@interface PresenterKotlinEnum<E> : PresenterBase <PresenterKotlinComparable>
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer));
+- (int32_t)compareToOther:(E)other __attribute__((swift_name("compareTo(other:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) int32_t ordinal __attribute__((swift_name("ordinal")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("IFavoritesProviderFavType")))
+@interface PresenterIFavoritesProviderFavType : PresenterKotlinEnum<PresenterIFavoritesProviderFavType *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) PresenterIFavoritesProviderFavType *game __attribute__((swift_name("game")));
+@property (class, readonly) PresenterIFavoritesProviderFavType *char_ __attribute__((swift_name("char_")));
+@property (class, readonly) PresenterIFavoritesProviderFavType *move __attribute__((swift_name("move")));
+@end;
+
 __attribute__((swift_name("IImageProvider")))
 @protocol PresenterIImageProvider
 @required
@@ -151,14 +208,6 @@ __attribute__((swift_name("IImageProviderListener")))
 @required
 - (void)onErrorUrl:(NSString *)url error:(PresenterKotlinException *)error __attribute__((swift_name("onError(url:error:)")));
 - (void)onReceiveUrl:(NSString *)url imgBase64:(NSString *)imgBase64 __attribute__((swift_name("onReceive(url:imgBase64:)")));
-@end;
-
-__attribute__((swift_name("IProvider")))
-@protocol PresenterIProvider
-@required
-- (void)addListenerListener:(id<PresenterIProviderListener>)listener __attribute__((swift_name("addListener(listener:)")));
-- (void)getIds:(NSArray<PresenterInt *> *)ids __attribute__((swift_name("get(ids:)")));
-- (void)removeListenerListener:(id<PresenterIProviderListener>)listener __attribute__((swift_name("removeListener(listener:)")));
 @end;
 
 __attribute__((swift_name("IProviderListener")))
@@ -204,7 +253,7 @@ __attribute__((swift_name("IHomePresenter")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("HomePresenter")))
 @interface PresenterHomePresenter : PresenterBase <PresenterIHomePresenter>
-- (instancetype)initWithGameProvider:(id<PresenterIProvider> _Nullable)gameProvider imageProvider:(id<PresenterIImageProvider> _Nullable)imageProvider __attribute__((swift_name("init(gameProvider:imageProvider:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithFreezer:(id<PresenterIFreezer>)freezer gameProvider:(id<PresenterIProvider> _Nullable)gameProvider imageProvider:(id<PresenterIImageProvider> _Nullable)imageProvider __attribute__((swift_name("init(freezer:gameProvider:imageProvider:)"))) __attribute__((objc_designated_initializer));
 - (void)setViewView_:(id<PresenterIHomeView>)view __attribute__((swift_name("setView(view_:)")));
 - (void)showGames __attribute__((swift_name("showGames()")));
 - (void)shutdown __attribute__((swift_name("shutdown()")));
@@ -273,9 +322,18 @@ __attribute__((swift_name("IRootView")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("RootPresenter")))
 @interface PresenterRootPresenter : PresenterBase <PresenterIRootPresenter>
-- (instancetype)initWithGameProvider:(id<PresenterIProvider>)gameProvider __attribute__((swift_name("init(gameProvider:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithFreezer:(id<PresenterIFreezer>)freezer gameProvider:(id<PresenterIProvider>)gameProvider __attribute__((swift_name("init(freezer:gameProvider:)"))) __attribute__((objc_designated_initializer));
 - (void)setViewRootView:(id<PresenterIRootView>)rootView __attribute__((swift_name("setView(rootView:)")));
 - (void)shutdown __attribute__((swift_name("shutdown()")));
+@end;
+
+__attribute__((swift_name("ModelObj")))
+@interface PresenterModelObj : PresenterBase
+- (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int32_t id __attribute__((swift_name("id")));
 @end;
 
 __attribute__((swift_name("KotlinThrowable")))
@@ -301,24 +359,15 @@ __attribute__((swift_name("KotlinException")))
 - (instancetype)initWithCause:(PresenterKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
 @end;
 
-__attribute__((swift_name("ModelObj")))
-@interface PresenterModelObj : PresenterBase
-- (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int32_t id __attribute__((swift_name("id")));
-@end;
-
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelCharacter")))
 @interface PresenterModelCharacter : PresenterModelObj
-- (instancetype)initWithId:(int32_t)id name:(NSString *)name health:(int32_t)health moveIds:(NSArray<PresenterInt *> *)moveIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(id:name:health:moveIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(int32_t)id name:(NSString *)name attributes:(NSDictionary<NSString *, NSString *> *)attributes moveIds:(NSArray<PresenterInt *> *)moveIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(id:name:attributes:moveIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int32_t health __attribute__((swift_name("health")));
+@property (readonly) NSDictionary<NSString *, NSString *> *attributes __attribute__((swift_name("attributes")));
 @property (readonly) NSString *iconUrl __attribute__((swift_name("iconUrl")));
 @property (readonly) NSArray<PresenterInt *> *moveIds __attribute__((swift_name("moveIds")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));

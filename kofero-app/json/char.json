@@ -1,15 +1,24 @@
 [
     {
         "id":1,
-        "name":"arkof13",
-        "health":123
+        "name":"Iori Yagami",
+        "attributes":{
+            "health":"123",
+            "stun":"456",
+            "other":"7890."
+        },
         "moveIds":[1,2,3],
         "iconUrl":"http://test"
     },
     {
         "id":2,
-        "name":"afafkof14",
-        "health":444,
+        "name":"Kyo Kusanagi",
+        "attributes": {
+          "health":"321",
+          "stun":"654",
+          "other":"987",
+          "real name":"Gayboy Mcguyver"
+        },
         "moveIds":[1,2,3,4,34],
         "iconUrl":"http://testgege"
     },

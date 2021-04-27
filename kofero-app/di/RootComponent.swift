@@ -41,7 +41,7 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
     }
     
     var rootPresenter: IRootPresenter {
-        return RootPresenter(gameProvider: gameProvider)
+        return RootPresenter(freezer: freezer, gameProvider: gameProvider)
     }
     
     var imageProvider:IImageProvider {
@@ -88,8 +88,16 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return homeComponent
     }
     
+    var bannerAdUnitId: String {
+        return "ca-app-pub-3940256099942544/2934735716"
+    }
+    
     func rootView() -> UIViewController {
         return RootView(homeBuilder: homeComponent, presenter: rootPresenter)
+    }
+    
+    var freezer: IFreezer {
+        return Freezer()
     }
 }
 

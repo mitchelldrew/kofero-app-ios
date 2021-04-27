@@ -11,18 +11,20 @@ import presenter
 import provider
 
 protocol HomeDependency: Dependency {
+    var bannerAdUnitId:String {get}
     var gameProvider:Provider<ModelGame> {get}
     var gameViewBuilder:GameViewBuilder {get}
     var imageProvider:IImageProvider {get}
+    var freezer:IFreezer {get}
 }
 
 class HomeComponent: Component<HomeDependency>, HomeViewBuilder {
     var presenter: IHomePresenter {
-        return HomePresenter(gameProvider: dependency.gameProvider, imageProvider: dependency.imageProvider)
+        return HomePresenter(freezer: dependency.freezer, gameProvider: dependency.gameProvider, imageProvider: dependency.imageProvider)
     }
     
     func homeView() -> UIViewController {
-        return HomeView(homePresenter: presenter, gameViewBuilder: dependency.gameViewBuilder)
+        return HomeView(homePresenter: presenter, gameViewBuilder: dependency.gameViewBuilder, adUnitId: dependency.bannerAdUnitId)
     }
 }
 

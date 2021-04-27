@@ -3,19 +3,19 @@
         "id":1,
         "name":"kof13",
         "charIds":[1,2,3],
-        "iconUrl":"http://test"
+        "iconUrl":"https://img.fae.ro/41a199.png"
     },
     {
         "id":2,
-        "name":"kof14",
-        "charIds":[1,2,3,4,34],
-        "iconUrl":"http://testgege"
+        "name":"Tekken 7",
+        "charIds":[1,2],
+        "iconUrl":"https://img.fae.ro/a9222a.png"
     },
     {
         "id":3,
-        "name":"teggin",
-        "charIds":[1,2],
-        "iconUrl":"http://testwew"
+        "name":"kof14",
+        "charIds":[1,2,3,4,34],
+        "iconUrl":"https://img.fae.ro/81f2b6.png"
     },
     {
         

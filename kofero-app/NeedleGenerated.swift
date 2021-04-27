@@ -123,6 +123,9 @@ private class CharacterDependency42b99561bd73739b9ec3Provider: CharacterDependen
     }
 }
 private class HomeDependencycad225e9266b3c9a56ddBaseProvider: HomeDependency {
+    var bannerAdUnitId: String {
+        return rootComponent.bannerAdUnitId
+    }
     var gameProvider: Provider<ModelGame> {
         return rootComponent.gameProvider
     }
@@ -131,6 +134,9 @@ private class HomeDependencycad225e9266b3c9a56ddBaseProvider: HomeDependency {
     }
     var imageProvider: IImageProvider {
         return rootComponent.imageProvider
+    }
+    var freezer: IFreezer {
+        return rootComponent.freezer
     }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
