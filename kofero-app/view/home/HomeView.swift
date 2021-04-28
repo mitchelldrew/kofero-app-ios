@@ -64,14 +64,16 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     func buildCollectionView(){
         let layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: listLayout)
+        let gridLayout = GridCollectionViewLayout(numberOfColumns: 4)
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: gridLayout)
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .systemGreen
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: bannerView!.bottomAnchor, constant: 0.0),
+            collectionView.bottomAnchor.constraint(equalTo: bannerView!.topAnchor, constant: 0.0),
         ])
         let cellRegistration = UICollectionView.CellRegistration<HomeItemGridCell, Item<ModelObj>> { (cell, indexPath, item) in
             cell.item = item

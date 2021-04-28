@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import presenter
 
-class HomeItemGridCell: UICollectionViewListCell {
+class HomeItemGridCell: UICollectionViewCell {
     var item: Item<ModelObj>?
 
     override func updateConfiguration(using state: UICellConfigurationState) {
