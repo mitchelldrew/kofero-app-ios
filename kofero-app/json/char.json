@@ -1,18 +1,18 @@
 [
     {
         "id":1,
-        "name":"Iori Yagami",
+        "name":"Iori (Flame)",
         "attributes":{
             "health":"123",
             "stun":"456",
             "other":"7890."
         },
         "moveIds":[1,2,3],
-        "iconUrl":"http://test"
+        "iconUrl":"https://img.fae.ro/0b6b48.png"
     },
     {
         "id":2,
-        "name":"Kyo Kusanagi",
+        "name":"Kyo (NESTS)",
         "attributes": {
           "health":"321",
           "stun":"654",
@@ -20,20 +20,72 @@
           "real name":"Gayboy Mcguyver"
         },
         "moveIds":[1,2,3,4,34],
-        "iconUrl":"http://testgege"
+        "iconUrl":"https://img.fae.ro/667848.png"
     },
     {
         "id":3,
-        "name":"teggin",
-        "health":543,
+        "name":"Heihachi",
+        "attributes": {
+            "health":"321",
+            "stun":"555",
+            "decliffed son?":true
+        }
         "moveIds":[1,2],
-        "iconUrl":"http://testwew"
+        "iconUrl":"https://img.fae.ro/7e519d.png"
+    },
+    {
+        "id":4,
+        "name":"Mr. Karate",
+        "attributes": {
+            "health":"321",
+            "stun":"555",
+            "decliffed son?":false
+        }
+        "moveIds":[1,2],
+        "iconUrl":"https://img.fae.ro/7b1eb8.png"
     },
     {
         "id":5,
-        "name":"kazooyer",
-        "health":5432,
+        "name":"Kazuya",
+        "attributes": {
+            "health":"321",
+            "stun":"555",
+            "decliffed son?":false
+        }
         "moveIds":[1,2],
-        "iconUrl":"http://"
+        "iconUrl":"https://img.fae.ro/ba70ae.png"
+    },
+    {
+        "id":6,
+        "name":"Ryo",
+        "attributes": {
+            "health":"321",
+            "stun":"555",
+            "decliffed son?":false
+        }
+        "moveIds":[1,2],
+        "iconUrl":"https://img.fae.ro/7aa16d.png"
+    },
+    {
+        "id":7,
+        "name":"Ryo",
+        "attributes": {
+            "health":"321",
+            "stun":"555",
+            "decliffed son?":false
+        }
+        "moveIds":[1,2],
+        "iconUrl":"https://img.fae.ro/788431.png"
+    },
+    {
+        "id":8,
+        "name":"Yoshimitsu",
+        "attributes": {
+            "health":"321",
+            "stun":"555",
+            "decliffed son?":false
+        }
+        "moveIds":[1,2],
+        "iconUrl":"https://img.fae.ro/504dc3.png"
     }
 ]

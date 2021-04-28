@@ -69,6 +69,7 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemGreen
+        collectionView.delegate = self
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
@@ -83,6 +84,10 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
         let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
         return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        present(gameViewBuilder.gameView(id: games[indexPath.item].id), animated: true, completion: nil)
     }
     
     func display(url: String, imgBase64: String) {

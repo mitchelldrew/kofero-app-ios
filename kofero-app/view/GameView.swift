@@ -19,11 +19,13 @@ class GameView: UIViewController, IGameView {
         self.characterViewBuilder = characterViewBuilder
         self.gameId = gameId
         super.init(nibName: nil, bundle: nil)
+        self.modalPresentationStyle = .fullScreen
     }
     
     override func viewDidLoad() {
         presenter.setView(view: self)
         presenter.showGame(id: gameId)
+        view.backgroundColor = .systemPink
     }
     
     required init?(coder: NSCoder) {
@@ -31,11 +33,13 @@ class GameView: UIViewController, IGameView {
     }
     
     func display(characters: [ModelCharacter]) {
-        
+        print("%%%")
+        print(characters)
     }
     
     func display(game: ModelGame) {
-        
+        print("$$$")
+        print(game)
     }
     
     func error(error: KotlinException) {
