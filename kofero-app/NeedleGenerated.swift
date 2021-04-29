@@ -48,6 +48,12 @@ private class GameDependency6174651c56123eef7457BaseProvider: GameDependency {
     var charViewBuilder: CharacterViewBuilder {
         return rootComponent.charViewBuilder
     }
+    var freezer: IFreezer {
+        return rootComponent.freezer
+    }
+    var bannerAdUnitId: String {
+        return rootComponent.bannerAdUnitId
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent
@@ -137,6 +143,9 @@ private class HomeDependencycad225e9266b3c9a56ddBaseProvider: HomeDependency {
     }
     var freezer: IFreezer {
         return rootComponent.freezer
+    }
+    var favoritesProvider: IFavoritesProvider {
+        return rootComponent.favoritesProvider
     }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {

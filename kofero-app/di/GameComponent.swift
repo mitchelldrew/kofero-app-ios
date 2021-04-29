@@ -17,6 +17,8 @@ protocol GameDependency: Dependency {
     var characterProvider:Provider<ModelCharacter> {get}
     var jsonEncoder:IDataEncoder<[JSON]> {get}
     var charViewBuilder:CharacterViewBuilder {get}
+    var freezer:IFreezer {get}
+    var bannerAdUnitId:String {get}
 }
 
 class GameComponent: Component<GameDependency>, GameViewBuilder{
@@ -37,11 +39,11 @@ class GameComponent: Component<GameDependency>, GameViewBuilder{
     }
     
     var gamePresenter: IGamePresenter {
-        return GamePresenter(characterProvider: dependency.characterProvider, gameProvider: gameProvider, imageProvider: dependency.imageProvider)
+        return GamePresenter(freezer: dependency.freezer, characterProvider: dependency.characterProvider, gameProvider: gameProvider, imageProvider: dependency.imageProvider)
     }
     
     func gameView(id:Int32) -> UIViewController {
-        return GameView(gamePresenter: gamePresenter, gameId:id, characterViewBuilder: dependency.charViewBuilder)
+        return GameView(gamePresenter: gamePresenter, gameId:id, characterViewBuilder: dependency.charViewBuilder, adUnitId: dependency.bannerAdUnitId)
     }
     
 }

@@ -16,11 +16,12 @@ protocol HomeDependency: Dependency {
     var gameViewBuilder:GameViewBuilder {get}
     var imageProvider:IImageProvider {get}
     var freezer:IFreezer {get}
+    var favoritesProvider:IFavoritesProvider {get}
 }
 
 class HomeComponent: Component<HomeDependency>, HomeViewBuilder {
     var presenter: IHomePresenter {
-        return HomePresenter(freezer: dependency.freezer, gameProvider: dependency.gameProvider, imageProvider: dependency.imageProvider)
+        return HomePresenter(freezer: dependency.freezer, gameProvider: dependency.gameProvider, imageProvider: dependency.imageProvider, favoritesProvider: dependency.favoritesProvider)
     }
     
     func homeView() -> UIViewController {

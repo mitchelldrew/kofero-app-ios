@@ -99,6 +99,10 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
     var freezer: IFreezer {
         return Freezer()
     }
+    
+    var favoritesProvider:IFavoritesProvider {
+        return FavoritesProvider(defaults: userDefaults)
+    }
 }
 
 protocol RootViewBuilder {

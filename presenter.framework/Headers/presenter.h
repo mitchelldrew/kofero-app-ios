@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class PresenterModelObj, PresenterIFavoritesProviderFavType, PresenterKotlinEnum<E>, PresenterKotlinException, PresenterModelCharacter, PresenterModelGame, PresenterModelMove, PresenterKotlinThrowable, PresenterKotlinArray<T>;
+@class PresenterModelObj, PresenterKotlinException, PresenterModelCharacter, PresenterModelGame, PresenterModelMove, PresenterKotlinThrowable, PresenterKotlinArray<T>;
 
-@protocol PresenterIFreezer, PresenterIProviderListener, PresenterIProvider, PresenterKotlinComparable, PresenterIImageProviderListener, PresenterIGameView, PresenterIGamePresenter, PresenterIImageProvider, PresenterIHomeView, PresenterIHomePresenter, PresenterIMovePresenter, PresenterICharacterView, PresenterICharacterPresenter, PresenterIRootView, PresenterIRootPresenter, PresenterKotlinIterator;
+@protocol PresenterIFreezer, PresenterIProviderListener, PresenterIProvider, PresenterIImageProviderListener, PresenterIGameView, PresenterIGamePresenter, PresenterIImageProvider, PresenterIHomeView, PresenterIHomePresenter, PresenterIFavoritesProvider, PresenterIMovePresenter, PresenterICharacterView, PresenterICharacterPresenter, PresenterIRootView, PresenterIRootPresenter, PresenterKotlinIterator;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -163,36 +163,8 @@ __attribute__((swift_name("IProvider")))
 __attribute__((swift_name("IFavoritesProvider")))
 @protocol PresenterIFavoritesProvider <PresenterIProvider>
 @required
-- (void)deleteItem:(PresenterModelObj *)item type:(PresenterIFavoritesProviderFavType *)type __attribute__((swift_name("delete(item:type:)")));
-- (void)saveItem:(PresenterModelObj *)item type:(PresenterIFavoritesProviderFavType *)type __attribute__((swift_name("save(item:type:)")));
-@end;
-
-__attribute__((swift_name("KotlinComparable")))
-@protocol PresenterKotlinComparable
-@required
-- (int32_t)compareToOther:(id _Nullable)other __attribute__((swift_name("compareTo(other:)")));
-@end;
-
-__attribute__((swift_name("KotlinEnum")))
-@interface PresenterKotlinEnum<E> : PresenterBase <PresenterKotlinComparable>
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer));
-- (int32_t)compareToOther:(E)other __attribute__((swift_name("compareTo(other:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *name __attribute__((swift_name("name")));
-@property (readonly) int32_t ordinal __attribute__((swift_name("ordinal")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("IFavoritesProviderFavType")))
-@interface PresenterIFavoritesProviderFavType : PresenterKotlinEnum<PresenterIFavoritesProviderFavType *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) PresenterIFavoritesProviderFavType *game __attribute__((swift_name("game")));
-@property (class, readonly) PresenterIFavoritesProviderFavType *char_ __attribute__((swift_name("char_")));
-@property (class, readonly) PresenterIFavoritesProviderFavType *move __attribute__((swift_name("move")));
+- (void)deleteItem:(PresenterModelObj *)item __attribute__((swift_name("delete(item:)")));
+- (void)saveItem:(PresenterModelObj *)item __attribute__((swift_name("save(item:)")));
 @end;
 
 __attribute__((swift_name("IImageProvider")))
@@ -228,7 +200,7 @@ __attribute__((swift_name("IGamePresenter")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("GamePresenter")))
 @interface PresenterGamePresenter : PresenterBase <PresenterIGamePresenter>
-- (instancetype)initWithCharacterProvider:(id<PresenterIProvider>)characterProvider gameProvider:(id<PresenterIProvider>)gameProvider imageProvider:(id<PresenterIImageProvider>)imageProvider __attribute__((swift_name("init(characterProvider:gameProvider:imageProvider:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithFreezer:(id<PresenterIFreezer> _Nullable)freezer characterProvider:(id<PresenterIProvider> _Nullable)characterProvider gameProvider:(id<PresenterIProvider> _Nullable)gameProvider imageProvider:(id<PresenterIImageProvider> _Nullable)imageProvider __attribute__((swift_name("init(freezer:characterProvider:gameProvider:imageProvider:)"))) __attribute__((objc_designated_initializer));
 - (void)setViewView:(id<PresenterIGameView>)view __attribute__((swift_name("setView(view:)")));
 - (void)showGameId:(int32_t)id __attribute__((swift_name("showGame(id:)")));
 - (void)shutdown __attribute__((swift_name("shutdown()")));
@@ -237,6 +209,7 @@ __attribute__((swift_name("GamePresenter")))
 __attribute__((swift_name("IGameView")))
 @protocol PresenterIGameView
 @required
+- (void)displayUrl:(NSString *)url imgBase64:(NSString *)imgBase64 __attribute__((swift_name("display(url:imgBase64:)")));
 - (void)displayCharacters:(NSArray<PresenterModelCharacter *> *)characters __attribute__((swift_name("display(characters:)")));
 - (void)displayGame:(PresenterModelGame *)game __attribute__((swift_name("display(game:)")));
 - (void)errorError:(PresenterKotlinException *)error __attribute__((swift_name("error(error:)")));
@@ -253,7 +226,7 @@ __attribute__((swift_name("IHomePresenter")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("HomePresenter")))
 @interface PresenterHomePresenter : PresenterBase <PresenterIHomePresenter>
-- (instancetype)initWithFreezer:(id<PresenterIFreezer>)freezer gameProvider:(id<PresenterIProvider> _Nullable)gameProvider imageProvider:(id<PresenterIImageProvider> _Nullable)imageProvider __attribute__((swift_name("init(freezer:gameProvider:imageProvider:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithFreezer:(id<PresenterIFreezer>)freezer gameProvider:(id<PresenterIProvider> _Nullable)gameProvider imageProvider:(id<PresenterIImageProvider> _Nullable)imageProvider favoritesProvider:(id<PresenterIFavoritesProvider> _Nullable)favoritesProvider __attribute__((swift_name("init(freezer:gameProvider:imageProvider:favoritesProvider:)"))) __attribute__((objc_designated_initializer));
 - (void)setViewView_:(id<PresenterIHomeView>)view __attribute__((swift_name("setView(view_:)")));
 - (void)showGames __attribute__((swift_name("showGames()")));
 - (void)shutdown __attribute__((swift_name("shutdown()")));
@@ -264,6 +237,7 @@ __attribute__((swift_name("IHomeView")))
 @required
 - (void)displayUrl:(NSString *)url imgBase64:(NSString *)imgBase64 __attribute__((swift_name("display(url:imgBase64:)")));
 - (void)displayGames:(NSArray<PresenterModelGame *> *)games __attribute__((swift_name("display(games:)")));
+- (void)displayFavorites:(NSArray<PresenterModelObj *> *)favorites __attribute__((swift_name("display(favorites:)")));
 - (void)errorError:(PresenterKotlinException *)error __attribute__((swift_name("error(error:)")));
 @end;
 
@@ -329,11 +303,11 @@ __attribute__((swift_name("RootPresenter")))
 
 __attribute__((swift_name("ModelObj")))
 @interface PresenterModelObj : PresenterBase
-- (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUid:(int32_t)uid __attribute__((swift_name("init(uid:)"))) __attribute__((objc_designated_initializer));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int32_t id __attribute__((swift_name("id")));
+@property (readonly) int32_t uid __attribute__((swift_name("uid")));
 @end;
 
 __attribute__((swift_name("KotlinThrowable")))
@@ -362,8 +336,8 @@ __attribute__((swift_name("KotlinException")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelCharacter")))
 @interface PresenterModelCharacter : PresenterModelObj
-- (instancetype)initWithId:(int32_t)id name:(NSString *)name attributes:(NSDictionary<NSString *, NSString *> *)attributes moveIds:(NSArray<PresenterInt *> *)moveIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(id:name:attributes:moveIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithUid:(int32_t)uid name:(NSString *)name attributes:(NSDictionary<NSString *, NSString *> *)attributes moveIds:(NSArray<PresenterInt *> *)moveIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(uid:name:attributes:moveIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUid:(int32_t)uid __attribute__((swift_name("init(uid:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -376,8 +350,8 @@ __attribute__((swift_name("ModelCharacter")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelGame")))
 @interface PresenterModelGame : PresenterModelObj
-- (instancetype)initWithId:(int32_t)id name:(NSString *)name characterIds:(NSArray<PresenterInt *> *)characterIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(id:name:characterIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithUid:(int32_t)uid name:(NSString *)name characterIds:(NSArray<PresenterInt *> *)characterIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(uid:name:characterIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUid:(int32_t)uid __attribute__((swift_name("init(uid:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -389,8 +363,8 @@ __attribute__((swift_name("ModelGame")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelMove")))
 @interface PresenterModelMove : PresenterModelObj
-- (instancetype)initWithId:(int32_t)id name:(NSString *)name startup:(NSString *)startup active:(NSString *)active recovery:(NSString *)recovery hitAdv:(NSString *)hitAdv blockAdv:(NSString *)blockAdv notes:(NSString *)notes __attribute__((swift_name("init(id:name:startup:active:recovery:hitAdv:blockAdv:notes:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithId:(int32_t)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithUid:(int32_t)uid name:(NSString *)name startup:(NSString *)startup active:(NSString *)active recovery:(NSString *)recovery hitAdv:(NSString *)hitAdv blockAdv:(NSString *)blockAdv notes:(NSString *)notes __attribute__((swift_name("init(uid:name:startup:active:recovery:hitAdv:blockAdv:notes:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUid:(int32_t)uid __attribute__((swift_name("init(uid:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));

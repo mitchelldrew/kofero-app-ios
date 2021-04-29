@@ -1,91 +1,90 @@
-[
-    {
-        "id":1,
-        "name":"Iori (Flame)",
-        "attributes":{
-            "health":"123",
-            "stun":"456",
-            "other":"7890."
+[{
+        "uid": 5,
+        "name": "Iori (Flame)",
+        "attributes": {
+            "health": "123",
+            "stun": "456",
+            "other": "7890."
         },
-        "moveIds":[1,2,3],
-        "iconUrl":"https://img.fae.ro/0b6b48.png"
+        "moveIds": [1, 2, 3],
+        "iconUrl": "https://img.fae.ro/0b6b48.png"
     },
     {
-        "id":2,
-        "name":"Kyo (NESTS)",
+        "uid": 6,
+        "name": "Kyo (NESTS)",
         "attributes": {
-          "health":"321",
-          "stun":"654",
-          "other":"987",
-          "real name":"Gayboy Mcguyver"
+            "health": "321",
+            "stun": "654",
+            "other": "987",
+            "real name": "Gayboy Mcguyver"
         },
-        "moveIds":[1,2,3,4,34],
-        "iconUrl":"https://img.fae.ro/667848.png"
+        "moveIds": [1, 2, 3, 4, 34],
+        "iconUrl": "https://img.fae.ro/667848.png"
     },
     {
-        "id":3,
-        "name":"Heihachi",
+        "uid": 7,
+        "name": "Heihachi",
         "attributes": {
-            "health":"321",
-            "stun":"555",
-            "decliffed son?":true
-        }
-        "moveIds":[1,2],
-        "iconUrl":"https://img.fae.ro/7e519d.png"
+            "health": "321",
+            "stun": "555",
+            "decliffed son?": "true"
+        },
+        "moveIds": [1, 2],
+        "iconUrl": "https://img.fae.ro/7e519d.png"
     },
     {
-        "id":4,
-        "name":"Mr. Karate",
+        "uid": 8,
+        "name": "Mr. Karate",
         "attributes": {
-            "health":"321",
-            "stun":"555",
-            "decliffed son?":false
-        }
-        "moveIds":[1,2],
-        "iconUrl":"https://img.fae.ro/7b1eb8.png"
+            "health": "321",
+            "stun": "555",
+            "decliffed son?": "false"
+        },
+        "moveIds": [1, 2],
+        "iconUrl": "https://img.fae.ro/7b1eb8.png"
     },
     {
-        "id":5,
-        "name":"Kazuya",
+        "uid": 9,
+        "name": "Kazuya",
         "attributes": {
-            "health":"321",
-            "stun":"555",
-            "decliffed son?":false
-        }
-        "moveIds":[1,2],
-        "iconUrl":"https://img.fae.ro/ba70ae.png"
+            "health": "321",
+            "stun": "555",
+            "decliffed son?": "false"
+        },
+        "moveIds": [1, 2],
+        "iconUrl": "https://img.fae.ro/ba70ae.png"
     },
     {
-        "id":6,
-        "name":"Ryo",
+        "uid": 10,
+        "name": "Ryo",
         "attributes": {
-            "health":"321",
-            "stun":"555",
-            "decliffed son?":false
-        }
-        "moveIds":[1,2],
-        "iconUrl":"https://img.fae.ro/7aa16d.png"
+            "health": "321",
+            "stun": "555",
+            "decliffed son?": "false"
+        },
+        "moveIds": [1, 2],
+        "iconUrl": "https://img.fae.ro/7aa16d.png"
     },
     {
-        "id":7,
-        "name":"Ryo",
+        "uid": 11,
+        "name": "Ryo",
         "attributes": {
-            "health":"321",
-            "stun":"555",
-            "decliffed son?":false
-        }
-        "moveIds":[1,2],
-        "iconUrl":"https://img.fae.ro/788431.png"
+            "health": "321",
+            "stun": "555",
+            "decliffed son?": "false"
+        },
+        "moveIds": [1, 2],
+        "iconUrl": "https://img.fae.ro/788431.png"
     },
     {
-        "id":8,
-        "name":"Yoshimitsu",
+        "uid": 12,
+        "name": "Yoshimitsu",
         "attributes": {
-            "health":"321",
-            "stun":"555",
-            "decliffed son?":false
-        }
-        "moveIds":[1,2],
-        "iconUrl":"https://img.fae.ro/504dc3.png"
+            "health": "321",
+            "stun": "555",
+            "decliffed son?": "false"
+        },
+        "moveIds": [1, 2],
+        "iconUrl": "https://img.fae.ro/504dc3.png"
     }
 ]

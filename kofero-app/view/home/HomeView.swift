@@ -16,8 +16,8 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     private let adUnitId:String
     
     private var collectionView:UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, Item<ModelObj>>!
-    var snapshot: NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Item<ModelObj>>!
+    private var snapshot: NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>!
     private var bannerView: GADBannerView?
     private var games = [ModelGame]()
     private var displayedItems = [Item]()
@@ -62,8 +62,6 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     }
     
     func buildCollectionView(){
-        let layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
         let gridLayout = GridCollectionViewLayout(numberOfColumns: 4)
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: gridLayout)
         view.addSubview(collectionView)
@@ -76,7 +74,7 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
             collectionView.bottomAnchor.constraint(equalTo: bannerView!.topAnchor, constant: 0.0),
         ])
-        let cellRegistration = UICollectionView.CellRegistration<HomeItemGridCell, Item<ModelObj>> { (cell, indexPath, item) in
+        let cellRegistration = UICollectionView.CellRegistration<HomeViewItemGridCell, Item<ModelObj>> { (cell, indexPath, item) in
             cell.item = item
         }
         dataSource = UICollectionViewDiffableDataSource<Section, Item<ModelObj>>(collectionView: collectionView) {
@@ -87,12 +85,12 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        present(gameViewBuilder.gameView(id: games[indexPath.item].id), animated: true, completion: nil)
+        present(gameViewBuilder.gameView(id: games[indexPath.item].uid), animated: true, completion: nil)
     }
     
     func display(url: String, imgBase64: String) {
         for game in games{
-            if game.iconUrl == url && !displayedItems.contains{item in return item.item.id == game.id} {
+            if game.iconUrl == url && !displayedItems.contains{item in return item.item.uid == game.uid} {
                 let image = UIImage(data: Data(base64Encoded: imgBase64)!)!
                 let item = Item(item: game as ModelObj, image: image)
                 snapshot.appendItems([Item<ModelObj>](arrayLiteral: item), toSection: .main)
@@ -107,6 +105,11 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
         displayedItems.removeAll()
         snapshot = NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>()
         snapshot.appendSections([.main])
+    }
+    
+    
+    func display(favorites: [ModelObj]) {
+        
     }
     
     func error(error: KotlinException) {

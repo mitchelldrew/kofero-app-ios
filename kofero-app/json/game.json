@@ -1,24 +1,24 @@
 [
     {
-        "id":1,
+        "uid":1,
         "name":"kof13",
-        "charIds":[1,2,4,6],
+        "charIds":[5,6,8,11],
         "iconUrl":"https://img.fae.ro/41a199.png"
     },
     {
-        "id":2,
+        "uid":2,
         "name":"Tekken 7",
-        "charIds":[3,5,8],
+        "charIds":[12,9,7],
         "iconUrl":"https://img.fae.ro/a9222a.png"
     },
     {
-        "id":3,
+        "uid":3,
         "name":"kof14",
-        "charIds":[7],
+        "charIds":[10],
         "iconUrl":"https://img.fae.ro/81f2b6.png"
     },
     {
-        "id":4,
+        "uid":4,
         "name":"kof15",
         "charIds":[34,35,36],
         "iconUrl":"https://img.fae.ro/762785.png"
