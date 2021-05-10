@@ -17,6 +17,7 @@ protocol CharacterDependency: Dependency {
     var providerCore:ProviderCore {get}
     var jsonEncoder:IDataEncoder<[JSON]> {get}
     var moveViewBuilder:MoveViewBuilder {get}
+    var freezer: IFreezer {get}
 }
 
 class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
@@ -37,7 +38,7 @@ class CharacterComponent: Component<CharacterDependency>, CharacterViewBuilder {
     }
     
     var presenter: ICharacterPresenter {
-        return CharacterPresenter(moveProvider: dependency.moveProvider, imageProvider: dependency.imageProvider)
+        return CharacterPresenter(freezer:dependency.freezer, charProvider: provider, moveProvider: dependency.moveProvider, imageProvider: dependency.imageProvider)
     }
     
     func characterView(id:Int32) -> UIViewController {

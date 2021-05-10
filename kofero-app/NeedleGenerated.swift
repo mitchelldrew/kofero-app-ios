@@ -117,6 +117,9 @@ private class CharacterDependency42b99561bd73739b9ec3BaseProvider: CharacterDepe
     var moveViewBuilder: MoveViewBuilder {
         return rootComponent.moveViewBuilder
     }
+    var freezer: IFreezer {
+        return rootComponent.freezer
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent

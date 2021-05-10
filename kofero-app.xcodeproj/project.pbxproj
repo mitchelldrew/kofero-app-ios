@@ -199,15 +199,23 @@
 		4B9F8EBD25F94979007F330C /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4B91FB74262E076400A4A56A /* model */,
 				4B9AC1A5263B6D7D00CEA6D9 /* character */,
-				4B91FB7B262E0A8100A4A56A /* home */,
 				4BCE3DBA263A0BC100901CB5 /* game */,
+				4B91FB7B262E0A8100A4A56A /* home */,
+				4BB5B95C2647B4B30056D973 /* move */,
+				4B91FB74262E076400A4A56A /* model */,
 				4BEA2686263906B1003739CB /* GridCollectionViewLayout.swift */,
 				4B9F8E8B25F320AF007F330C /* RootView.swift */,
-				4B78BFCF25FC57FA0015BFD7 /* MoveView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		4BB5B95C2647B4B30056D973 /* move */ = {
+			isa = PBXGroup;
+			children = (
+				4B78BFCF25FC57FA0015BFD7 /* MoveView.swift */,
+			);
+			path = move;
 			sourceTree = "<group>";
 		};
 		4BCE3DBA263A0BC100901CB5 /* game */ = {

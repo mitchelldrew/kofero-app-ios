@@ -10,7 +10,7 @@ import presenter
 import UIKit
 import GoogleMobileAds
 
-class GameView: UIViewController, IGameView, UICollectionViewDelegate {
+class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
     private let presenter:IGamePresenter
     private let characterViewBuilder:CharacterViewBuilder
     private let gameId:Int32
@@ -84,6 +84,10 @@ class GameView: UIViewController, IGameView, UICollectionViewDelegate {
             bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        present(characterViewBuilder.characterView(id: characters[indexPath.item].uid), animated: true, completion: nil)
     }
     
     func display(characters: [ModelCharacter]) {

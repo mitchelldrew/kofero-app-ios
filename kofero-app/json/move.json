@@ -1,6 +1,6 @@
 [
     {
-        "id":1,
+        "uid":1,
         "name":"spinningPile Driver",
         "startup":"-5",
         "active":"+10",
@@ -10,7 +10,7 @@
         "notes":"Notes."
     },
     {
-        "id":2,
+        "uid":2,
         "name":"cammy super",
         "startup":"-5",
         "active":"+10",
@@ -20,7 +20,7 @@
         "notes":"Damage: 5, Gray health: 6"
     },
     {
-        "id":3,
+        "uid":3,
         "name":"Thrile Driver",
         "startup":"-445",
         "active":"+1330",
@@ -30,7 +30,7 @@
         "notes":"Nogfgtes."
     },
     {
-        "id":4,
+        "uid":4,
         "name":"Lifestory Driver",
         "startup":"-445",
         "active":"+1g0",
@@ -40,7 +40,7 @@
         "notes":"Dont Travel."
     },
     {
-        "id":5,
+        "uid":5,
         "name":"Travel Dfever",
         "startup":"-5",
         "active":"+10",
@@ -50,7 +50,7 @@
         "notes":"Notes."
     },
     {
-        "id":6,
+        "uid":6,
         "name":"FFEF Driver",
         "startup":"-5",
         "active":"+1440",

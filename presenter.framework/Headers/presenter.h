@@ -267,7 +267,7 @@ __attribute__((swift_name("ICharacterPresenter")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("CharacterPresenter")))
 @interface PresenterCharacterPresenter : PresenterBase <PresenterICharacterPresenter>
-- (instancetype)initWithMoveProvider:(id<PresenterIProvider>)moveProvider imageProvider:(id<PresenterIImageProvider>)imageProvider __attribute__((swift_name("init(moveProvider:imageProvider:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithFreezer:(id<PresenterIFreezer> _Nullable)freezer charProvider:(id<PresenterIProvider> _Nullable)charProvider moveProvider:(id<PresenterIProvider> _Nullable)moveProvider imageProvider:(id<PresenterIImageProvider> _Nullable)imageProvider __attribute__((swift_name("init(freezer:charProvider:moveProvider:imageProvider:)"))) __attribute__((objc_designated_initializer));
 - (void)getId:(int32_t)id __attribute__((swift_name("get(id:)")));
 - (void)setViewView__:(id<PresenterICharacterView>)view __attribute__((swift_name("setView(view__:)")));
 @end;
@@ -275,6 +275,7 @@ __attribute__((swift_name("CharacterPresenter")))
 __attribute__((swift_name("ICharacterView")))
 @protocol PresenterICharacterView
 @required
+- (void)displayUrl:(NSString *)url imgBase64:(NSString *)imgBase64 __attribute__((swift_name("display(url:imgBase64:)")));
 - (void)displayMoves:(NSArray<PresenterModelMove *> *)moves __attribute__((swift_name("display(moves:)")));
 - (void)displayCharacter:(PresenterModelCharacter *)character __attribute__((swift_name("display(character:)")));
 - (void)errorError:(PresenterKotlinException *)error __attribute__((swift_name("error(error:)")));
