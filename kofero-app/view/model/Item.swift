@@ -10,10 +10,10 @@ import presenter
 import UIKit
 
 struct Item<O:ModelObj> : Hashable {
-    let image:UIImage
+    let image:UIImage?
     let item:O
     
-    init(item:O, image:UIImage){
+    init(item:O, image:UIImage?){
         self.item = item
         self.image = image
     }
