@@ -12,13 +12,36 @@ import UIKit
 
 
 struct MoveItem: Hashable {
+    let uuid = UUID()
     let title: String
-    let children: [String]
+    var children: [MoveString]
+    
+    
+    static func ==(lhs: MoveItem, rhs: MoveItem) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
+    }
+}
+
+struct MoveString: Hashable {
+    let uuid = UUID()
+    let string: String
+    
+    static func ==(lhs: MoveString, rhs: MoveString) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
+    }
 }
 
 enum ListItem: Hashable {
     case header(MoveItem)
-    case symbol(String)
+    case symbol(MoveString)
 }
 
 
@@ -43,22 +66,6 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
     enum Section {
         case main
     }
-    
-    let modelObjects = [
-        
-        MoveItem(title: "crouch A", children: [
-            "SFSymbolItem(name: )",
-            "SFSymbolItem(name: mic.fill)",
-            "SFSymbolItem(name: meessage)",
-            "SFSymbolItem(name: messagea.fill),"
-        ]),
-        MoveItem(title: "croudch A", children: [
-            "SFSymbolItem(namef: )",
-            "SFSymbolItem(name: mic.ffill)",
-            "SFSymbolItem(name: meesfsage)",
-            "SFSymbolItem(name: messagea.fdill),"
-        ])
-    ]
     
     init(presenter:ICharacterPresenter, charId:Int32, moveViewBuilder:MoveViewBuilder){
         self.charId = charId
@@ -146,7 +153,7 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
                 // Dequeue symbol cell
                 let cell = collectionView.dequeueConfiguredReusableCell(using: symbolCellRegistration,
                                                                         for: indexPath,
-                                                                        item: symbolItem)
+                                                                        item: symbolItem.string)
                 return cell
             }
         }
@@ -157,23 +164,6 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
         // Create a section in the data source snapshot
         dataSourceSnapshot.appendSections([.main])
         dataSource.apply(dataSourceSnapshot)
-        
-        // Create a section snapshot for main section
-        var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<ListItem>()
-
-        for headerItem in modelObjects {
-           
-            // Create a header ListItem & append as parent
-            let headerListItem = ListItem.header(headerItem)
-            sectionSnapshot.append([headerListItem])
-            
-            // Create an array of symbol ListItem & append as children of headerListItem
-            let symbolListItemArray = headerItem.children.map { ListItem.symbol($0) }
-            sectionSnapshot.append(symbolListItemArray, to: headerListItem)
-            
-        }
-        // Apply section snapshot to main section
-        dataSource.apply(sectionSnapshot, to: .main, animatingDifferences: false)
     }
     
     private func addHeader(){
@@ -211,6 +201,34 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
     }
     
     func display(moves: [ModelMove]) {
+        
+        // Create a section snapshot for main section
+        var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<ListItem>()
+
+        for move in moves {
+           
+            
+            var moveItem = MoveItem(title: move.name, children: [])
+            // Create a header ListItem & append as parent
+            let headerListItem = ListItem.header(moveItem)
+            sectionSnapshot.append([headerListItem])
+            
+            
+            moveItem.children.append(MoveString(string: move.startup))
+            // Create an array of symbol ListItem & append as children of headerListItem
+
+            var symbolListItemArray = [ListItem]()
+            symbolListItemArray.append(ListItem.symbol(MoveString(string: "Startup: \(move.startup)")))
+            symbolListItemArray.append(ListItem.symbol(MoveString(string: "Active: \(move.active)")))
+            symbolListItemArray.append(ListItem.symbol(MoveString(string: "Recovery: \(move.recovery)")))
+            symbolListItemArray.append(ListItem.symbol(MoveString(string: "HitAdv: \(move.hitAdv)")))
+            symbolListItemArray.append(ListItem.symbol(MoveString(string: "BlockAdv: \(move.blockAdv)")))
+            symbolListItemArray.append(ListItem.symbol(MoveString(string: "Notes: \(move.notes)")))
+            sectionSnapshot.append(symbolListItemArray, to: headerListItem)
+            
+        }
+        // Apply section snapshot to main section
+        dataSource.apply(sectionSnapshot, to: .main, animatingDifferences: false)
     }
     
     func display(character: ModelCharacter) {
