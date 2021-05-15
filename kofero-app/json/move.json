@@ -288,5 +288,209 @@
     "hitAdv": "Knockdown",
     "blockAdv": "-63",
     "notes": ""
+  },
+  {
+    "uid": 29,
+    "name": "↓↙←,←↙↓↘→A/C",
+    "startup": "17",
+    "active": "-",
+    "recovery": "52",
+    "hitAdv": "Knockdown",
+    "blockAdv": "-20",
+    "notes": "Freeze of 29f, 11f startup with slight charge"
+  },
+  {
+    "uid": 30,
+    "name": "↓↙←,←↙↓↘→A/C(Air)",
+    "startup": "12",
+    "active": "-",
+    "recovery": "Landing+16",
+    "hitAdv": "Knockdown",
+    "blockAdv": "-",
+    "notes": "Freeze of 29f"
+  },
+  {
+    "uid": 31,
+    "name": "↓↙←,←↙↓↘→AC",
+    "startup": "9",
+    "active": "-",
+    "recovery": "62",
+    "hitAdv": "Knockdown",
+    "blockAdv": "-17",
+    "notes": "Freeze of 29f, 2f startup with slight charge"
+  },
+  {
+    "uid": 32,
+    "name": "↓↙←,←↙↓↘→AC(Air)",
+    "startup": "7",
+    "active": "-",
+    "recovery": "Landing+16",
+    "hitAdv": "Knockdown",
+    "blockAdv": "-",
+    "notes": "Freeze of 29f"
+  },
+  {
+    "uid": 33,
+    "name": "↓↘→↓↘→AC",
+    "startup": "7",
+    "active": "-",
+    "recovery": "56",
+    "hitAdv": "Knockdown",
+    "blockAdv": "-34",
+    "notes": "Freeze of 39f"
+  },
+  {
+    "uid": 34,
+    "name": "hop Empty",
+    "startup": "4(prejump frames)",
+    "active": "-",
+    "recovery": "1(landing frame)",
+    "duration": "25",
+    "hitstun": "-",
+    "blockstun": "-",
+    "notes": ""
+  },
+  {
+    "uid": 35,
+    "name": "hop A",
+    "startup": "6",
+    "active": "5",
+    "recovery": "Until Landing+1",
+    "duration": "25",
+    "hitstun": "13",
+    "blockstun": "13",
+    "notes": ""
+  },
+  {
+    "uid": 36,
+    "name": "hop B",
+    "startup": "5",
+    "active": "9",
+    "recovery": "Until Landing+1",
+    "duration": "25",
+    "hitstun": "13",
+    "blockstun": "13",
+    "notes": ""
+  },
+  {
+    "uid": 37,
+    "name": "hop C",
+    "startup": "6",
+    "active": "4",
+    "recovery": "Until Landing+1",
+    "duration": "25",
+    "hitstun": "13",
+    "blockstun": "16",
+    "notes": ""
+  },
+  {
+    "uid": 38,
+    "name": "hop D",
+    "startup": "8",
+    "active": "5",
+    "recovery": "Until Landing+1",
+    "duration": "25",
+    "hitstun": "13",
+    "blockstun": "16",
+    "notes": "-"
+  },
+  {
+    "uid": 39,
+    "name": "hop CD",
+    "startup": "10",
+    "active": "8",
+    "recovery": "Until Landing+1",
+    "duration": "25",
+    "hitstun": "Knockdown",
+    "blockstun": "19",
+    "notes": ""
+  },
+  {
+    "uid": 40,
+    "name": "hop ↓C",
+    "startup": "8",
+    "active": "4",
+    "recovery": "Until Landing+1",
+    "duration": "25",
+    "hitstun": "21",
+    "blockstun": "19",
+    "notes": "Hitfreeze: 7f"
+  },
+  {
+    "uid": 41,
+    "name": "jump Empty",
+    "startup": "4(prejump frames)",
+    "active": "-",
+    "recovery": "1(landing frame)",
+    "duration": "35",
+    "hitstun": "-",
+    "blockstun": "-",
+    "notes": ""
+  },
+  {
+    "uid": 42,
+    "name": "jump A",
+    "startup": "6",
+    "active": "7",
+    "recovery": "Until Landing+1",
+    "duration": "35",
+    "hitstun": "13",
+    "blockstun": "13",
+    "notes": ""
+  },
+  {
+    "uid": 43,
+    "name": "jump B",
+    "startup": "5",
+    "active": "12",
+    "recovery": "Until Landing+1",
+    "duration": "35",
+    "hitstun": "13",
+    "blockstun": "13",
+    "notes": ""
+  },
+  {
+    "uid": 44,
+    "name": "jump C",
+    "startup": "6",
+    "active": "5",
+    "recovery": "Until Landing+1",
+    "duration": "35",
+    "hitstun": "13",
+    "blockstun": "16",
+    "notes": ""
+  },
+  {
+    "uid": 45,
+    "name": "jump D",
+    "startup": "8",
+    "active": "5",
+    "recovery": "Until Landing+1",
+    "duration": "35",
+    "hitstun": "13",
+    "blockstun": "16",
+    "notes": ""
+  },
+  {
+    "uid": 46,
+    "name": "jump CD",
+    "startup": "13",
+    "active": "10",
+    "recovery": "Until Landing+1",
+    "duration": "35",
+    "hitstun": "Knockdown",
+    "blockstun": "23",
+    "notes": ""
+  },
+  {
+    "uid": 47,
+    "name": "jump ↓C",
+    "startup": "8",
+    "active": "4",
+    "recovery": "Until Landing+1",
+    "duration": "35",
+    "hitstun": "21",
+    "blockstun": "19",
+    "notes": "Hitfreeze: 7f"
   }
 ]

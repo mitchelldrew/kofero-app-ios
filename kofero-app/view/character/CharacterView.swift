@@ -92,17 +92,10 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
     
     
     private func addCollectionView(){
-        
-        
-        // MARK: Create list layout
         let layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
-        
-        // MARK: Configure collection view
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: listLayout)
         view.addSubview(collectionView)
-        
-        // Make collection view take up the entire view
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: header!.bottomAnchor, constant: 0.0),
@@ -110,39 +103,29 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0),
         ])
-        
-        // MARK: Cell registration
         let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MoveItem> {
             (cell, indexPath, headerItem) in
             
-            // Set headerItem's data to cell
             var content = cell.defaultContentConfiguration()
             content.text = headerItem.title
             cell.contentConfiguration = content
             
-            // Add outline disclosure accessory
-            // With this accessory, the header cell's children will expand / collapse when the header cell is tapped.
             let headerDisclosureOption = UICellAccessory.OutlineDisclosureOptions(style: .header)
             cell.accessories = [.outlineDisclosure(options:headerDisclosureOption)]
         }
-        
         let symbolCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String> {
             (cell, indexPath, symbolItem) in
             
-            // Set symbolItem's data to cell
             var content = cell.defaultContentConfiguration()
             content.text = symbolItem
             cell.contentConfiguration = content
         }
-        
-        // MARK: Initialize data source
         dataSource = UICollectionViewDiffableDataSource<Section, ListItem>(collectionView: collectionView) {
             (collectionView, indexPath, listItem) -> UICollectionViewCell? in
             
             switch listItem {
             case .header(let headerItem):
             
-                // Dequeue header cell
                 let cell = collectionView.dequeueConfiguredReusableCell(using: headerCellRegistration,
                                                                         for: indexPath,
                                                                         item: headerItem)
@@ -150,18 +133,13 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
             
             case .symbol(let symbolItem):
                 
-                // Dequeue symbol cell
                 let cell = collectionView.dequeueConfiguredReusableCell(using: symbolCellRegistration,
                                                                         for: indexPath,
                                                                         item: symbolItem.string)
                 return cell
             }
         }
-        
-        // MARK: Setup snapshots
         var dataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, ListItem>()
-
-        // Create a section in the data source snapshot
         dataSourceSnapshot.appendSections([.main])
         dataSource.apply(dataSourceSnapshot)
     }
@@ -201,33 +179,24 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
     }
     
     func display(moves: [ModelMove]) {
-        
-        // Create a section snapshot for main section
         var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<ListItem>()
-
         for move in moves {
-           
-            
             var moveItem = MoveItem(title: move.name, children: [])
-            // Create a header ListItem & append as parent
             let headerListItem = ListItem.header(moveItem)
             sectionSnapshot.append([headerListItem])
-            
-            
             moveItem.children.append(MoveString(string: move.startup))
-            // Create an array of symbol ListItem & append as children of headerListItem
-
             var symbolListItemArray = [ListItem]()
             symbolListItemArray.append(ListItem.symbol(MoveString(string: "Startup: \(move.startup)")))
+            if let uHitType = move.hitType{
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "Hit Type: \(uHitType)")))
+            }
             symbolListItemArray.append(ListItem.symbol(MoveString(string: "Active: \(move.active)")))
             symbolListItemArray.append(ListItem.symbol(MoveString(string: "Recovery: \(move.recovery)")))
             symbolListItemArray.append(ListItem.symbol(MoveString(string: "HitAdv: \(move.hitAdv)")))
             symbolListItemArray.append(ListItem.symbol(MoveString(string: "BlockAdv: \(move.blockAdv)")))
             symbolListItemArray.append(ListItem.symbol(MoveString(string: "Notes: \(move.notes)")))
             sectionSnapshot.append(symbolListItemArray, to: headerListItem)
-            
         }
-        // Apply section snapshot to main section
         dataSource.apply(sectionSnapshot, to: .main, animatingDifferences: false)
     }
     
