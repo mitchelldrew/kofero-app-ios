@@ -31,7 +31,6 @@
 		4B9F8ECF25FA886D007F330C /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8ECE25FA886D007F330C /* NeedleGenerated.swift */; };
 		4B9F8ED125FA9382007F330C /* CharacterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8ED025FA9382007F330C /* CharacterComponent.swift */; };
 		4B9F8ED325FA94B7007F330C /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8ED225FA94B7007F330C /* CharacterView.swift */; };
-		4BB5B967264B30AE0056D973 /* CharacterViewContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5B966264B30AE0056D973 /* CharacterViewContentConfiguration.swift */; };
 		4BCE3DBC263A0C7700901CB5 /* GameViewItemGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE3DBB263A0C7700901CB5 /* GameViewItemGridCell.swift */; };
 		4BE8A2482638AA7D00FA5BD7 /* HomeItemGridContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8A2472638AA7D00FA5BD7 /* HomeItemGridContentConfiguration.swift */; };
 		4BE8A24A2638B9EA00FA5BD7 /* HomeItemGridContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8A2492638B9EA00FA5BD7 /* HomeItemGridContentView.swift */; };
@@ -81,7 +80,6 @@
 		4B9F8ECE25FA886D007F330C /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NeedleGenerated.swift; path = "kofero-app/NeedleGenerated.swift"; sourceTree = SOURCE_ROOT; };
 		4B9F8ED025FA9382007F330C /* CharacterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterComponent.swift; sourceTree = "<group>"; };
 		4B9F8ED225FA94B7007F330C /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
-		4BB5B966264B30AE0056D973 /* CharacterViewContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewContentConfiguration.swift; sourceTree = "<group>"; };
 		4BCE3DBB263A0C7700901CB5 /* GameViewItemGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewItemGridCell.swift; sourceTree = "<group>"; };
 		4BE8A2472638AA7D00FA5BD7 /* HomeItemGridContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemGridContentConfiguration.swift; sourceTree = "<group>"; };
 		4BE8A2492638B9EA00FA5BD7 /* HomeItemGridContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemGridContentView.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				4B9F8ED225FA94B7007F330C /* CharacterView.swift */,
-				4BB5B966264B30AE0056D973 /* CharacterViewContentConfiguration.swift */,
 			);
 			path = character;
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 				4B9AC1A2263B6C2A00CEA6D9 /* GameItemGridContentConfiguration.swift in Sources */,
 				4B9F8EBA25F93D98007F330C /* RootComponent.swift in Sources */,
 				4B91FB76262E077400A4A56A /* Item.swift in Sources */,
-				4BB5B967264B30AE0056D973 /* CharacterViewContentConfiguration.swift in Sources */,
 				4B9F8ED325FA94B7007F330C /* CharacterView.swift in Sources */,
 				4B9F8EBC25F94681007F330C /* HomeComponent.swift in Sources */,
 				4B9F8ECF25FA886D007F330C /* NeedleGenerated.swift in Sources */,
