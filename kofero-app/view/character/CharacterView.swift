@@ -11,6 +11,8 @@ import presenter
 import UIKit
 
 
+
+
 struct MoveItem: Hashable {
     let uuid = UUID()
     let title: String
@@ -44,8 +46,6 @@ enum ListItem: Hashable {
     case symbol(MoveString)
 }
 
-
-
 class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate {
     
     private let presenter:ICharacterPresenter
@@ -60,6 +60,8 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
     
     private var bannerView: GADBannerView?
     
+    private let adUnitId:String
+    
     private var collectionView:UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, ListItem>!
     
@@ -67,13 +69,13 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
         case main
     }
     
-    init(presenter:ICharacterPresenter, charId:Int32, moveViewBuilder:MoveViewBuilder){
+    init(presenter:ICharacterPresenter, charId:Int32, moveViewBuilder:MoveViewBuilder, adUnitId:String){
+        self.adUnitId = adUnitId
         self.charId = charId
         self.presenter = presenter
         self.moveViewBuilder = moveViewBuilder
         super.init(nibName: nil, bundle: nil)
         view.backgroundColor = .systemGray
-        modalPresentationStyle = .fullScreen
     }
     
     required init?(coder: NSCoder) {
@@ -85,11 +87,26 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
         presenter.setView(view__: self)
         
         addHeader()
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addCollectionView()
+        
+        addBannerViewToView(bannerView!)
         
         presenter.get(id: charId)
     }
     
+    
+    private func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.adUnitID = adUnitId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        view.addSubview(bannerView)
+        NSLayoutConstraint.activate([
+            bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
     
     private func addCollectionView(){
         let layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
@@ -101,7 +118,7 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
             collectionView.topAnchor.constraint(equalTo: header!.bottomAnchor, constant: 0.0),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0),
+            collectionView.bottomAnchor.constraint(equalTo: view!.bottomAnchor, constant: 0.0)
         ])
         let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MoveItem> {
             (cell, indexPath, headerItem) in
@@ -181,23 +198,51 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
     func display(moves: [ModelMove]) {
         var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<ListItem>()
         for move in moves {
-            var moveItem = MoveItem(title: move.name, children: [])
+            let HITTYPE = "Hit Type"
+            let STARTUP = "Startup"
+            let ACTIVE = "Active"
+            let RECOVERY = "Recovery"
+            let HITADV = "Hit Adv"
+            let BLOCKADV = "Block Adv"
+            let HITSTUN = "Hitstun"
+            let BLOCKSTUN = "Blockstun"
+            let NOTES = "Notes"
+            var mAttr = move.attributes
+            let moveItem = MoveItem(title: move.name, children: [])
             let headerListItem = ListItem.header(moveItem)
             sectionSnapshot.append([headerListItem])
-            moveItem.children.append(MoveString(string: move.startup))
             var symbolListItemArray = [ListItem]()
-            symbolListItemArray.append(ListItem.symbol(MoveString(string: "Startup: \(move.startup)")))
-            if let uHitType = move.hitType{
-                symbolListItemArray.append(ListItem.symbol(MoveString(string: "Hit Type: \(uHitType)")))
+            var notes:String?
+            notes = mAttr.removeValue(forKey: NOTES)
+            if(mAttr.keys.contains(HITTYPE)){
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(HITTYPE): \( mAttr.removeValue(forKey: HITTYPE)!)")))
             }
-            symbolListItemArray.append(ListItem.symbol(MoveString(string: "Active: \(move.active)")))
-            symbolListItemArray.append(ListItem.symbol(MoveString(string: "Recovery: \(move.recovery)")))
-            symbolListItemArray.append(ListItem.symbol(MoveString(string: "HitAdv: \(move.hitAdv)")))
-            symbolListItemArray.append(ListItem.symbol(MoveString(string: "BlockAdv: \(move.blockAdv)")))
-            symbolListItemArray.append(ListItem.symbol(MoveString(string: "Notes: \(move.notes)")))
+            if(mAttr.keys.contains(STARTUP)){
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(STARTUP): \( mAttr.removeValue(forKey: STARTUP)!)")))
+            }
+            if(mAttr.keys.contains(ACTIVE)){
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(ACTIVE): \( mAttr.removeValue(forKey: ACTIVE)!)")))
+            }
+            if(mAttr.keys.contains(RECOVERY)){
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(RECOVERY): \( mAttr.removeValue(forKey: RECOVERY)!)")))
+            }
+            if(mAttr.keys.contains(HITSTUN) && mAttr.keys.contains(BLOCKSTUN)){
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(HITSTUN): \( mAttr.removeValue(forKey: HITSTUN)!)")))
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(BLOCKSTUN): \( mAttr.removeValue(forKey: BLOCKSTUN)!)")))
+            }
+            if(mAttr.keys.contains(HITADV) && mAttr.keys.contains(BLOCKADV)){
+                    symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(HITADV): \( mAttr.removeValue(forKey: HITADV)!)")))
+                    symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(BLOCKADV): \(mAttr.removeValue(forKey: BLOCKADV)!)")))
+            }
+            for attribute in mAttr {
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(attribute.key): \(attribute.value)")))
+            }
+            if let uNotes = notes{
+                symbolListItemArray.append(ListItem.symbol(MoveString(string: "\(NOTES): \(uNotes)")))
+            }
             sectionSnapshot.append(symbolListItemArray, to: headerListItem)
         }
-        dataSource.apply(sectionSnapshot, to: .main, animatingDifferences: false)
+        dataSource?.apply(sectionSnapshot, to: .main, animatingDifferences: false)
     }
     
     func display(character: ModelCharacter) {

@@ -12,7 +12,7 @@
 		4B8A0C40261BD1CE007006D6 /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C3F261BD1CE007006D6 /* game.json */; };
 		4B8A0C4A261F9C6E007006D6 /* char.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C49261F9C6E007006D6 /* char.json */; };
 		4B8A0C4C261F9C90007006D6 /* move.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B8A0C4B261F9C90007006D6 /* move.json */; };
-		4B91FB76262E077400A4A56A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91FB75262E077400A4A56A /* Item.swift */; };
+		4B91FB76262E077400A4A56A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91FB75262E077400A4A56A /* Model.swift */; };
 		4B9AC1A2263B6C2A00CEA6D9 /* GameItemGridContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9AC1A1263B6C2A00CEA6D9 /* GameItemGridContentConfiguration.swift */; };
 		4B9AC1A4263B6C6600CEA6D9 /* GameItemGridContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9AC1A3263B6C6600CEA6D9 /* GameItemGridContentView.swift */; };
 		4B9F8E8825F320AF007F330C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F8E8725F320AF007F330C /* AppDelegate.swift */; };
@@ -61,7 +61,7 @@
 		4B8A0C3F261BD1CE007006D6 /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
 		4B8A0C49261F9C6E007006D6 /* char.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = char.json; sourceTree = "<group>"; };
 		4B8A0C4B261F9C90007006D6 /* move.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = move.json; sourceTree = "<group>"; };
-		4B91FB75262E077400A4A56A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4B91FB75262E077400A4A56A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4B9AC1A1263B6C2A00CEA6D9 /* GameItemGridContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemGridContentConfiguration.swift; sourceTree = "<group>"; };
 		4B9AC1A3263B6C6600CEA6D9 /* GameItemGridContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemGridContentView.swift; sourceTree = "<group>"; };
 		4B9F8E8425F320AF007F330C /* debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,14 +113,6 @@
 				4B8A0C4B261F9C90007006D6 /* move.json */,
 			);
 			path = json;
-			sourceTree = "<group>";
-		};
-		4B91FB74262E076400A4A56A /* model */ = {
-			isa = PBXGroup;
-			children = (
-				4B91FB75262E077400A4A56A /* Item.swift */,
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		4B91FB7B262E0A8100A4A56A /* home */ = {
@@ -190,11 +182,11 @@
 		4B9F8EBD25F94979007F330C /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4B9AC1A5263B6D7D00CEA6D9 /* character */,
-				4BCE3DBA263A0BC100901CB5 /* game */,
 				4B91FB7B262E0A8100A4A56A /* home */,
+				4BCE3DBA263A0BC100901CB5 /* game */,
+				4B9AC1A5263B6D7D00CEA6D9 /* character */,
 				4BB5B95C2647B4B30056D973 /* move */,
-				4B91FB74262E076400A4A56A /* model */,
+				4B91FB75262E077400A4A56A /* Model.swift */,
 				4BEA2686263906B1003739CB /* GridCollectionViewLayout.swift */,
 				4B9F8E8B25F320AF007F330C /* RootView.swift */,
 			);
@@ -386,7 +378,7 @@
 				4B9F8E8825F320AF007F330C /* AppDelegate.swift in Sources */,
 				4B9AC1A2263B6C2A00CEA6D9 /* GameItemGridContentConfiguration.swift in Sources */,
 				4B9F8EBA25F93D98007F330C /* RootComponent.swift in Sources */,
-				4B91FB76262E077400A4A56A /* Item.swift in Sources */,
+				4B91FB76262E077400A4A56A /* Model.swift in Sources */,
 				4B9F8ED325FA94B7007F330C /* CharacterView.swift in Sources */,
 				4B9F8EBC25F94681007F330C /* HomeComponent.swift in Sources */,
 				4B9F8ECF25FA886D007F330C /* NeedleGenerated.swift in Sources */,

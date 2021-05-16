@@ -45,7 +45,7 @@ class GridCollectionViewLayout: UICollectionViewLayout {
     var sectionSpacing: CGFloat = 32
 
     var estimatedColumnSpan = 1
-    var estimatedCellHeight: CGFloat = 60
+    var estimatedCellHeight: CGFloat = 150
 
     private(set) var numberOfColumns: Int
     private var attributes: [ElementKind: [IndexPath: GridLayoutAttributes]] = [:]

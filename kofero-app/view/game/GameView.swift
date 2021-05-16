@@ -35,7 +35,6 @@ class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
         self.gameId = gameId
         self.adUnitId = adUnitId
         super.init(nibName: nil, bundle: nil)
-        self.modalPresentationStyle = .fullScreen
     }
     
     override func viewDidLoad() {
@@ -43,8 +42,8 @@ class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addBannerViewToView(bannerView!)
         buildCollectionView()
-        view.backgroundColor = .systemPink
         presenter.showGame(id: gameId)
+        view.backgroundColor = .white
     }
     
     func buildCollectionView(){
@@ -52,7 +51,7 @@ class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: gridLayout)
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .systemYellow
+        collectionView.backgroundColor = .white
         collectionView.delegate = self
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),

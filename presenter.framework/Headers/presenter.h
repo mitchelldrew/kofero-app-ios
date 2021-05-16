@@ -364,19 +364,13 @@ __attribute__((swift_name("ModelGame")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelMove")))
 @interface PresenterModelMove : PresenterModelObj
-- (instancetype)initWithUid:(int32_t)uid name:(NSString *)name hitType:(NSString * _Nullable)hitType startup:(NSString *)startup active:(NSString *)active recovery:(NSString *)recovery hitAdv:(NSString *)hitAdv blockAdv:(NSString *)blockAdv notes:(NSString *)notes __attribute__((swift_name("init(uid:name:hitType:startup:active:recovery:hitAdv:blockAdv:notes:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUid:(int32_t)uid name:(NSString *)name attributes:(NSDictionary<NSString *, NSString *> *)attributes __attribute__((swift_name("init(uid:name:attributes:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithUid:(int32_t)uid __attribute__((swift_name("init(uid:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *active __attribute__((swift_name("active")));
-@property (readonly) NSString *blockAdv __attribute__((swift_name("blockAdv")));
-@property (readonly) NSString *hitAdv __attribute__((swift_name("hitAdv")));
-@property (readonly) NSString * _Nullable hitType __attribute__((swift_name("hitType")));
+@property (readonly) NSDictionary<NSString *, NSString *> *attributes __attribute__((swift_name("attributes")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
-@property (readonly) NSString *notes __attribute__((swift_name("notes")));
-@property (readonly) NSString *recovery __attribute__((swift_name("recovery")));
-@property (readonly) NSString *startup __attribute__((swift_name("startup")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

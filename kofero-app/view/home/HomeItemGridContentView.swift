@@ -42,25 +42,35 @@ class HomeItemGridContentView: UIView, UIContentView {
     
     private func setup(){
         let stackView = UIStackView()
-                stackView.axis = .vertical
-                stackView.alignment = .fill
-                stackView.distribution = .fill
-                addSubview(stackView)
-                stackView.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-                    stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-                    stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-                    stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
-                ])
-                
+        stackView.axis = .vertical
+        addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+       
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+        ])
+            
                 // Add image view to stack view
-                imageView.contentMode = .scaleAspectFit
-                stackView.addArrangedSubview(imageView)
+    
+        stackView.addArrangedSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: 100),
+            imageView.heightAnchor.constraint(equalToConstant: 100)
+        ])
                 
                 // Add label to stack view
-                nameLabel.textAlignment = .center
-                stackView.addArrangedSubview(nameLabel)
+        nameLabel.textAlignment = .center
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(nameLabel)
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor)
+        ])
+        
     }
     
     private func apply(configuration: HomeItemGridContentConfiguration) {

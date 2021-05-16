@@ -120,6 +120,9 @@ private class CharacterDependency42b99561bd73739b9ec3BaseProvider: CharacterDepe
     var freezer: IFreezer {
         return rootComponent.freezer
     }
+    var bannerAdUnitId: String {
+        return rootComponent.bannerAdUnitId
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent

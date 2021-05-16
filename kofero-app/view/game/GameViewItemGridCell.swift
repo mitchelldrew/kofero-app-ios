@@ -15,7 +15,7 @@ class GameViewItemGridCell: UICollectionViewCell {
     override func updateConfiguration(using state: UICellConfigurationState) {
                 
             // Create new configuration object and update it base on state
-            var newConfiguration = HomeItemGridContentConfiguration().updated(for: state)
+            var newConfiguration = GameItemGridContentConfiguration().updated(for: state)
             
             // Update any configuration parameters related to data item
         

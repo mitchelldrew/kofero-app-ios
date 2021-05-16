@@ -10,7 +10,7 @@ import presenter
 import UIKit
 import GoogleMobileAds
 
-class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
+class HomeView: UINavigationController, IHomeView, UICollectionViewDelegate{
     private let presenter:IHomePresenter
     private let gameViewBuilder: GameViewBuilder
     private let adUnitId:String
@@ -40,7 +40,7 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .white
         presenter.setView(view_: self)
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addBannerViewToView(bannerView!)
@@ -62,12 +62,12 @@ class HomeView: UIViewController, IHomeView, UICollectionViewDelegate{
     }
     
     func buildCollectionView(){
-        let gridLayout = GridCollectionViewLayout(numberOfColumns: 4)
+        let gridLayout = GridCollectionViewLayout(numberOfColumns: 2)
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: gridLayout)
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .systemGreen
         collectionView.delegate = self
+        collectionView.backgroundColor = .white
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
