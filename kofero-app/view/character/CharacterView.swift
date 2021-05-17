@@ -46,7 +46,7 @@ enum ListItem: Hashable {
     case symbol(MoveString)
 }
 
-class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate {
+class CharacterView: AdViewController, ICharacterView, UICollectionViewDelegate {
     
     private let presenter:ICharacterPresenter
     private let moveViewBuilder:MoveViewBuilder
@@ -58,10 +58,6 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
     
     private var displayedChar: ModelCharacter?
     
-    private var bannerView: GADBannerView?
-    
-    private let adUnitId:String
-    
     private var collectionView:UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, ListItem>!
     
@@ -70,11 +66,10 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
     }
     
     init(presenter:ICharacterPresenter, charId:Int32, moveViewBuilder:MoveViewBuilder, adUnitId:String){
-        self.adUnitId = adUnitId
         self.charId = charId
         self.presenter = presenter
         self.moveViewBuilder = moveViewBuilder
-        super.init(nibName: nil, bundle: nil)
+        super.init(adUnitId: adUnitId)
         view.backgroundColor = .systemGray
     }
     
@@ -87,20 +82,15 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
         presenter.setView(view__: self)
         
         addHeader()
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addCollectionView()
-        
-        addBannerViewToView(bannerView!)
+        addBannerViewToView()
         
         presenter.get(id: charId)
     }
     
     
-    private func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adUnitID = adUnitId
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+    private func addBannerViewToView() {
+        setupBannerView()
         view.addSubview(bannerView)
         NSLayoutConstraint.activate([
             bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -118,7 +108,7 @@ class CharacterView: UIViewController, ICharacterView, UICollectionViewDelegate 
             collectionView.topAnchor.constraint(equalTo: header!.bottomAnchor, constant: 0.0),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: view!.bottomAnchor, constant: 0.0)
+            collectionView.bottomAnchor.constraint(equalTo: view!.bottomAnchor, constant: -50)
         ])
         let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MoveItem> {
             (cell, indexPath, headerItem) in

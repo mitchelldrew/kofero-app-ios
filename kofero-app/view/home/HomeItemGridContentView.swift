@@ -45,7 +45,6 @@ class HomeItemGridContentView: UIView, UIContentView {
         stackView.axis = .vertical
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-       
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
@@ -59,7 +58,7 @@ class HomeItemGridContentView: UIView, UIContentView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 100),
+            //imageView.widthAnchor.constraint(equalToConstant: 100),
             imageView.heightAnchor.constraint(equalToConstant: 100)
         ])
                 

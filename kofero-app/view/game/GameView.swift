@@ -10,11 +10,10 @@ import presenter
 import UIKit
 import GoogleMobileAds
 
-class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
+class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     private let presenter:IGamePresenter
     private let characterViewBuilder:CharacterViewBuilder
     private let gameId:Int32
-    private let adUnitId:String
     private var game:ModelGame? = nil
     private var characters = [ModelCharacter]()
     private var displayedItems = [Item<ModelCharacter>]()
@@ -23,7 +22,6 @@ class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
     private var collectionView:UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Item<ModelCharacter>>!
     var snapshot: NSDiffableDataSourceSnapshot<Section, Item<ModelCharacter>>!
-    private var bannerView: GADBannerView?
     
     enum Section {
         case main
@@ -33,14 +31,12 @@ class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
         self.presenter = gamePresenter
         self.characterViewBuilder = characterViewBuilder
         self.gameId = gameId
-        self.adUnitId = adUnitId
-        super.init(nibName: nil, bundle: nil)
+        super.init(adUnitId: adUnitId)
     }
     
     override func viewDidLoad() {
         presenter.setView(view: self)
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        addBannerViewToView(bannerView!)
+        addBannerViewToView()
         buildCollectionView()
         presenter.showGame(id: gameId)
         view.backgroundColor = .white
@@ -57,7 +53,7 @@ class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: bannerView!.topAnchor, constant: 0.0)
+            collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor, constant: 0.0)
         ])
         let cellRegistration = UICollectionView.CellRegistration<GameViewItemGridCell, Item<ModelCharacter>> { (cell, indexPath, item) in
             cell.item = item
@@ -73,11 +69,8 @@ class GameView: UIViewController, IGameView, UICollectionViewDelegate  {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adUnitID = adUnitId
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+    func addBannerViewToView() {
+        setupBannerView()
         view.addSubview(bannerView)
         NSLayoutConstraint.activate([
             bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

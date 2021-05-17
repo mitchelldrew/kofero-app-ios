@@ -10,15 +10,13 @@ import presenter
 import UIKit
 import GoogleMobileAds
 
-class HomeView: UINavigationController, IHomeView, UICollectionViewDelegate{
+class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
     private let presenter:IHomePresenter
     private let gameViewBuilder: GameViewBuilder
-    private let adUnitId:String
     
     private var collectionView:UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item<ModelObj>>!
     private var snapshot: NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>!
-    private var bannerView: GADBannerView?
     private var games = [ModelGame]()
     private var displayedItems = [Item]()
     
@@ -30,8 +28,7 @@ class HomeView: UINavigationController, IHomeView, UICollectionViewDelegate{
     init(homePresenter:IHomePresenter, gameViewBuilder:GameViewBuilder, adUnitId:String) {
         self.presenter = homePresenter
         self.gameViewBuilder = gameViewBuilder
-        self.adUnitId = adUnitId
-        super.init(nibName: nil, bundle: nil)
+        super.init(adUnitId: adUnitId)
     }
     
     required init?(coder: NSCoder) {
@@ -42,18 +39,13 @@ class HomeView: UINavigationController, IHomeView, UICollectionViewDelegate{
         super.viewDidLoad()
         view.backgroundColor = .white
         presenter.setView(view_: self)
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        addBannerViewToView(bannerView!)
+        addBannerView()
         buildCollectionView()
         presenter.showGames()
     }
     
-    
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adUnitID = adUnitId
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+    private func addBannerView(){
+        setupBannerView()
         view.addSubview(bannerView)
         NSLayoutConstraint.activate([
             bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -72,7 +64,7 @@ class HomeView: UINavigationController, IHomeView, UICollectionViewDelegate{
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: bannerView!.topAnchor, constant: 0.0),
+            collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor, constant: 0.0),
         ])
         let cellRegistration = UICollectionView.CellRegistration<HomeViewItemGridCell, Item<ModelObj>> { (cell, indexPath, item) in
             cell.item = item

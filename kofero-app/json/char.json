@@ -1,90 +1,238 @@
-[{
-        "uid": 5,
-        "name": "Iori (Flame)",
-        "attributes": {
-            "health": "123",
-            "stun": "456",
-            "other": "7890."
-        },
-        "moveIds": [1, 2, 3],
-        "iconUrl": "https://img.fae.ro/0b6b48.png"
+[
+  {
+    "uid": 5,
+    "name": "Iori (Flame)",
+    "attributes": {
+      "health": "123",
+      "stun": "456",
+      "other": "7890."
     },
-    {
-        "uid": 6,
-        "name": "Kyo",
-        "attributes": {
-            "health": "1000",
-            "stun": "120",
-            "other": "987",
-            "real name": "Gayboy Mcguyver"
-        },
-        "moveIds": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47],
-        "iconUrl": "https://img.fae.ro/667848.png"
+    "moveIds": [
+      1,
+      2,
+      3
+    ],
+    "iconUrl": "https://img.fae.ro/0b6b48.png"
+  },
+  {
+    "uid": 6,
+    "name": "Kyo",
+    "attributes": {
+      "health": "1000",
+      "stun": "120",
+      "other": "987",
+      "real name": "Gayboy Mcguyver"
     },
-    {
-        "uid": 7,
-        "name": "Heihachi",
-        "attributes": {
-            "health": "321",
-            "stun": "555",
-            "decliffed son?": "true"
-        },
-        "moveIds": [1, 2],
-        "iconUrl": "https://img.fae.ro/7e519d.png"
+    "moveIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "iconUrl": "https://img.fae.ro/667848.png"
+  },
+  {
+    "uid": 7,
+    "name": "Heihachi",
+    "attributes": {
+      "health": "321",
+      "stun": "555",
+      "decliffed son?": "true"
     },
-    {
-        "uid": 8,
-        "name": "Mr. Karate",
-        "attributes": {
-            "health": "321",
-            "stun": "555",
-            "decliffed son?": "false"
-        },
-        "moveIds": [1, 2],
-        "iconUrl": "https://img.fae.ro/7b1eb8.png"
+    "moveIds": [
+      1,
+      2
+    ],
+    "iconUrl": "https://img.fae.ro/7e519d.png"
+  },
+  {
+    "uid": 8,
+    "name": "Mr. Karate",
+    "attributes": {
+      "health": "321",
+      "stun": "555",
+      "decliffed son?": "false"
     },
-    {
-        "uid": 9,
-        "name": "Kazuya",
-        "attributes": {
-            "health": "321",
-            "stun": "555",
-            "decliffed son?": "false"
-        },
-        "moveIds": [1, 2],
-        "iconUrl": "https://img.fae.ro/ba70ae.png"
+    "moveIds": [
+      1,
+      2
+    ],
+    "iconUrl": "https://img.fae.ro/7b1eb8.png"
+  },
+  {
+    "uid": 9,
+    "name": "Kazuya",
+    "attributes": {
+      "health": "321",
+      "stun": "555",
+      "decliffed son?": "false"
     },
-    {
-        "uid": 10,
-        "name": "Ryo",
-        "attributes": {
-            "health": "321",
-            "stun": "555",
-            "decliffed son?": "false"
-        },
-        "moveIds": [1, 2],
-        "iconUrl": "https://img.fae.ro/7aa16d.png"
+    "moveIds": [
+      1,
+      2
+    ],
+    "iconUrl": "https://img.fae.ro/ba70ae.png"
+  },
+  {
+    "uid": 10,
+    "name": "Ryo",
+    "attributes": {
+      "health": "321",
+      "stun": "555",
+      "decliffed son?": "false"
     },
-    {
-        "uid": 11,
-        "name": "Ryo",
-        "attributes": {
-            "health": "321",
-            "stun": "555",
-            "decliffed son?": "false"
-        },
-        "moveIds": [1, 2],
-        "iconUrl": "https://img.fae.ro/788431.png"
+    "moveIds": [
+      1,
+      2
+    ],
+    "iconUrl": "https://img.fae.ro/7aa16d.png"
+  },
+  {
+    "uid": 11,
+    "name": "Ryo",
+    "attributes": {
+      "health": "321",
+      "stun": "555",
+      "decliffed son?": "false"
     },
-    {
-        "uid": 12,
-        "name": "Yoshimitsu",
-        "attributes": {
-            "health": "321",
-            "stun": "555",
-            "decliffed son?": "false"
-        },
-        "moveIds": [1, 2],
-        "iconUrl": "https://img.fae.ro/504dc3.png"
-    }
+    "moveIds": [
+      1,
+      2
+    ],
+    "iconUrl": "https://img.fae.ro/788431.png"
+  },
+  {
+    "uid": 12,
+    "name": "Yoshimitsu",
+    "attributes": {
+      "health": "321",
+      "stun": "555",
+      "decliffed son?": "false"
+    },
+    "moveIds": [
+      1,
+      2
+    ],
+    "iconUrl": "https://img.fae.ro/504dc3.png"
+  },
+  {
+    "uid": 13,
+    "name": "NESTS Kyo",
+    "attributes": {},
+    "moveIds": [
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115
+    ],
+    "iconUrl": "https://img.fae.ro/5b4ec7.png"
+  }
 ]
