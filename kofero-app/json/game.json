@@ -1,8 +1,8 @@
 [
     {
         "uid":1,
-        "name":"kof13",
-        "charIds":[5,6,8,11,13],
+        "name":"KOF XIII",
+        "charIds":[0,1,2],
         "iconUrl":"https://img.fae.ro/41a199.png"
     },
     {
@@ -13,13 +13,13 @@
     },
     {
         "uid":3,
-        "name":"kof14",
+        "name":"KOF XIV",
         "charIds":[10],
         "iconUrl":"https://img.fae.ro/81f2b6.png"
     },
     {
         "uid":4,
-        "name":"kof15",
+        "name":"KOF XV",
         "charIds":[34,35,36],
         "iconUrl":"https://img.fae.ro/762785.png"
     }

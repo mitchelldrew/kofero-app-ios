@@ -43,7 +43,7 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     }
     
     func buildCollectionView(){
-        let gridLayout = GridCollectionViewLayout(numberOfColumns: 4)
+        let gridLayout = GridCollectionViewLayout(numberOfColumns: 3)
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: gridLayout)
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false

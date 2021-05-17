@@ -1,21 +1,6 @@
 [
   {
-    "uid": 5,
-    "name": "Iori (Flame)",
-    "attributes": {
-      "health": "123",
-      "stun": "456",
-      "other": "7890."
-    },
-    "moveIds": [
-      1,
-      2,
-      3
-    ],
-    "iconUrl": "https://img.fae.ro/0b6b48.png"
-  },
-  {
-    "uid": 6,
+    "uid": 0,
     "name": "Kyo",
     "attributes": {
       "health": "1000",
@@ -76,92 +61,8 @@
     "iconUrl": "https://img.fae.ro/667848.png"
   },
   {
-    "uid": 7,
-    "name": "Heihachi",
-    "attributes": {
-      "health": "321",
-      "stun": "555",
-      "decliffed son?": "true"
-    },
-    "moveIds": [
-      1,
-      2
-    ],
-    "iconUrl": "https://img.fae.ro/7e519d.png"
-  },
-  {
-    "uid": 8,
-    "name": "Mr. Karate",
-    "attributes": {
-      "health": "321",
-      "stun": "555",
-      "decliffed son?": "false"
-    },
-    "moveIds": [
-      1,
-      2
-    ],
-    "iconUrl": "https://img.fae.ro/7b1eb8.png"
-  },
-  {
-    "uid": 9,
-    "name": "Kazuya",
-    "attributes": {
-      "health": "321",
-      "stun": "555",
-      "decliffed son?": "false"
-    },
-    "moveIds": [
-      1,
-      2
-    ],
-    "iconUrl": "https://img.fae.ro/ba70ae.png"
-  },
-  {
-    "uid": 10,
-    "name": "Ryo",
-    "attributes": {
-      "health": "321",
-      "stun": "555",
-      "decliffed son?": "false"
-    },
-    "moveIds": [
-      1,
-      2
-    ],
-    "iconUrl": "https://img.fae.ro/7aa16d.png"
-  },
-  {
-    "uid": 11,
-    "name": "Ryo",
-    "attributes": {
-      "health": "321",
-      "stun": "555",
-      "decliffed son?": "false"
-    },
-    "moveIds": [
-      1,
-      2
-    ],
-    "iconUrl": "https://img.fae.ro/788431.png"
-  },
-  {
-    "uid": 12,
-    "name": "Yoshimitsu",
-    "attributes": {
-      "health": "321",
-      "stun": "555",
-      "decliffed son?": "false"
-    },
-    "moveIds": [
-      1,
-      2
-    ],
-    "iconUrl": "https://img.fae.ro/504dc3.png"
-  },
-  {
-    "uid": 13,
-    "name": "NESTS Kyo",
+    "uid": 1,
+    "name": "EX Kyo",
     "attributes": {},
     "moveIds": [
       48,
@@ -234,5 +135,64 @@
       115
     ],
     "iconUrl": "https://img.fae.ro/5b4ec7.png"
+  },
+  {
+    "uid": 2,
+    "name": "Benimaru",
+    "attributes": {},
+    "moveIds": [
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      167
+    ],
+    "iconUrl": "https://img.fae.ro/d68125.png"
   }
 ]
