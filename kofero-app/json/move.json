@@ -1792,7 +1792,7 @@
     }
   },
   {
-    "name": "↓↘→+A(Air)",
+    "name": "↓↘→A (Air)",
     "uid": 147,
     "attributes": {
       "Startup": "13",
@@ -1804,7 +1804,7 @@
     }
   },
   {
-    "name": "↓↘→+C(Air)",
+    "name": "↓↘→C (Air)",
     "uid": 148,
     "attributes": {
       "Startup": "13",
@@ -1816,7 +1816,7 @@
     }
   },
   {
-    "name": "↓↘→+AC(Air)",
+    "name": "↓↘→AC (Air)",
     "uid": 149,
     "attributes": {
       "Startup": "14",
@@ -1828,7 +1828,7 @@
     }
   },
   {
-    "name": "↓↘→↓↘→+A/C",
+    "name": "↓↘→↓↘→A/C",
     "uid": 150,
     "attributes": {
       "Startup": "17",
@@ -1864,7 +1864,7 @@
     }
   },
   {
-    "name": "↓↘→↓↘→+BD",
+    "name": "↓↘→↓↘→BD",
     "uid": 153,
     "attributes": {
       "Startup": "13",
@@ -2056,5 +2056,1029 @@
       "Blockstun": "20",
       "Notes": "Can only hit 3 times, +6 on hit and +4 on block when hitting at lowest possible height"
     }
-  }
+  },
+  {
+    "name": "cl.A",
+    "uid": 168,
+    "attributes": {
+      "startup": "4",
+      "active": "3",
+      "recovery": "9",
+      "hitadv": "+3",
+      "blockadv": "+1",
+      "notes": ""
+    }
+  },
+  {
+    "name": "st.A",
+    "uid": 169,
+    "attributes": {
+      "startup": "5",
+      "active": "5",
+      "recovery": "9",
+      "hitadv": "+1",
+      "blockadv": "-1",
+      "notes": ""
+    }
+  },
+  {
+    "name": "cr.A",
+    "uid": 170,
+    "attributes": {
+      "startup": "6",
+      "active": "4",
+      "recovery": "8",
+      "hitadv": "+3",
+      "blockadv": "+1",
+      "notes": ""
+    }
+  },
+  {
+    "name": "st.B",
+    "uid": 171,
+    "attributes": {
+      "startup": "4",
+      "active": "4",
+      "recovery": "11",
+      "hitadv": "0",
+      "blockadv": "-2",
+      "notes": ""
+    }
+  },
+  {
+    "name": "cr.B",
+    "uid": 172,
+    "attributes": {
+      "startup": "4",
+      "active": "6",
+      "recovery": "7",
+      "hitadv": "+2",
+      "blockadv": "0",
+      "notes": ""
+    }
+  },
+  {
+    "name": "cl.C",
+    "uid": 173,
+    "attributes": {
+      "startup": "5",
+      "active": "4",
+      "recovery": "16",
+      "hitadv": "+1",
+      "blockadv": "-1",
+      "notes": ""
+    }
+  },
+  {
+    "name": "st.C",
+    "uid": 174,
+    "attributes": {
+      "startup": "9",
+      "active": "4",
+      "recovery": "25",
+      "hitadv": "-8",
+      "blockadv": "-10",
+      "notes": ""
+    }
+  },
+  {
+    "name": "cr.C",
+    "uid": 175,
+    "attributes": {
+      "startup": "8",
+      "active": "8",
+      "recovery": "17",
+      "hitadv": "-4",
+      "blockadv": "-6",
+      "notes": ""
+    }
+  },
+  {
+    "name": "st.D",
+    "uid": 176,
+    "attributes": {
+      "startup": "6",
+      "active": "6",
+      "recovery": "18",
+      "hitadv": "-3",
+      "blockadv": "-5",
+      "notes": ""
+    }
+  },
+  {
+    "name": "cr.D",
+    "uid": 177,
+    "attributes": {
+      "startup": "6",
+      "active": "7",
+      "recovery": "14",
+      "hitadv": "Knockdown",
+      "blockadv": "-2",
+      "notes": ""
+    }
+  },
+  {
+    "name": "↘C",
+    "uid": 178,
+    "attributes": {
+      "startup": "5",
+      "active": "6",
+      "recovery": "24",
+      "hitadv": "-9",
+      "blockadv": "-11",
+      "notes": ""
+    }
+  },
+  {
+    "name": "↘C Cancel",
+    "uid": 179,
+    "attributes": {
+      "startup": "5",
+      "active": "6",
+      "recovery": "24",
+      "hitadv": "-9",
+      "blockadv": "-11",
+      "notes": ""
+    }
+  },
+  {
+    "name": "st.CD",
+    "uid": 180,
+    "attributes": {
+      "startup": "15",
+      "active": "7",
+      "recovery": "14",
+      "hitadv": "Knockdown",
+      "blockadv": "+2",
+      "notes": ""
+    }
+  },
+  {
+    "name": "↓↙←B",
+    "uid": 181,
+    "attributes": {
+      "startup": "34",
+      "active": "-",
+      "recovery": "-",
+      "hitadv": "-",
+      "blockadv": "-",
+      "notes": "Startup = Total frames"
+    }
+  },
+  {
+    "name": "↓↙←D",
+    "uid": 182,
+    "attributes": {
+      "startup": "41",
+      "active": "-",
+      "recovery": "-",
+      "hitadv": "-",
+      "blockadv": "-",
+      "notes": "Startup = Total frames"
+    }
+  },
+  {
+    "name": "↓↙←BD",
+    "uid": 183,
+    "attributes": {
+      "startup": "37",
+      "active": "-",
+      "recovery": "-",
+      "hitadv": "-",
+      "blockadv": "-",
+      "notes": "Startup = Total frames"
+    }
+  },
+  {
+    "name": "→↓↘A",
+    "uid": 184,
+    "attributes": {
+      "startup": "27",
+      "active": "2",
+      "recovery": "34",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": ""
+    }
+  },
+  {
+    "name": "→↓↘C",
+    "uid": 185,
+    "attributes": {
+      "startup": "33",
+      "active": "-",
+      "recovery": "-",
+      "hitadv": "-",
+      "blockadv": "-",
+      "notes": "Startup = Total frames"
+    }
+  },
+  {
+    "name": "→↓↘AC",
+    "uid": 186,
+    "attributes": {
+      "startup": "15",
+      "active": "6",
+      "recovery": "33",
+      "hitadv": "Knockdown",
+      "blockadv": "-18",
+      "notes": "Unblockable Earthquake f18~20 (3 active frames)"
+    }
+  },
+  {
+    "name": "→↘↓↙←,→A",
+    "uid": 187,
+    "attributes": {
+      "startup": "1",
+      "active": "1",
+      "recovery": "37",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": ""
+    }
+  },
+  {
+    "name": "→↘↓↙←,→C",
+    "uid": 188,
+    "attributes": {
+      "startup": "1",
+      "active": "1",
+      "recovery": "37",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": ""
+    }
+  },
+  {
+    "name": "→↘↓↙←,→AC",
+    "uid": 189,
+    "attributes": {
+      "startup": "1",
+      "active": "1",
+      "recovery": "37",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": ""
+    }
+  },
+  {
+    "name": "→↓↘B",
+    "uid": 190,
+    "attributes": {
+      "startup": "9",
+      "active": "3",
+      "recovery": "31",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": ""
+    }
+  },
+  {
+    "name": "→↓↘D",
+    "uid": 191,
+    "attributes": {
+      "startup": "9",
+      "active": "3",
+      "recovery": "31",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": ""
+    }
+  },
+  {
+    "name": "→↓↘BD",
+    "uid": 192,
+    "attributes": {
+      "startup": "9",
+      "active": "2",
+      "recovery": "20",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": ""
+    }
+  },
+  {
+    "name": "←↙↓↘→A",
+    "uid": 193,
+    "attributes": {
+      "startup": "6",
+      "active": "2",
+      "recovery": "31",
+      "hitadv": "Knockdown",
+      "blockadv": "-10",
+      "notes": ""
+    }
+  },
+  {
+    "name": "←↙↓↘→C",
+    "uid": 194,
+    "attributes": {
+      "startup": "19",
+      "active": "2",
+      "recovery": "26",
+      "hitadv": "Knockdown",
+      "blockadv": "-5",
+      "notes": ""
+    }
+  },
+  {
+    "name": "←↙↓↘→AC",
+    "uid": 195,
+    "attributes": {
+      "startup": "5",
+      "active": "2",
+      "recovery": "39",
+      "hitadv": "Knockdown",
+      "blockadv": "-18",
+      "notes": ""
+    }
+  },
+  {
+    "name": "→↘↓↙←,→↘↓↙←A/C",
+    "uid": 196,
+    "attributes": {
+      "startup": "1",
+      "active": "2",
+      "recovery": "49",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": "Freeze of 29f"
+    }
+  },
+  {
+    "name": "→↘↓↙←,→↘↓↙←AC",
+    "uid": 197,
+    "attributes": {
+      "startup": "1",
+      "active": "2",
+      "recovery": "49",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": "Freeze of 29f"
+    }
+  },
+  {
+    "name": "↓↘→↓↘→AC",
+    "uid": 198,
+    "attributes": {
+      "startup": "1",
+      "active": "30",
+      "recovery": "11",
+      "hitadv": "Knockdown",
+      "blockadv": "Unblockable",
+      "notes": "f1~f30 counter, no super freeze unless hit"
+    }
+  },
+  {
+    "name": "hop Empty",
+    "uid": 199,
+    "attributes": {
+      "startup": "4(prejump frames)",
+      "active": "-",
+      "recovery": "1(landing frame)",
+      "duration": "26",
+      "hitstun": "-",
+      "blockstun": "-",
+      "notes": ""
+    }
+  },
+  {
+    "name": "hop A",
+    "uid": 200,
+    "attributes": {
+      "startup": "5",
+      "active": "5",
+      "recovery": "Until Landing+1",
+      "duration": "26",
+      "hitstun": "13",
+      "blockstun": "13",
+      "notes": ""
+    }
+  },
+  {
+    "name": "hop B",
+    "uid": 201,
+    "attributes": {
+      "startup": "5",
+      "active": "6",
+      "recovery": "Until Landing+1",
+      "duration": "26",
+      "hitstun": "13",
+      "blockstun": "13",
+      "notes": ""
+    }
+  },
+  {
+    "name": "hop C",
+    "uid": 202,
+    "attributes": {
+      "startup": "9",
+      "active": "6",
+      "recovery": "Until Landing+1",
+      "duration": "26",
+      "hitstun": "13",
+      "blockstun": "16",
+      "notes": ""
+    }
+  },
+  {
+    "name": "hop D",
+    "uid": 203,
+    "attributes": {
+      "startup": "6",
+      "active": "6",
+      "recovery": "Until Landing+1",
+      "duration": "26",
+      "hitstun": "13",
+      "blockstun": "16",
+      "notes": "-"
+    }
+  },
+  {
+    "name": "hop CD",
+    "uid": 204,
+    "attributes": {
+      "startup": "12",
+      "active": "6",
+      "recovery": "Until Landing+1",
+      "duration": "26",
+      "hitstun": "Knockdown",
+      "blockstun": "19",
+      "notes": ""
+    }
+  },
+  {
+    "name": "jump Empty",
+    "uid": 205,
+    "attributes": {
+      "startup": "4(prejump frames)",
+      "active": "-",
+      "recovery": "1(landing frame)",
+      "duration": "35",
+      "hitstun": "-",
+      "blockstun": "-",
+      "notes": ""
+    }
+  },
+  {
+    "name": "jump A",
+    "uid": 206,
+    "attributes": {
+      "startup": "5",
+      "active": "7",
+      "recovery": "Until Landing+1",
+      "duration": "35",
+      "hitstun": "13",
+      "blockstun": "13",
+      "notes": ""
+    }
+  },
+  {
+    "name": "jump B",
+    "uid": 207,
+    "attributes": {
+      "startup": "5",
+      "active": "9",
+      "recovery": "Until Landing+1",
+      "duration": "35",
+      "hitstun": "13",
+      "blockstun": "13",
+      "notes": ""
+    }
+  },
+  {
+    "name": "jump C",
+    "uid": 208,
+    "attributes": {
+      "startup": "9",
+      "active": "7",
+      "recovery": "Until Landing+1",
+      "duration": "35",
+      "hitstun": "13",
+      "blockstun": "16",
+      "notes": ""
+    }
+  },
+  {
+    "name": "jump D",
+    "uid": 209,
+    "attributes": {
+      "startup": "7",
+      "active": "8",
+      "recovery": "Until Landing+1",
+      "duration": "35",
+      "hitstun": "13",
+      "blockstun": "16",
+      "notes": ""
+    }
+  },
+  {
+    "name": "jump CD",
+    "uid": 210,
+    "attributes": {
+      "startup": "14",
+      "active": "7",
+      "recovery": "Until Landing+1",
+      "duration": "35",
+      "hitstun": "Knockdown",
+      "blockstun": "23",
+      "notes": ""
+    }
+  },
+  {
+            "name": "st.A",
+            "uid": 211,
+            "attributes": {
+            "startup": "4",
+            "active": "3",
+            "recovery": "8",
+            "hitadv": "+4",
+            "blockadv": "+2",
+            "notes": ""}
+          },
+          {
+            "name": "cr.A",
+            "uid": 212,
+            "attributes": {
+            "startup": "5",
+            "active": "4",
+            "recovery": "8",
+            "hitadv": "+3",
+            "blockadv": "+1",
+            "notes": ""}
+          },
+          {
+            "name": "st.B",
+            "uid": 213,
+            "attributes": {
+            "startup": "6",
+            "active": "2",
+            "recovery": "9",
+            "hitadv": "+4",
+            "blockadv": "+2",
+            "notes": ""}
+          },
+          {
+            "name": "cr.B",
+            "uid": 214,
+            "attributes": {
+            "startup": "4",
+            "active": "4",
+            "recovery": "10",
+            "hitadv": "+1",
+            "blockadv": "-1",
+            "notes": ""}
+          },
+          {
+            "name": "cl.C",
+            "uid": 215,
+            "attributes": {
+            "startup": "4",
+            "active": "3,3",
+            "recovery": "18",
+            "hitadv": "0",
+            "blockadv": "-2",
+            "notes": ""}
+          },
+          {
+            "name": "st.C",
+            "uid": 216,
+            "attributes": {
+            "startup": "7",
+            "active": "6",
+            "recovery": "19",
+            "hitadv": "-4",
+            "blockadv": "-6",
+            "notes": ""}
+          },
+          {
+            "name": "cr.C",
+            "uid": 217,
+            "attributes": {
+            "startup": "7",
+            "active": "5",
+            "recovery": "20",
+            "hitadv": "-4",
+            "blockadv": "-6",
+            "notes": ""}
+          },
+          {
+            "name": "cl.D",
+            "uid": 218,
+            "attributes": {
+            "startup": "5",
+            "active": "5",
+            "recovery": "22",
+            "hitadv": "-6",
+            "blockadv": "-8",
+            "notes": ""}
+          },
+          {
+            "name": "st.D",
+            "uid": 219,
+            "attributes": {
+            "startup": "11",
+            "active": "5",
+            "recovery": "16",
+            "hitadv": "0",
+            "blockadv": "-2",
+            "notes": ""}
+          },
+          {
+            "name": "cr.D",
+            "uid": 220,
+            "attributes": {
+            "startup": "10",
+            "active": "5",
+            "recovery": "29",
+            "hitadv": "Knockdown",
+            "blockadv": "-15",
+            "notes": ""}
+          },
+          {
+            "name": "↘C",
+            "uid": 221,
+            "attributes": {
+            "startup": "4",
+            "active": "7",
+            "recovery": "23",
+            "hitadv": "-9",
+            "blockadv": "-11",
+            "notes": ""}
+          },
+          {
+            "name": "↘C Cancel",
+            "uid": 222,
+            "attributes": {
+            "startup": "4",
+            "active": "7",
+            "recovery": "23",
+            "hitadv": "-9",
+            "blockadv": "-11",
+            "notes": ""}
+          },
+          {
+            "name": "→A",
+            "uid": 223,
+            "attributes": {
+            "startup": "14",
+            "active": "4",
+            "recovery": "28",
+            "hitadv": "-11",
+            "blockadv": "-13",
+            "notes": ""}
+          },
+          {
+            "name": "→A Cancel",
+            "uid": 224,
+            "attributes": {
+            "startup": "14",
+            "active": "4",
+            "recovery": "28",
+            "hitadv": "-11",
+            "blockadv": "-13",
+            "notes": ""}
+          },
+          {
+            "name": "st.CD",
+            "uid": 225,
+            "attributes": {
+            "startup": "15",
+            "active": "8",
+            "recovery": "16",
+            "hitadv": "Knockdown",
+            "blockadv": "-1",
+            "notes": ""}
+          },
+          {
+                   "name": "↓↘→A",
+                   "uid": 226,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "↓↘→C",
+                   "uid": 227,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "↓↘→AC",
+                   "uid": 228,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "↓↙←A",
+                   "uid": 229,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "↓↙←C",
+                   "uid": 230,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "↓↙←AC",
+                   "uid": 231,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "↓↙←B",
+                   "uid": 232,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "↓↙←D",
+                   "uid": 233,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "↓↙←BD",
+                   "uid": 234,
+                   "attributes": {
+                   "startup": "15",
+                   "active": "8",
+                   "recovery": "16",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-1",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "Charge ↓,↑A",
+                   "uid": 235,
+                   "attributes": {
+                   "startup": "5",
+                   "active": "5,(1),3,(2),3,(2),2",
+                   "recovery": "32",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-26",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "Charge ↓,↑C",
+                   "uid": 236,
+                   "attributes": {
+                   "startup": "7",
+                   "active": "23",
+                   "recovery": "49",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-49",
+                   "notes": ""}
+                 },
+                 {
+                   "name": "Charge ↓,↑AC",
+                   "uid": 237,
+                   "attributes": {
+                   "startup": "4",
+                   "active": "37",
+                   "recovery": "57",
+                   "hitadv": "Knockdown",
+                   "blockadv": "-57",
+                   "notes": ""}
+                 },
+                 {
+                           "name": "↓↙←,↙,→A/C",
+                           "uid": 238,
+                           "attributes": {
+                           "startup": "17",
+                           "active": "8",
+                           "recovery": "30",
+                           "hitadv": "Knockdown",
+                           "blockadv": "-9",
+                           "notes": "Freeze of 29f"}
+                         },
+                         {
+                           "name": "↓↙←,↙,→AC",
+                           "uid": 239,
+                           "attributes": {
+                           "startup": "11",
+                           "active": "16",
+                           "recovery": "31",
+                           "hitadv": "Knockdown",
+                           "blockadv": "-3",
+                           "notes": "Freeze of 29f, Advantage is if last hit connects"}
+                         },
+                         {
+                           "name": "↓↘→↓↘→B/D",
+                           "uid": 240,
+                           "attributes": {
+                           "startup": "8",
+                           "active": "10",
+                           "recovery": "28",
+                           "hitadv": "Knockdown",
+                           "blockadv": "-15",
+                           "notes": "Freeze of 29f"}
+                         },
+                         {
+                           "name": "↓↘→↓↘→BD",
+                           "uid": 241,
+                           "attributes": {
+                           "startup": "8",
+                           "active": "10",
+                           "recovery": "31",
+                           "hitadv": "Knockdown",
+                           "blockadv": "-18",
+                           "notes": "Freeze of 29f"}
+                         },
+                         {
+                           "name": "↓↘→↓↘→AC",
+                           "uid": 242,
+                           "attributes": {
+                           "startup": "15",
+                           "active": "-",
+                           "recovery": "64",
+                           "hitadv": "Knockdown",
+                           "blockadv": "0",
+                           "notes": "Freeze of 75f, Advantage measured at midscreen"}
+                         },
+                         {
+                                   "name": "hop Empty",
+                                   "uid": 243,
+                                   "attributes": {
+                                   "startup": "4(prejump frames)",
+                                   "active": "-",
+                                   "recovery": "1(landing frame)",
+                                   "duration": "28",
+                                   "hitstun": "-",
+                                   "blockstun": "-",
+                                   "notes": ""}
+                                 },
+                                 {
+                                   "name": "hop A",
+                                   "uid": 244,
+                                   "attributes": {
+                                   "startup": "6",
+                                   "active": "6",
+                                   "recovery": "Until Landing+1",
+                                   "duration": "28",
+                                   "hitstun": "13",
+                                   "blockstun": "13",
+                                   "notes": ""}
+                                 },
+                                 {
+                                   "name": "hop B",
+                                   "uid": 245,
+                                   "attributes": {
+                                   "startup": "4",
+                                   "active": "8",
+                                   "recovery": "Until Landing+1",
+                                   "duration": "28",
+                                   "hitstun": "13",
+                                   "blockstun": "13",
+                                   "notes": ""}
+                                 },
+                                 {
+                                   "name": "hop C",
+                                   "uid": 246,
+                                   "attributes": {
+                                   "startup": "6",
+                                   "active": "5",
+                                   "recovery": "Until Landing+1",
+                                   "duration": "28",
+                                   "hitstun": "13",
+                                   "blockstun": "16",
+                                   "notes": ""}
+                                 },
+                                 {
+                                   "name": "hop D",
+                                   "uid": 247,
+                                   "attributes": {
+                                   "startup": "8",
+                                   "active": "5",
+                                   "recovery": "Until Landing+1",
+                                   "duration": "28",
+                                   "hitstun": "13",
+                                   "blockstun": "16",
+                                   "notes": "-"}
+                                 },
+                                 {
+                                   "name": "hop CD",
+                                   "uid": 248,
+                                   "attributes": {
+                                   "startup": "10",
+                                   "active": "6",
+                                   "recovery": "Until Landing+1",
+                                   "duration": "28",
+                                   "hitstun": "Knockdown",
+                                   "blockstun": "19",
+                                   "notes": ""}
+                                 },
+                                 {
+                                           "name": "jump Empty",
+                                           "uid": 249,
+                                           "attributes": {
+                                           "startup": "4(prejump frames)",
+                                           "active": "-",
+                                           "recovery": "1(landing frame)",
+                                           "duration": "35",
+                                           "hitstun": "-",
+                                           "blockstun": "-",
+                                           "notes": ""}
+                                         },
+                                         {
+                                           "name": "jump A",
+                                           "uid": 250,
+                                           "attributes": {
+                                           "startup": "6",
+                                           "active": "7",
+                                           "recovery": "Until Landing+1",
+                                           "duration": "35",
+                                           "hitstun": "13",
+                                           "blockstun": "13",
+                                           "notes": ""}
+                                         },
+                                         {
+                                           "name": "jump B",
+                                           "uid": 251,
+                                           "attributes": {
+                                           "startup": "5",
+                                           "active": "10",
+                                           "recovery": "Until Landing+1",
+                                           "duration": "35",
+                                           "hitstun": "13",
+                                           "blockstun": "13",
+                                           "notes": ""}
+                                         },
+                                         {
+                                           "name": "jump C",
+                                           "uid": 252,
+                                           "attributes": {
+                                           "startup": "6",
+                                           "active": "6",
+                                           "recovery": "Until Landing+1",
+                                           "duration": "35",
+                                           "hitstun": "13",
+                                           "blockstun": "16",
+                                           "notes": ""}
+                                         },
+                                         {
+                                           "name": "jump D",
+                                           "uid": 253,
+                                           "attributes": {
+                                           "startup": "8",
+                                           "active": "7",
+                                           "recovery": "Until Landing+1",
+                                           "duration": "35",
+                                           "hitstun": "13",
+                                           "blockstun": "16",
+                                           "notes": ""}
+                                         },
+                                         {
+                                           "name": "jump CD",
+                                           "uid": 254,
+                                           "attributes": {
+                                           "startup": "10",
+                                           "active": "8",
+                                           "recovery": "Until Landing+1",
+                                           "duration": "35",
+                                           "hitstun": "Knockdown",
+                                           "blockstun": "23",
+                                           "notes": ""}
+                                         }
 ]
