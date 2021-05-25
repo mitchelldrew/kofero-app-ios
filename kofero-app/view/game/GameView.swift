@@ -79,9 +79,7 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        print(indexPath.item)
         if let index = collectionView.dataSourceIndexPath(forPresentationIndexPath: indexPath) {
-            print(index.item)
             present(characterViewBuilder.characterView(id: characters[index.item].uid), animated: true, completion: nil)
         }
     }

@@ -12297,7 +12297,7 @@
     },
     {
         "name": "↓↘→C",
-        "uid": 1003,
+        "uid": 1819,
         "attributes": {
             "Startup": "21",
             "Active": "6",
@@ -13965,7 +13965,7 @@
     },
     {
         "name": "st.A",
-        "uid": 1139,
+        "uid": 1820,
         "attributes": {
             "Startup": "4",
             "Active": "4",
@@ -13977,7 +13977,7 @@
     },
     {
         "name": "cr.A",
-        "uid": 1140,
+        "uid": 1821,
         "attributes": {
             "Startup": "7",
             "Active": "4",
@@ -13989,7 +13989,7 @@
     },
     {
         "name": "st.B",
-        "uid": 1141,
+        "uid": 1822,
         "attributes": {
             "Startup": "6",
             "Active": "4",
@@ -14001,7 +14001,7 @@
     },
     {
         "name": "cr.B",
-        "uid": 1142,
+        "uid": 1823,
         "attributes": {
             "Startup": "5",
             "Active": "6",
@@ -14013,7 +14013,7 @@
     },
     {
         "name": "cl.C",
-        "uid": 1143,
+        "uid": 1824,
         "attributes": {
             "Startup": "5",
             "Active": "3,(2),3",
@@ -14025,7 +14025,7 @@
     },
     {
         "name": "st.C",
-        "uid": 1144,
+        "uid": 1825,
         "attributes": {
             "Startup": "11",
             "Active": "4",
@@ -14037,7 +14037,7 @@
     },
     {
         "name": "cr.C",
-        "uid": 1145,
+        "uid": 1826,
         "attributes": {
             "Startup": "6",
             "Active": "6",
@@ -14049,7 +14049,7 @@
     },
     {
         "name": "cl.D",
-        "uid": 1146,
+        "uid": 1827,
         "attributes": {
             "Startup": "10",
             "Active": "4,(2),3",
@@ -14625,7 +14625,7 @@
     },
     {
         "name": "cr.D",
-        "uid": 1186,
+        "uid": 1832,
         "attributes": {
             "Startup": "7",
             "Active": "8",
@@ -14841,7 +14841,7 @@
     },
     {
         "name": "↓↙←,←↙↓↘→B/D(Air)",
-        "uid": 1202,
+        "uid": 1833,
         "attributes": {
             "Startup": "10",
             "Active": "28",
@@ -18397,7 +18397,7 @@
     },
     {
         "name": "→B",
-        "uid": 1493,
+        "uid": 1834,
         "attributes": {
             "Startup": "18",
             "Active": "10",
