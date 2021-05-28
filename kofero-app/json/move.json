@@ -15622,18 +15622,6 @@
         }
     },
     {
-        "name": ">  ↓↙←A/C",
-        "uid": 1462,
-        "attributes": {
-            "Startup": "10",
-            "Active": "6",
-            "Recovery": "44",
-            "Hit Adv": "Knockdown",
-            "Block Adv": "Unblockable",
-            "Notes": "Only possible on hit"
-        }
-    },
-    {
         "name": "→↘↓↙←BD",
         "uid": 1463,
         "attributes": {
