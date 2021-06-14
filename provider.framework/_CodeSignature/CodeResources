@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/provider-Swift.h</key>
 		<data>
-		W9dlDZKBkhLB2ArWoTHnEYjxavs=
+		SJGkqNVz53GWJwgfqC9WWiVn+/w=
 		</data>
 		<key>Headers/provider.h</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/provider.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		jh9+sjkUZGGXWHYH4T0Sf8yiZoE=
+		fueURToxvrV7+cJXLHaIEYxN47c=
 		</data>
 		<key>Modules/provider.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		jh9+sjkUZGGXWHYH4T0Sf8yiZoE=
+		fueURToxvrV7+cJXLHaIEYxN47c=
 		</data>
 		<key>Modules/provider.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/provider.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		zi1RDbVOk3dfLo8hDoaElnirMII=
+		32URpnUtUO9kBD+bz6BQOncXf+k=
 		</data>
 		<key>Modules/provider.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/provider.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		zi1RDbVOk3dfLo8hDoaElnirMII=
+		32URpnUtUO9kBD+bz6BQOncXf+k=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -51,11 +51,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			W9dlDZKBkhLB2ArWoTHnEYjxavs=
+			SJGkqNVz53GWJwgfqC9WWiVn+/w=
 			</data>
 			<key>hash2</key>
 			<data>
-			dHadophaDAJRRhFnZnbxpEzWroaw9/80iJ8JkJirwLA=
+			Oqk/a+jHlyY4SFafeidpaX2qp6M24TV12+zk+qwUoeU=
 			</data>
 		</dict>
 		<key>Headers/provider.h</key>
@@ -84,22 +84,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jh9+sjkUZGGXWHYH4T0Sf8yiZoE=
+			fueURToxvrV7+cJXLHaIEYxN47c=
 			</data>
 			<key>hash2</key>
 			<data>
-			esDCMVyE/rAzWm3SP7bUmmdCftWetwFzPo4vtko3oPA=
+			z8bwe69QpGBs51viOn2SWN/gapnRpscH/8+hEekaqLQ=
 			</data>
 		</dict>
 		<key>Modules/provider.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jh9+sjkUZGGXWHYH4T0Sf8yiZoE=
+			fueURToxvrV7+cJXLHaIEYxN47c=
 			</data>
 			<key>hash2</key>
 			<data>
-			esDCMVyE/rAzWm3SP7bUmmdCftWetwFzPo4vtko3oPA=
+			z8bwe69QpGBs51viOn2SWN/gapnRpscH/8+hEekaqLQ=
 			</data>
 		</dict>
 		<key>Modules/provider.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -117,11 +117,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zi1RDbVOk3dfLo8hDoaElnirMII=
+			32URpnUtUO9kBD+bz6BQOncXf+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			/eoo9dvNbUkX4chJpw/++9Rv/Ne+EifF+TguCUrtVpM=
+			DocQQV/avAPsTPIqFyaoTkLOZdoVWhVRyPzU5ozAFLs=
 			</data>
 		</dict>
 		<key>Modules/provider.swiftmodule/x86_64.swiftdoc</key>
@@ -139,11 +139,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zi1RDbVOk3dfLo8hDoaElnirMII=
+			32URpnUtUO9kBD+bz6BQOncXf+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			/eoo9dvNbUkX4chJpw/++9Rv/Ne+EifF+TguCUrtVpM=
+			DocQQV/avAPsTPIqFyaoTkLOZdoVWhVRyPzU5ozAFLs=
 			</data>
 		</dict>
 	</dict>

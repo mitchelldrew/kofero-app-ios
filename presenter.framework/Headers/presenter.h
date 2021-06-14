@@ -339,6 +339,12 @@ __attribute__((swift_name("ModelCharacter")))
 @interface PresenterModelCharacter : PresenterModelObj
 - (instancetype)initWithUid:(int32_t)uid name:(NSString *)name attributes:(NSDictionary<NSString *, NSString *> *)attributes moveIds:(NSArray<PresenterInt *> *)moveIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(uid:name:attributes:moveIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithUid:(int32_t)uid __attribute__((swift_name("init(uid:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSDictionary<NSString *, NSString *> *)component3 __attribute__((swift_name("component3()")));
+- (NSArray<PresenterInt *> *)component4 __attribute__((swift_name("component4()")));
+- (NSString *)component5 __attribute__((swift_name("component5()")));
+- (PresenterModelCharacter *)doCopyUid:(int32_t)uid name:(NSString *)name attributes:(NSDictionary<NSString *, NSString *> *)attributes moveIds:(NSArray<PresenterInt *> *)moveIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("doCopy(uid:name:attributes:moveIds:iconUrl:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -346,19 +352,26 @@ __attribute__((swift_name("ModelCharacter")))
 @property (readonly) NSString *iconUrl __attribute__((swift_name("iconUrl")));
 @property (readonly) NSArray<PresenterInt *> *moveIds __attribute__((swift_name("moveIds")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) int32_t uid __attribute__((swift_name("uid")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelGame")))
 @interface PresenterModelGame : PresenterModelObj
-- (instancetype)initWithUid:(int32_t)uid name:(NSString *)name characterIds:(NSArray<PresenterInt *> *)characterIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(uid:name:characterIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithUid:(int32_t)uid name:(NSString *)name charIds:(NSArray<PresenterInt *> *)charIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("init(uid:name:charIds:iconUrl:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithUid:(int32_t)uid __attribute__((swift_name("init(uid:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSArray<PresenterInt *> *)component3 __attribute__((swift_name("component3()")));
+- (NSString *)component4 __attribute__((swift_name("component4()")));
+- (PresenterModelGame *)doCopyUid:(int32_t)uid name:(NSString *)name charIds:(NSArray<PresenterInt *> *)charIds iconUrl:(NSString *)iconUrl __attribute__((swift_name("doCopy(uid:name:charIds:iconUrl:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSArray<PresenterInt *> *characterIds __attribute__((swift_name("characterIds")));
+@property (readonly) NSArray<PresenterInt *> *charIds __attribute__((swift_name("charIds")));
 @property (readonly) NSString *iconUrl __attribute__((swift_name("iconUrl")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) int32_t uid __attribute__((swift_name("uid")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -366,11 +379,16 @@ __attribute__((swift_name("ModelMove")))
 @interface PresenterModelMove : PresenterModelObj
 - (instancetype)initWithUid:(int32_t)uid name:(NSString *)name attributes:(NSDictionary<NSString *, NSString *> *)attributes __attribute__((swift_name("init(uid:name:attributes:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithUid:(int32_t)uid __attribute__((swift_name("init(uid:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSDictionary<NSString *, NSString *> *)component3 __attribute__((swift_name("component3()")));
+- (PresenterModelMove *)doCopyUid:(int32_t)uid name:(NSString *)name attributes:(NSDictionary<NSString *, NSString *> *)attributes __attribute__((swift_name("doCopy(uid:name:attributes:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSDictionary<NSString *, NSString *> *attributes __attribute__((swift_name("attributes")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) int32_t uid __attribute__((swift_name("uid")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

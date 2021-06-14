@@ -100,7 +100,7 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     
     func display(url: String, imgBase64: String) {
             for character in characters{
-                if character.iconUrl == url && !displayedItems.contains{item in return item.item.uid == character.uid} {
+                if character.iconUrl == url && !displayedItems.contains(where: {item in return item.item.uid == character.uid}) {
                     let image = UIImage(data: Data(base64Encoded: imgBase64)!)!
                     let item = Item(item: character, image: image)
                     snapshot.appendItems([Item<ModelCharacter>](arrayLiteral: item), toSection: .main)
