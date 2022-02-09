@@ -22,11 +22,4 @@ class AdViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    internal func setupBannerView() {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adUnitID = adUnitId
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-    }
 }

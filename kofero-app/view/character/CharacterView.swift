@@ -83,19 +83,8 @@ class CharacterView: AdViewController, ICharacterView, UICollectionViewDelegate 
         
         addHeader()
         addCollectionView()
-        addBannerViewToView()
         
         presenter.get(id: charId)
-    }
-    
-    
-    private func addBannerViewToView() {
-        setupBannerView()
-        view.addSubview(bannerView)
-        NSLayoutConstraint.activate([
-            bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
     }
     
     private func addCollectionView(){

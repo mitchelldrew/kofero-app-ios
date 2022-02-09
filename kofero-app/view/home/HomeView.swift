@@ -39,18 +39,8 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
         super.viewDidLoad()
         view.backgroundColor = .white
         presenter.setView(view_: self)
-        addBannerView()
         buildCollectionView()
         presenter.showGames()
-    }
-    
-    private func addBannerView(){
-        setupBannerView()
-        view.addSubview(bannerView)
-        NSLayoutConstraint.activate([
-            bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
     }
     
     func buildCollectionView(){

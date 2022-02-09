@@ -36,7 +36,6 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     
     override func viewDidLoad() {
         presenter.setView(view: self)
-        addBannerViewToView()
         buildCollectionView()
         presenter.showGame(id: gameId)
         view.backgroundColor = .white
@@ -59,23 +58,14 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
             cell.item = item
         }
         dataSource = UICollectionViewDiffableDataSource<Section, Item<ModelCharacter>>(collectionView: collectionView) {
-                (collectionView: UICollectionView, indexPath: IndexPath, identifier: Item<ModelCharacter>) -> UICollectionViewCell? in
-        let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
-        return cell
+            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Item<ModelCharacter>) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
+            return cell
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func addBannerViewToView() {
-        setupBannerView()
-        view.addSubview(bannerView)
-        NSLayoutConstraint.activate([
-            bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
@@ -99,14 +89,14 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     }
     
     func display(url: String, imgBase64: String) {
-            for character in characters{
-                if character.iconUrl == url && !displayedItems.contains(where: {item in return item.item.uid == character.uid}) {
-                    let image = UIImage(data: Data(base64Encoded: imgBase64)!)!
-                    let item = Item(item: character, image: image)
-                    snapshot.appendItems([Item<ModelCharacter>](arrayLiteral: item), toSection: .main)
-                    displayedItems.append(item)
-                }
+        for character in characters{
+            if character.iconUrl == url && !displayedItems.contains(where: {item in return item.item.uid == character.uid}) {
+                let image = UIImage(data: Data(base64Encoded: imgBase64)!)!
+                let item = Item(item: character, image: image)
+                snapshot.appendItems([Item<ModelCharacter>](arrayLiteral: item), toSection: .main)
+                displayedItems.append(item)
             }
-            dataSource.apply(snapshot, animatingDifferences: true)
+        }
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
