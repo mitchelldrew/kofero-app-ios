@@ -52,7 +52,6 @@ class CharacterView: AdViewController, ICharacterView, UICollectionViewDelegate 
     private let moveViewBuilder:MoveViewBuilder
     private let charId:Int32
     
-    private var header:UIView?
     private var icon:UIImageView?
     private var nameLabel:UILabel?
     
@@ -81,7 +80,7 @@ class CharacterView: AdViewController, ICharacterView, UICollectionViewDelegate 
         super.viewDidLoad()
         presenter.setView(view__: self)
         
-        addHeader()
+        addHeader("Character")
         addCollectionView()
         addBannerViewToView()
         
@@ -151,7 +150,7 @@ class CharacterView: AdViewController, ICharacterView, UICollectionViewDelegate 
         dataSource.apply(dataSourceSnapshot)
     }
     
-    private func addHeader(){
+    internal override func addHeader(_ headerText:String){
         header = UIView()
         icon = UIImageView()
         icon!.backgroundColor = .systemTeal

@@ -40,9 +40,30 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
         view.backgroundColor = .white
         presenter.setView(view_: self)
         addBannerView()
+        addHeader("Home")
         buildCollectionView()
         presenter.showGames()
     }
+    
+    /*
+    private func addHeader(){
+        header = UIView()
+        let label = UILabel()
+        label.text = "Home"
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.addSubview(label)
+        view.addSubview(header)
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: header.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: header.centerYAnchor),
+            label.topAnchor.constraint(equalTo: header.topAnchor),
+            header.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            header.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+    }
+ */
     
     private func addBannerView(){
         setupBannerView()
@@ -61,18 +82,18 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
         collectionView.delegate = self
         collectionView.backgroundColor = .white
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor, constant: 0.0),
+            collectionView.topAnchor.constraint(equalTo: header.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor)
         ])
         let cellRegistration = UICollectionView.CellRegistration<HomeViewItemGridCell, Item<ModelObj>> { (cell, indexPath, item) in
             cell.item = item
         }
         dataSource = UICollectionViewDiffableDataSource<Section, Item<ModelObj>>(collectionView: collectionView) {
-                (collectionView: UICollectionView, indexPath: IndexPath, identifier: Item<ModelObj>) -> UICollectionViewCell? in
-        let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
-        return cell
+            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Item<ModelObj>) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
+            return cell
         }
     }
     
@@ -82,14 +103,16 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
     
     func display(url: String, imgBase64: String) {
         for game in games{
-            if game.iconUrl == url && !displayedItems.contains{item in return item.item.uid == game.uid} {
+            if game.iconUrl == url && !displayedItems.contains(where: {item in return item.item.uid == game.uid}) {
                 let image = UIImage(data: Data(base64Encoded: imgBase64)!)!
                 let item = Item(item: game as ModelObj, image: image)
                 snapshot.appendItems([Item<ModelObj>](arrayLiteral: item), toSection: .main)
                 displayedItems.append(item)
             }
         }
-        dataSource.apply(snapshot, animatingDifferences: true)
+        guard let dSource = dataSource else { return }
+        
+        dSource.apply(snapshot, animatingDifferences: true)
     }
     
     func display(games: [ModelGame]) {

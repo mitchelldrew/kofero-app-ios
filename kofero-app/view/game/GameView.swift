@@ -37,6 +37,7 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     override func viewDidLoad() {
         presenter.setView(view: self)
         addBannerViewToView()
+        addHeader("Game")
         buildCollectionView()
         presenter.showGame(id: gameId)
         view.backgroundColor = .white
@@ -50,10 +51,10 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
         collectionView.backgroundColor = .white
         collectionView.delegate = self
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor, constant: 0.0)
+            collectionView.topAnchor.constraint(equalTo: header.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bannerView.topAnchor)
         ])
         let cellRegistration = UICollectionView.CellRegistration<GameViewItemGridCell, Item<ModelCharacter>> { (cell, indexPath, item) in
             cell.item = item

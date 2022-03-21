@@ -12,6 +12,7 @@ import GoogleMobileAds
 class AdViewController: UIViewController {
     internal let adUnitId:String
     internal let bannerView: GADBannerView
+    var header: UIView!
     
     init(adUnitId:String){
         self.adUnitId = adUnitId
@@ -28,5 +29,23 @@ class AdViewController: UIViewController {
         bannerView.adUnitID = adUnitId
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+    }
+    
+    func addHeader(_ headerText:String){
+        header = UIView()
+        let label = UILabel()
+        label.text = headerText
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.addSubview(label)
+        view.addSubview(header)
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: header.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: header.centerYAnchor),
+            label.topAnchor.constraint(equalTo: header.topAnchor),
+            header.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            header.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
     }
 }
