@@ -153,6 +153,18 @@ private class HomeDependencycad225e9266b3c9a56ddBaseProvider: HomeDependency {
     var favoritesProvider: IFavoritesProvider {
         return rootComponent.favoritesProvider
     }
+    var stateLogger: IStateLogger {
+        return rootComponent.stateLogger
+    }
+    var stateReducer: IStateReducer {
+        return rootComponent.stateReducer
+    }
+    var loggingProvider: ILoggingProvider {
+        return rootComponent.loggingProvider
+    }
+    var homeRouter: IRouter {
+        return rootComponent.homeRouter
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent

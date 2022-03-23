@@ -10,9 +10,9 @@ import presenter
 import UIKit
 import GoogleMobileAds
 
-class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
-    private let presenter:IHomePresenter
-    private let gameViewBuilder: GameViewBuilder
+
+class HomeView: AdViewController, IHomeView, UICollectionViewDelegate {
+    private let interactor:IHomeInteractor
     
     private var collectionView:UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item<ModelObj>>!
@@ -25,9 +25,8 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
         case main
     }
     
-    init(homePresenter:IHomePresenter, gameViewBuilder:GameViewBuilder, adUnitId:String) {
-        self.presenter = homePresenter
-        self.gameViewBuilder = gameViewBuilder
+    init(interactor:IHomeInteractor, adUnitId:String) {
+        self.interactor = interactor
         super.init(adUnitId: adUnitId)
     }
     
@@ -38,32 +37,12 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        presenter.setView(view_: self)
+        interactor.setView(view: self)
         addBannerView()
         addHeader("Home")
-        buildCollectionView()
-        presenter.showGames()
+        buildGameCollectionView()
+        interactor.viewResumed()
     }
-    
-    /*
-    private func addHeader(){
-        header = UIView()
-        let label = UILabel()
-        label.text = "Home"
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        header.translatesAutoresizingMaskIntoConstraints = false
-        header.addSubview(label)
-        view.addSubview(header)
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: header.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: header.centerYAnchor),
-            label.topAnchor.constraint(equalTo: header.topAnchor),
-            header.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            header.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        ])
-    }
- */
     
     private func addBannerView(){
         setupBannerView()
@@ -74,7 +53,7 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
         ])
     }
     
-    func buildCollectionView(){
+    func buildGameCollectionView(){
         let gridLayout = GridCollectionViewLayout(numberOfColumns: 2)
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: gridLayout)
         view.addSubview(collectionView)
@@ -98,7 +77,7 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        present(gameViewBuilder.gameView(id: games[indexPath.item].uid), animated: true, completion: nil)
+        interactor.gamePressed(game: games[indexPath.item])
     }
     
     func display(url: String, imgBase64: String) {
@@ -115,7 +94,7 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
         dSource.apply(snapshot, animatingDifferences: true)
     }
     
-    func display(games: [ModelGame]) {
+    func displayGames(games: [ModelGame]) {
         self.games = games
         displayedItems.removeAll()
         snapshot = NSDiffableDataSourceSnapshot<Section, Item<ModelObj>>()
@@ -123,11 +102,11 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate{
     }
     
     
-    func display(favorites: [ModelObj]) {
+    func displayFavs(favorites: [ModelObj]) {
         
     }
     
-    func error(error: KotlinException) {
+    func error(e error: KotlinException) {
         print(error)
     }
 }

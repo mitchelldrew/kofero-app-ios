@@ -35,7 +35,7 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     }
     
     override func viewDidLoad() {
-        presenter.setView(view: self)
+        presenter.setView(view_: self)
         addBannerViewToView()
         addHeader("Game")
         buildCollectionView()
@@ -96,7 +96,7 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
         self.game = game
     }
     
-    func error(error: KotlinException) {
+    func error(e error: KotlinException) {
     }
     
     func display(url: String, imgBase64: String) {

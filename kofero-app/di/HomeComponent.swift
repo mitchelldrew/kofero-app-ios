@@ -17,6 +17,10 @@ protocol HomeDependency: Dependency {
     var imageProvider:IImageProvider {get}
     var freezer:IFreezer {get}
     var favoritesProvider:IFavoritesProvider {get}
+    var stateLogger:IStateLogger {get}
+    var stateReducer:IStateReducer {get}
+    var loggingProvider:ILoggingProvider {get}
+    var homeRouter:IRouter {get}
 }
 
 class HomeComponent: Component<HomeDependency>, HomeViewBuilder {
@@ -24,8 +28,12 @@ class HomeComponent: Component<HomeDependency>, HomeViewBuilder {
         return HomePresenter(freezer: dependency.freezer, gameProvider: dependency.gameProvider, imageProvider: dependency.imageProvider, favoritesProvider: dependency.favoritesProvider)
     }
     
+    var interactor: IHomeInteractor {
+        return HomeInteractor(presenter: presenter, stateLogger: dependency.stateLogger, stateReducer: dependency.stateReducer, loggingProvider: dependency.loggingProvider, router: dependency.homeRouter)
+    }
+    
     func homeView() -> UIViewController {
-        return HomeView(homePresenter: presenter, gameViewBuilder: dependency.gameViewBuilder, adUnitId: dependency.bannerAdUnitId)
+        return HomeView(interactor: interactor, adUnitId: dependency.bannerAdUnitId)
     }
 }
 

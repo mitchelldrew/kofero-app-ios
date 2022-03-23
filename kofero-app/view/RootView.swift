@@ -10,9 +10,10 @@ import presenter
 import provider
 import SwiftyJSON
 
-class RootView: UIViewController, IRootView {
+class RootView: UINavigationController, IRootView {
     private let presenter:IRootPresenter
     private let homeBuilder:HomeViewBuilder
+    
     
     init(homeBuilder:HomeViewBuilder, presenter: IRootPresenter){
         self.homeBuilder = homeBuilder
@@ -27,13 +28,13 @@ class RootView: UIViewController, IRootView {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        presenter.setView(rootView: self)
+        presenter.setView(view_: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let home = homeBuilder.homeView()
         home.modalPresentationStyle = .fullScreen
-        present(home, animated: false, completion: {})
+        pushViewController(home, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,7 +42,7 @@ class RootView: UIViewController, IRootView {
         presenter.shutdown()
     }
     
-    func error(error: KotlinException) {
+    func error(e error: KotlinException) {
         print("error: \(error)")
     }
 

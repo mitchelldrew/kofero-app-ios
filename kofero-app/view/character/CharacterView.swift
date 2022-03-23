@@ -78,7 +78,7 @@ class CharacterView: AdViewController, ICharacterView, UICollectionViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setView(view__: self)
+        presenter.setView(view_: self)
         
         addHeader("Character")
         addCollectionView()
@@ -241,7 +241,7 @@ class CharacterView: AdViewController, ICharacterView, UICollectionViewDelegate 
         }
     }
     
-    func error(error: KotlinException) {
+    func error(e error: KotlinException) {
         
     }
     

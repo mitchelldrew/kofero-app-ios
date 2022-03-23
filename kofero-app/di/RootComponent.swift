@@ -103,6 +103,26 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
     var favoritesProvider:IFavoritesProvider {
         return FavoritesProvider(defaults: userDefaults)
     }
+    
+    var loggingProvider: ILoggingProvider {
+        return LoggingProvider()
+    }
+    
+    var stateLogger: IStateLogger {
+        return StateLogger()
+    }
+    
+    var stateReducer: IStateReducer {
+        return StateReducer()
+    }
+    
+    var homeRouter: IRouter {
+        return HomeRouter(gameComponent, uiApplication, gameProvider)
+    }
+    
+    var uiApplication: UIApplication {
+        return UIApplication.shared
+    }
 }
 
 protocol RootViewBuilder {

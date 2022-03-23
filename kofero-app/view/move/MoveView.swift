@@ -11,6 +11,7 @@ import provider
 import UIKit
 
 class MoveView: UIViewController, IMoveView {
+    
     private let presenter:IMovePresenter
     private let charViewBuilder:CharacterViewBuilder
     private let moveViewBuilder:MoveViewBuilder
@@ -32,4 +33,7 @@ class MoveView: UIViewController, IMoveView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func error(e: KotlinException) {
+        
+    }
 }
