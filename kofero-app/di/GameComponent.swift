@@ -19,6 +19,10 @@ protocol GameDependency: Dependency {
     var charViewBuilder:CharacterViewBuilder {get}
     var freezer:IFreezer {get}
     var bannerAdUnitId:String {get}
+    var stateLogger:IStateLogger {get}
+    var stateReducer:IStateReducer {get}
+    var loggingProvider:ILoggingProvider {get}
+    var uiApplication:UIApplication {get}
 }
 
 class GameComponent: Component<GameDependency>, GameViewBuilder{
@@ -38,16 +42,20 @@ class GameComponent: Component<GameDependency>, GameViewBuilder{
         return URL(string: "https://google.com")!
     }
     
-    var gamePresenter: IGamePresenter {
+    var presenter: IGamePresenter {
         return GamePresenter(freezer: dependency.freezer, characterProvider: dependency.characterProvider, gameProvider: gameProvider, imageProvider: dependency.imageProvider)
     }
     
-    func gameView(id:Int32) -> UIViewController {
-        return GameView(gamePresenter: gamePresenter, gameId:id, characterViewBuilder: dependency.charViewBuilder, adUnitId: dependency.bannerAdUnitId)
+    var interactor: IGameInteractor {
+        return GameInteractor(presenter: presenter, stateLogger: dependency.stateLogger, stateReducer: dependency.stateReducer, loggingProvider: dependency.loggingProvider, router: router)
     }
     
-}
-
-protocol GameViewBuilder{
-    func gameView(id:Int32) -> UIViewController
+    var router: IRouter {
+        return GameRouter(dependency.charViewBuilder, dependency.uiApplication, dependency.characterProvider)
+    }
+    
+    func gameView(id:Int32) -> UIViewController {
+        return GameView(interactor: interactor, gameId: id, adUnitId: dependency.bannerAdUnitId)
+    }
+    
 }

@@ -11,7 +11,7 @@ import presenter
 import provider
 import SwiftyJSON
 
-class RootComponent: BootstrapComponent, RootViewBuilder {
+class RootComponent: BootstrapComponent {
     var homeComponent: HomeComponent {
         return HomeComponent(parent: self)
     }
@@ -92,7 +92,7 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return "ca-app-pub-3940256099942544/2934735716"
     }
     
-    func rootView() -> UIViewController {
+    var rootView: UINavigationController {
         return RootView(homeBuilder: homeComponent, presenter: rootPresenter)
     }
     
@@ -116,15 +116,8 @@ class RootComponent: BootstrapComponent, RootViewBuilder {
         return StateReducer()
     }
     
-    var homeRouter: IRouter {
-        return HomeRouter(gameComponent, uiApplication, gameProvider)
-    }
-    
     var uiApplication: UIApplication {
         return UIApplication.shared
     }
-}
-
-protocol RootViewBuilder {
-    func rootView() -> UIViewController
+    
 }

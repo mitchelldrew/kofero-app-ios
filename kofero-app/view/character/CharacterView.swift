@@ -69,7 +69,7 @@ class CharacterView: AdViewController, ICharacterView, UICollectionViewDelegate 
         self.presenter = presenter
         self.moveViewBuilder = moveViewBuilder
         super.init(adUnitId: adUnitId)
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {

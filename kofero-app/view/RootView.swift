@@ -33,7 +33,6 @@ class RootView: UINavigationController, IRootView {
     
     override func viewDidAppear(_ animated: Bool) {
         let home = homeBuilder.homeView()
-        home.modalPresentationStyle = .fullScreen
         pushViewController(home, animated: true)
     }
     

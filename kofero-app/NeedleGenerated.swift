@@ -54,6 +54,18 @@ private class GameDependency6174651c56123eef7457BaseProvider: GameDependency {
     var bannerAdUnitId: String {
         return rootComponent.bannerAdUnitId
     }
+    var stateLogger: IStateLogger {
+        return rootComponent.stateLogger
+    }
+    var stateReducer: IStateReducer {
+        return rootComponent.stateReducer
+    }
+    var loggingProvider: ILoggingProvider {
+        return rootComponent.loggingProvider
+    }
+    var uiApplication: UIApplication {
+        return rootComponent.uiApplication
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent
@@ -162,8 +174,8 @@ private class HomeDependencycad225e9266b3c9a56ddBaseProvider: HomeDependency {
     var loggingProvider: ILoggingProvider {
         return rootComponent.loggingProvider
     }
-    var homeRouter: IRouter {
-        return rootComponent.homeRouter
+    var uiApplication: UIApplication {
+        return rootComponent.uiApplication
     }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {

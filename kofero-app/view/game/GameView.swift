@@ -11,8 +11,7 @@ import UIKit
 import GoogleMobileAds
 
 class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
-    private let presenter:IGamePresenter
-    private let characterViewBuilder:CharacterViewBuilder
+    private let interactor:IGameInteractor
     private let gameId:Int32
     private var game:ModelGame? = nil
     private var characters = [ModelCharacter]()
@@ -27,20 +26,20 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
         case main
     }
     
-    init(gamePresenter:IGamePresenter, gameId:Int32, characterViewBuilder:CharacterViewBuilder, adUnitId:String) {
-        self.presenter = gamePresenter
-        self.characterViewBuilder = characterViewBuilder
+    init(interactor:IGameInteractor, gameId:Int32, adUnitId:String) {
+        self.interactor = interactor
         self.gameId = gameId
         super.init(adUnitId: adUnitId)
     }
     
     override func viewDidLoad() {
-        presenter.setView(view_: self)
+        view.backgroundColor = .white
+        interactor.setGameUid(uid: gameId)
+        interactor.setView(view: self)
         addBannerViewToView()
         addHeader("Game")
         buildCollectionView()
-        presenter.showGame(id: gameId)
-        view.backgroundColor = .white
+        interactor.viewResumed()
     }
     
     func buildCollectionView(){
@@ -81,7 +80,7 @@ class GameView: AdViewController, IGameView, UICollectionViewDelegate  {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         if let index = collectionView.dataSourceIndexPath(forPresentationIndexPath: indexPath) {
-            present(characterViewBuilder.characterView(id: characters[index.item].uid), animated: true, completion: nil)
+            interactor.charPressed(char: characters[index.item])
         }
     }
     

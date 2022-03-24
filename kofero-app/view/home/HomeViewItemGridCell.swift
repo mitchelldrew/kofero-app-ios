@@ -11,14 +11,9 @@ import presenter
 
 class HomeViewItemGridCell: UICollectionViewCell {
     var item: Item<ModelObj>?
-
+    
     override func updateConfiguration(using state: UICellConfigurationState) {
-                
-            // Create new configuration object and update it base on state
-            var newConfiguration = HomeItemGridContentConfiguration().updated(for: state)
-            
-            // Update any configuration parameters related to data item
-        
+        var newConfiguration = HomeItemGridContentConfiguration().updated(for: state)
         newConfiguration.image = item?.image
         if let game = item?.item {
             if let uGame = game as? ModelGame {

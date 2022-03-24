@@ -20,7 +20,6 @@ class HomeView: AdViewController, IHomeView, UICollectionViewDelegate {
     private var games = [ModelGame]()
     private var displayedItems = [Item]()
     
-    
     enum Section{
         case main
     }

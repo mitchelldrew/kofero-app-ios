@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class PresenterModelViewTag, PresenterModelEvent, PresenterModelObj, PresenterKotlinException, PresenterModelLevel, PresenterKoferoObj, PresenterModelMove, PresenterModelCharacter, PresenterModelGame, PresenterInteractor<V, P>, PresenterKotlinEnumCompanion, PresenterKotlinEnum<E>, PresenterKotlinArray<T>, PresenterModelViewTagValue, PresenterKotlinThrowable;
+@class PresenterModelEventViewTag, PresenterModelEvent, PresenterModelObj, PresenterKotlinException, PresenterModelLevel, PresenterKoferoObj, PresenterModelMove, PresenterModelCharacter, PresenterInteractor<V, P>, PresenterModelGame, PresenterPresenter<V>, PresenterKotlinEnumCompanion, PresenterKotlinEnum<E>, PresenterKotlinArray<T>, PresenterModelEventValue, PresenterKotlinThrowable;
 
-@protocol PresenterIFreezer, PresenterIStateReducerListener, PresenterIStateRepositoryListener, PresenterIStateLogger, PresenterIStateRepository, PresenterILoggingProvider, PresenterIProviderListener, PresenterIProvider, PresenterIImageProviderListener, PresenterIView, PresenterIInteractor, PresenterIStateReducer, PresenterIRouter, PresenterIPresenter, PresenterICharacterPresenter, PresenterIImageProvider, PresenterICharacterView, PresenterIGamePresenter, PresenterIGameView, PresenterIHomeInteractor, PresenterIHomePresenter, PresenterIHomeView, PresenterIFavoritesProvider, PresenterIMovePresenter, PresenterIMoveView, PresenterIRootPresenter, PresenterIRootView, PresenterKotlinComparable, PresenterKotlinIterator;
+@protocol PresenterIFreezer, PresenterIStateReducerListener, PresenterIStateRepositoryListener, PresenterIStateLogger, PresenterIStateRepository, PresenterILoggingProvider, PresenterIProviderListener, PresenterIProvider, PresenterIImageProviderListener, PresenterIView, PresenterIInteractor, PresenterIStateReducer, PresenterIRouter, PresenterIPresenter, PresenterICharacterPresenter, PresenterIImageProvider, PresenterICharacterView, PresenterIGameInteractor, PresenterIGamePresenter, PresenterIGameView, PresenterIHomeInteractor, PresenterIHomePresenter, PresenterIHomeView, PresenterIFavoritesProvider, PresenterIMovePresenter, PresenterIMoveView, PresenterIRootPresenter, PresenterIRootView, PresenterKotlinComparable, PresenterKotlinIterator;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -161,7 +161,7 @@ __attribute__((swift_name("Freezer")))
 __attribute__((swift_name("IRouter")))
 @protocol PresenterIRouter
 @required
-- (BOOL)routeToView:(PresenterModelViewTag *)view uid:(int32_t)uid __attribute__((swift_name("routeTo(view:uid:)")));
+- (BOOL)routeToView:(PresenterModelEventViewTag *)view uid:(int32_t)uid __attribute__((swift_name("routeTo(view:uid:)")));
 @end;
 
 __attribute__((swift_name("IStateLogger")))
@@ -324,6 +324,23 @@ __attribute__((swift_name("ICharacterView")))
 - (void)displayCharacter:(PresenterModelCharacter *)character __attribute__((swift_name("display(character:)")));
 @end;
 
+__attribute__((swift_name("IGameInteractor")))
+@protocol PresenterIGameInteractor <PresenterIInteractor>
+@required
+- (void)charPressedChar:(PresenterModelCharacter *)char_ __attribute__((swift_name("charPressed(char:)")));
+- (void)setGameUidUid:(int32_t)uid __attribute__((swift_name("setGameUid(uid:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("GameInteractor")))
+@interface PresenterGameInteractor : PresenterInteractor<id<PresenterIGameView>, id<PresenterIGamePresenter>> <PresenterIGameInteractor>
+- (instancetype)initWithPresenter:(id<PresenterIGamePresenter>)presenter stateLogger:(id<PresenterIStateLogger>)stateLogger stateReducer:(id<PresenterIStateReducer>)stateReducer loggingProvider:(id<PresenterILoggingProvider>)loggingProvider router:(id<PresenterIRouter>)router __attribute__((swift_name("init(presenter:stateLogger:stateReducer:loggingProvider:router:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPresenter:(id<PresenterIPresenter> _Nullable)presenter stateLogger:(id<PresenterIStateLogger> _Nullable)stateLogger stateReducer:(id<PresenterIStateReducer> _Nullable)stateReducer router:(id<PresenterIRouter> _Nullable)router loggingProvider:(id<PresenterILoggingProvider> _Nullable)loggingProvider logTag:(NSString *)logTag __attribute__((swift_name("init(presenter:stateLogger:stateReducer:router:loggingProvider:logTag:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (void)charPressedChar:(PresenterModelCharacter *)char_ __attribute__((swift_name("charPressed(char:)")));
+- (void)setGameUidUid:(int32_t)uid __attribute__((swift_name("setGameUid(uid:)")));
+- (void)viewResumed __attribute__((swift_name("viewResumed()")));
+@end;
+
 __attribute__((swift_name("IGamePresenter")))
 @protocol PresenterIGamePresenter <PresenterIPresenter>
 @required
@@ -372,8 +389,9 @@ __attribute__((swift_name("IHomePresenter")))
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("HomePresenter")))
-@interface PresenterHomePresenter : PresenterBase <PresenterIHomePresenter>
-- (instancetype)initWithFreezer:(id<PresenterIFreezer>)freezer gameProvider:(id<PresenterIProvider> _Nullable)gameProvider imageProvider:(id<PresenterIImageProvider> _Nullable)imageProvider favoritesProvider:(id<PresenterIFavoritesProvider> _Nullable)favoritesProvider __attribute__((swift_name("init(freezer:gameProvider:imageProvider:favoritesProvider:)"))) __attribute__((objc_designated_initializer));
+@interface PresenterHomePresenter : PresenterPresenter<id<PresenterIHomeView>> <PresenterIHomePresenter>
+- (instancetype)initWithFreezer:(id<PresenterIFreezer>)freezer gameProvider:(id<PresenterIProvider> _Nullable)gameProvider imageProvider:(id<PresenterIImageProvider> _Nullable)imageProvider favoritesProvider:(id<PresenterIFavoritesProvider> _Nullable)favoritesProvider loggingProvider:(id<PresenterILoggingProvider> _Nullable)loggingProvider __attribute__((swift_name("init(freezer:gameProvider:imageProvider:favoritesProvider:loggingProvider:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithView:(id<PresenterIView> _Nullable)view loggingProvider:(id<PresenterILoggingProvider> _Nullable)loggingProvider logTag:(NSString *)logTag __attribute__((swift_name("init(view:loggingProvider:logTag:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (void)setViewView_:(id<PresenterIHomeView>)view __attribute__((swift_name("setView(view_:)")));
 - (void)showGames __attribute__((swift_name("showGames()")));
 - (void)shutdown __attribute__((swift_name("shutdown()")));
@@ -448,32 +466,31 @@ __attribute__((swift_name("KotlinEnum")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ModelViewTag")))
-@interface PresenterModelViewTag : PresenterKotlinEnum<PresenterModelViewTag *>
+__attribute__((swift_name("ModelEvent.ViewTag")))
+@interface PresenterModelEventViewTag : PresenterKotlinEnum<PresenterModelEventViewTag *>
 + (instancetype)alloc __attribute__((unavailable));
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) PresenterModelViewTag *homeView __attribute__((swift_name("homeView")));
-@property (class, readonly) PresenterModelViewTag *gameView __attribute__((swift_name("gameView")));
-@property (class, readonly) PresenterModelViewTag *charView __attribute__((swift_name("charView")));
-+ (PresenterKotlinArray<PresenterModelViewTag *> *)values __attribute__((swift_name("values()")));
-@property (readonly) int32_t value __attribute__((swift_name("value")));
+@property (class, readonly) PresenterModelEventViewTag *homeView __attribute__((swift_name("homeView")));
+@property (class, readonly) PresenterModelEventViewTag *gameView __attribute__((swift_name("gameView")));
+@property (class, readonly) PresenterModelEventViewTag *charView __attribute__((swift_name("charView")));
++ (PresenterKotlinArray<PresenterModelEventViewTag *> *)values __attribute__((swift_name("values()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelEvent")))
 @interface PresenterModelEvent : PresenterBase
-- (instancetype)initWithTag:(PresenterModelViewTag *)tag value:(PresenterModelViewTagValue *)value extras:(NSDictionary<NSString *, id> *)extras __attribute__((swift_name("init(tag:value:extras:)"))) __attribute__((objc_designated_initializer));
-- (PresenterModelViewTag *)component1 __attribute__((swift_name("component1()")));
-- (PresenterModelViewTagValue *)component2 __attribute__((swift_name("component2()")));
+- (instancetype)initWithView:(PresenterModelEventViewTag *)view value:(PresenterModelEventValue *)value extras:(NSDictionary<NSString *, id> *)extras __attribute__((swift_name("init(view:value:extras:)"))) __attribute__((objc_designated_initializer));
+- (PresenterModelEventViewTag *)component1 __attribute__((swift_name("component1()")));
+- (PresenterModelEventValue *)component2 __attribute__((swift_name("component2()")));
 - (NSDictionary<NSString *, id> *)component3 __attribute__((swift_name("component3()")));
-- (PresenterModelEvent *)doCopyTag:(PresenterModelViewTag *)tag value:(PresenterModelViewTagValue *)value extras:(NSDictionary<NSString *, id> *)extras __attribute__((swift_name("doCopy(tag:value:extras:)")));
+- (PresenterModelEvent *)doCopyView:(PresenterModelEventViewTag *)view value:(PresenterModelEventValue *)value extras:(NSDictionary<NSString *, id> *)extras __attribute__((swift_name("doCopy(view:value:extras:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSDictionary<NSString *, id> *extras __attribute__((swift_name("extras")));
-@property (readonly) PresenterModelViewTag *tag __attribute__((swift_name("tag")));
-@property (readonly) PresenterModelViewTagValue *value __attribute__((swift_name("value")));
+@property (readonly) PresenterModelEventValue *value __attribute__((swift_name("value")));
+@property (readonly) PresenterModelEventViewTag *view __attribute__((swift_name("view")));
 @end;
 
 __attribute__((swift_name("ModelObj")))
@@ -599,18 +616,16 @@ __attribute__((swift_name("KotlinArray")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ModelViewTag.Value")))
-@interface PresenterModelViewTagValue : PresenterKotlinEnum<PresenterModelViewTagValue *>
+__attribute__((swift_name("ModelEvent.Value")))
+@interface PresenterModelEventValue : PresenterKotlinEnum<PresenterModelEventValue *>
 + (instancetype)alloc __attribute__((unavailable));
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) PresenterModelViewTagValue *entered __attribute__((swift_name("entered")));
-@property (class, readonly) PresenterModelViewTagValue *exited __attribute__((swift_name("exited")));
-@property (class, readonly) PresenterModelViewTagValue *backPressed __attribute__((swift_name("backPressed")));
-@property (class, readonly) PresenterModelViewTagValue *buttonPressed __attribute__((swift_name("buttonPressed")));
-@property (class, readonly) PresenterModelViewTagValue *routingDenied __attribute__((swift_name("routingDenied")));
-@property (class, readonly) PresenterModelViewTagValue *error __attribute__((swift_name("error")));
-+ (PresenterKotlinArray<PresenterModelViewTagValue *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) PresenterModelEventValue *viewEntered __attribute__((swift_name("viewEntered")));
+@property (class, readonly) PresenterModelEventValue *viewExited __attribute__((swift_name("viewExited")));
+@property (class, readonly) PresenterModelEventValue *buttonPressed __attribute__((swift_name("buttonPressed")));
+@property (class, readonly) PresenterModelEventValue *routingRequest __attribute__((swift_name("routingRequest")));
++ (PresenterKotlinArray<PresenterModelEventValue *> *)values __attribute__((swift_name("values()")));
 @end;
 
 __attribute__((swift_name("KotlinIterator")))
